@@ -1,0 +1,880 @@
+\chapter{Linear Derivatives: Forwards, Futures, and Swaps}
+\label{chap:Linear_Derivatives_Forwards_Futures_and_Swaps}
+
+\begin{openingcase}{The Hedge Lost Money---Did It Fail?}
+
+A copper-products manufacturer expects to purchase 1,000 tonnes of copper in three months. To protect its budget against a price increase, it takes a long position in copper futures at RMB~80,000 per tonne.
+
+One month later, copper prices fall sharply. The physical purchase will cost less, but the futures position loses money and requires variation margin. Once the futures loss is included, the firm's hedged purchase cost is not necessarily lower. 
+
+\end{openingcase}
+
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+
+
+\item How do forward and futures contracts manage exposure to uncertain future prices, and how does no-arbitrage link contract prices to spot prices and financing costs?
+
+\item How do standardization, margining, and central clearing alter liquidity, counterparty exposure, and the institutional structure of futures markets?
+
+\item How do swaps extend a single future exchange into a sequence of cash-flow exchanges in interest-rate and currency markets?
+
+
+
+\end{enumerate}
+\end{tcolorbox}
+
+
+\section{Forward Contracts and Bilateral Commitments}
+
+A forward contract is a bilateral agreement that fixes today the terms of an exchange that will occur at a future date. The contract can be written on currencies, commodities, securities, interest rates, or other measurable financial quantities. Its defining feature is a linear payoff: gains to one side move one-for-one with losses to the other side as the underlying price changes.
+
+
+\subsection{Contract Terms, Delivery, and Settlement}
+
+A forward contract specifies the underlying asset or reference price, notional quantity, maturity date, settlement terms, and delivery price $K$. At inception, $K$ is typically set so that the contract has approximately zero market value to both parties. For a long forward on one unit of an asset, the payoff at maturity $T$ is
+
+\begin{equation}
+X_T=S_T-K,
+\label{eq:ch17-forward-payoff}
+\end{equation}
+where $S_T$ is the spot price at maturity. The short position has the opposite payoff. The maturity payoff has a linear profile in \(S_T\), with a constant slope of \(+1\) for the long position and \(-1\) for the short position.
+
+Settlement may take the form of physical delivery or cash settlement. Under physical delivery, the long pays the contracted amount and receives the underlying asset. Under cash settlement, the parties exchange the difference between the contracted price and the specified settlement price. The operational cash flows differ, but the resulting price exposure can be broadly similar. For a contract covering $Q$ units, the long payoff is
+
+\begin{equation}
+X_T=Q(S_T-K).
+\label{eq:ch17-forward-payoff-quantity}
+\end{equation}
+
+The quantity $Q$ determines the scale of the exposure. In a cash-settled contract, it serves as the basis for calculating the settlement payment rather than representing an amount that is itself exchanged.
+
+\begin{example}{A Commodity Forward}{commodity-forward-payoff}
+
+A manufacturer expects to purchase 500 tonnes of metal in six months and enters a cash-settled forward at RMB~18,000 per tonne.
+
+If the spot price at maturity is RMB~19,200, purchasing the metal in the spot market costs
+
+\[
+500 \times 19{,}200
+=
+9{,}600{,}000
+\]
+
+renminbi. The long forward produces a payoff of
+
+\[
+500(19{,}200-18{,}000)
+=
+600{,}000.
+\]
+
+The forward gain offsets part of the physical purchase cost, leaving an effective cost of
+
+\[
+9{,}600{,}000-600{,}000
+=
+9{,}000{,}000,
+\]
+
+or RMB~18,000 per tonne.
+
+If the spot price instead falls to RMB~17,400, the physical purchase costs RMB~8,700,000, while the forward produces a loss of RMB~300,000. The combined cost is again
+
+\[
+8{,}700{,}000+300{,}000
+=
+9{,}000{,}000,
+\]
+
+or RMB~18,000 per tonne.
+
+The forward therefore offsets changes in the spot purchase price when the contract closely matches the planned transaction, abstracting from basis differences, credit exposure, transaction costs, and funding effects.
+
+\end{example}
+
+A forward with approximately zero value at inception can later acquire positive or negative market value as the underlying price and other market conditions change. Before maturity, a forward position may be unwound through an offsetting contract or an agreed early termination. An offsetting contract reduces the economic exposure but does not necessarily extinguish the original contractual obligation.
+
+\subsection{Forward Pricing and the Cost-of-Carry Relation}
+
+Forward pricing follows from no-arbitrage. If two strategies generate the same payoff at a future date, their current costs should be consistent after financing and other relevant carrying components are taken into account.
+
+Consider an asset that pays no income and can be held without storage cost. Let $S_0$ be the spot price, $r$ the continuously compounded financing rate, and $T$ the time to maturity. An investor can buy the asset today and finance the purchase until $T$. The amount required to repay the financed purchase at maturity is
+
+\[
+S_0 e^{rT}.
+\]
+
+No-arbitrage therefore implies
+
+\begin{equation}
+F_{0,T}=S_0 e^{rT}.
+\label{eq:ch17-basic-forward-price}
+\end{equation}
+
+For a newly initiated forward at market terms, the delivery price is set equal to the prevailing forward price, so that $K=F_{0,T}$ at inception.
+
+The no-arbitrage mechanism can be seen directly. If the market forward price exceeds $S_0e^{rT}$, a trader can borrow $S_0$, buy the asset in the spot market, and take a short forward position. At maturity, the asset is delivered for $F_{0,T}$ and the borrowing is repaid for $S_0e^{rT}$. The difference,
+\[
+F_{0,T}-S_0e^{rT},
+\]
+is an arbitrage profit under the stated assumptions.
+
+If the forward price is below $S_0e^{rT}$, the reverse strategy can be used when short selling is feasible. The trader shorts the asset, invests the proceeds $S_0$, and takes a long forward position. At maturity, the investment grows to $S_0e^{rT}$; the trader pays $F_{0,T}$ under the forward contract, receives the asset, and returns it to the lender. The resulting arbitrage profit is
+
+\[
+S_0e^{rT}-F_{0,T}.
+\]
+
+These strategies link the forward price to the spot price and the cost of carrying the asset to maturity. In practice, transaction costs, financing conditions, and short-selling constraints can weaken the arbitrage mechanism.
+
+The cost-of-carry relation extends the same logic to assets that provide income or involve additional holding costs. If the asset provides a continuously compounded income yield $q$, the forward price becomes
+
+\begin{equation}
+F_{0,T}=S_0 e^{(r-q)T}.
+\label{eq:ch17-forward-price-income-yield}
+\end{equation}
+
+Here the net cost of carry reflects financing cost less the income earned from holding the asset.
+
+For a foreign currency, the foreign interest rate plays a role similar to an income yield on the foreign-currency asset. Under no-arbitrage conditions, this relationship implies covered interest parity:
+
+\begin{equation}
+F_{0,T}=S_0 e^{(r_d-r_f)T},
+\label{eq:ch17-fx-forward-relation}
+\end{equation}
+where $r_d$ and $r_f$ are the domestic and foreign interest rates.
+
+For commodities, storage and other carrying costs can increase the net cost of carry, while the benefit of holding physical inventory---often represented by a convenience yield---can work in the opposite direction. Under a proportional continuous-rate convention,
+
+\begin{equation}
+F_{0,T}=S_0 e^{(r+u-y)T},
+\label{eq:ch17-commodity-cost-of-carry}
+\end{equation}
+where $u$ denotes the storage-cost rate and $y$ the convenience yield.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Forward Price Is Not a Forecast},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+The forward price is linked to the spot price through financing, income, storage, and other carry components. It therefore need not equal the market's expected future spot price.
+
+A forward can have zero value at inception even when the realized spot price at maturity differs substantially from its delivery price.
+
+\end{tcolorbox}
+
+\begin{example}{Cost of Carry for a Non-Income Asset}{forward-cost-of-carry-example}
+
+An asset has a spot price of RMB~100 and can be financed for one year at a continuously compounded rate of 4 percent. It pays no income and has no storage cost.
+
+The no-arbitrage forward price is
+
+\[
+F_{0,1}=100e^{0.04\times 1}\approx104.08.
+\]
+
+If the market forward price were RMB~110, the cash-and-carry strategy described above would produce a difference of approximately RMB~5.92 per unit before transaction costs and other market frictions.
+
+\end{example}
+
+The forward price should be distinguished from the value of an existing forward contract. Once a contract has been initiated, its delivery price $K$ remains fixed, while the market forward price for the same maturity can change. At time $t<T$, the value to the long can be written as
+
+\begin{equation}
+V_t=D(t,T)\left(F_{t,T}-K\right),
+\label{eq:ch17-forward-value-general}
+\end{equation}
+where $D(t,T)$ is the discount factor from $T$ to $t$. The contract has positive value to the long when $F_{t,T}>K$ and negative value when $F_{t,T}<K$.
+
+\subsection{Hedging Future Cash Flows}
+
+A forward hedge combines a derivative position with an existing or expected commercial or financial exposure. Its purpose is to reduce the sensitivity of the combined cash flow to an uncertain future price.
+
+A firm that expects to buy an asset can take a long hedge, while a firm that expects to sell an asset can take a short hedge. The forward position is chosen so that changes in its payoff offset changes in the underlying cash flow.
+
+Suppose a manufacturer will purchase $Q$ units of a commodity at date $T$. Without hedging, the purchase cost is
+
+\begin{equation*}
+C_T=QS_T.
+\label{eq:ch17-unhedged-purchase-cost}
+\end{equation*}
+
+If the manufacturer takes a long forward on the same quantity, underlying asset, and maturity at delivery price $K$, the forward payoff is $Q(S_T-K)$. Measuring the forward payoff against the physical purchase cost gives
+
+\begin{equation*}
+QS_T-Q(S_T-K)=QK.
+\label{eq:ch17-perfect-long-forward-hedge}
+\end{equation*}
+
+Under these matching assumptions, the uncertain purchase price is replaced by the contracted price $K$.
+
+The same mechanism applies to a future sale. A producer that expects to sell $Q$ units at date $T$ can take a short forward with payoff $Q(K-S_T)$. Combining this payoff with spot revenue gives
+
+\begin{equation*}
+QS_T+Q(K-S_T)=QK.
+\label{eq:ch17-perfect-short-forward-hedge}
+\end{equation*}
+
+Thus, under the same matching assumptions, the forward stabilizes the effective sale price at $K$.
+
+\begin{example}{A Short Forward Hedge}{short-forward-hedge}
+
+A copper producer expects to sell 1,000 tonnes of copper in three months and takes a short forward at RMB~80,000 per tonne.
+
+If the spot price at maturity falls to RMB~74,000, the physical sale generates RMB~74 million, while the short forward produces a gain of RMB~6 million. The combined revenue is therefore RMB~80 million, or RMB~80,000 per tonne.
+
+The forward gain offsets the decline in the cash-market selling price, illustrating how a short hedge can stabilize future revenue when the contract closely matches the underlying exposure.
+
+\end{example}
+
+Forward contracts can be tailored to the quantity, maturity, reference asset, and settlement terms of a specific exposure. This flexibility can improve hedge matching. At the same time, a bilateral forward depends on the performance of the counterparty, making credit and settlement arrangements an important part of the contract.
+
+\subsection{Counterparty Risk and Bilateral Risk Management}
+
+Because an existing forward can acquire positive or negative market value, a bilateral contract can create counterparty exposure. If a counterparty defaults while the contract has positive value to the other party, part of the value needed to replace the contract in the market may be lost.
+
+For a party holding a forward contract with current value
+$V_t$, the current replacement exposure before collateral
+and netting is
+
+\begin{equation}
+E_t=\max(V_t,0).
+\label{eq:ch17-forward-current-exposure}
+\end{equation}
+
+This exposure is distinct from the notional amount. A forward with a notional amount of RMB~100 million may have a replacement exposure of only a fraction of that amount, depending on market movements and contract terms.
+
+Bilateral contracts can use collateral to limit unsecured exposure. Without collateral, the market value of a forward can change without a corresponding transfer of cash or assets before maturity or termination. Under a collateral agreement, changes in market value may trigger transfers of variation collateral, reducing unsecured exposure while creating interim liquidity and funding needs.
+
+Close-out netting can further reduce exposure when the same counterparties have several contracts with offsetting values. If the arrangement is legally enforceable, the contracts can be valued and combined upon termination so that only the net amount is owed.
+
+\begin{example}{Replacement Exposure, Netting, and Collateral}{forward-counterparty-exposure}
+
+A firm has a forward contract with a notional amount of RMB~100 million. At the current market price, the contract has a positive value of RMB~4 million to the firm. Before collateral and netting, its current replacement exposure is therefore
+
+\[
+E_t=\max(4,0)=4
+\]
+
+million renminbi, rather than RMB~100 million.
+
+Suppose the firm also has another forward with the same counterparty that has a value of RMB~$-2.5$ million. If the two contracts are covered by a legally enforceable close-out-netting arrangement, their net market value is
+
+\[
+4-2.5=1.5
+\]
+
+million renminbi.
+
+If the counterparty has posted RMB~1 million of eligible collateral against this net exposure, the remaining unsecured exposure is
+
+\[
+1.5-1=0.5
+\]
+
+million renminbi.
+
+\end{example}
+
+Current exposure is a point-in-time measure. Future market movements can increase the positive value of the contract before maturity. Counterparty risk becomes more severe when exposure tends to rise at the same time that the counterparty's credit quality deteriorates.
+
+
+\section{Futures Contracts and Market Architecture}
+
+A futures contract retains the basic linear price exposure of a forward but operates within a standardized and centrally organized market structure. Exchange rules, daily settlement, margining, and central clearing change how positions are traded, financed, and managed over time.
+
+These institutional features distinguish futures from bilateral forwards and affect liquidity, hedge matching, cash-flow timing, and counterparty exposure.
+
+\subsection{Contract Standardization and Market Liquidity}
+
+A futures exchange specifies contract size, deliverable grades or settlement index, maturity months, quotation rules, trading hours, settlement procedures, and other relevant trading terms. Market participants therefore choose among standardized contracts rather than negotiate the main terms bilaterally.
+
+Standardization can support liquidity by concentrating trading in a limited set of contracts. Participants seeking similar exposures can trade in the same instruments, making prices more observable and offsetting transactions easier to execute.
+
+A corresponding limitation is reduced customization. A firm's exposure may differ from the available futures contract in maturity, commodity grade, delivery location, or reference index. The contract can still reduce price risk, but it may not match the underlying exposure exactly.
+
+Futures positions are commonly closed before final settlement through an offsetting trade. Standardized contract terms make such entry and exit easier by allowing positions in the same contract to be readily matched across market participants.
+
+\subsection{Basis, Convergence, and Basis Risk}
+
+The basis is the difference between the relevant spot price and the futures price:
+
+\begin{equation}
+b_t=S_t-F_t,
+\label{eq:ch17-futures-basis}
+\end{equation}
+where $S_t$ is the spot price relevant to the exposure and $F_t$ is the price of the futures contract used for the hedge.
+
+As maturity approaches, the futures price converges toward the value used for final settlement. For a physically delivered contract, delivery links the futures price to the spot value of the deliverable asset. For a cash-settled contract, final settlement links it to the specified settlement reference. These mechanisms limit persistent price differences at expiration.
+
+Convergence at expiration does not eliminate basis risk over the life of a hedge. The hedge may be closed before the futures contract expires, or the underlying exposure may differ from the standardized contract in maturity, grade, location, or reference index. The basis at the hedge-closing date can therefore remain uncertain.
+
+Consider a long futures hedge initiated at futures price $F_0$ and closed at date $t$ when the physical asset is purchased at $S_t$. Abstracting from the timing of daily settlement and other market frictions, the cumulative futures gain per unit is $F_t-F_0$. The effective purchase price is therefore
+
+\begin{equation}
+S_t-(F_t-F_0)
+=F_0+b_t.
+\label{eq:ch17-effective-long-hedge-price}
+\end{equation}
+
+The initial futures price $F_0$ is known when the hedge is established, while the closing basis $b_t$ is uncertain. This uncertainty is basis risk.
+
+\begin{example}{Basis Risk at Hedge Close}{basis-hedge-closeout}
+
+A manufacturer expects to buy copper in two months. The nearest liquid futures contract matures one month later, so the firm enters a long futures hedge at RMB~80,000 per tonne.
+
+At the purchase date, the spot price is RMB~72,500 per tonne and the futures price is RMB~72,300. The closing basis is
+
+\[
+b_t=72{,}500-72{,}300=200
+\]
+renminbi per tonne.
+
+The effective purchase price is therefore
+
+\[
+80{,}000+200=80{,}200
+\]
+renminbi per tonne.
+
+The remaining difference from the initial futures price reflects the closing basis.
+
+\end{example}
+
+\subsection{Daily Marking to Market and Margining}
+
+Basis risk concerns the price ultimately realized from a futures hedge. Daily settlement introduces a different issue: gains and losses on the futures position generate cash flows before the hedge is closed.
+
+Futures positions are marked to market at each settlement date. For a long position covering $Q$ units, the variation margin over one settlement period can be written as
+
+\begin{equation}
+VM_t=Q(F_t-F_{t-1}),
+\label{eq:ch17-variation-margin}
+\end{equation}
+where $F_t$ and $F_{t-1}$ are successive settlement prices. A rise in the futures price generates a cash inflow to the long position and an outflow from the short position; a decline reverses these flows.
+
+An initial margin is posted when the position is opened to support contract performance. It is collateral rather than a payment toward the underlying asset. In many margin systems, a maintenance margin specifies a minimum account balance; if the balance falls below that level, additional funds may be required.
+
+\begin{example}{Variation Margin on a Long Hedge}{margin-call-long-hedge}
+
+A firm holds ten long futures contracts, each covering 25 tonnes. The settlement price falls from RMB~80,000 to RMB~78,500 per tonne.
+
+The daily variation margin is calculated as
+
+\begin{equation}
+\begin{aligned}
+VM_t
+&=10\times25\times(78{,}500-80{,}000)\\
+&=-375{,}000\ \text{RMB}.
+\end{aligned}
+\end{equation}
+
+The futures position therefore generates a cash outflow of RMB~375,000 through the margin system. Depending on the remaining margin balance, the firm may also need to provide additional funds.
+
+At the same time, the lower commodity price reduces the expected cost of the physical purchase. The hedge can therefore reduce price exposure while creating an interim liquidity need.
+
+\end{example}
+
+Daily settlement changes the timing of cash flows relative to a forward that settles mainly at maturity. Contracts with similar final price exposure can therefore create different interim funding needs.
+
+By settling gains and losses as they arise, the margin system also limits the amount of unpaid exposure that can accumulate between settlement periods. This reduction in bilateral exposure is reinforced by the central clearing structure examined next.
+
+\subsection{Central Clearing and Default Management}
+
+Daily settlement and margining reduce the unsecured exposure that can accumulate on futures positions. Central clearing adds a further institutional layer by reorganizing counterparty relationships within the clearing system.
+
+A central counterparty (CCP) is interposed between clearing members. Through novation or an equivalent legal mechanism, the CCP becomes the buyer to each seller and the seller to each buyer. Exposures that would otherwise remain bilateral are therefore managed through the clearing structure.
+
+Central clearing can reduce offsetting exposures through multilateral netting and applies common risk-management rules across clearing members. It does not eliminate counterparty risk, but changes how that risk is distributed and managed.
+
+If a clearing member defaults, the CCP follows the default-management procedures specified in its rules. Available resources may include the defaulter's margin, its contribution to the default fund, mutualized default-fund resources, and other CCP resources. The precise sequence differs across clearing arrangements.
+
+The CCP therefore replaces direct bilateral counterparty dependence with a centralized framework for netting, risk control, and default management.
+
+
+\section{Swaps as Cash-Flow Transformation Contracts}
+
+A swap extends the idea of contracting today for future cash flows from a single settlement date to a sequence of settlement dates. Two parties agree to exchange cash flows according to specified formulas over a series of future dates.
+
+\subsection{Swap Contract Design and Cash-Flow Exchange}
+
+Consider a plain-vanilla fixed-for-floating interest-rate swap with notional principal $N$. For simplicity, let one party pay a fixed rate $K$, while the other pays a floating rate $L_{i-1}$ set at date $t_{i-1}$ for the accrual period $[t_{i-1},t_i]$.
+
+If $\alpha_i$ denotes the year fraction for the period, the fixed-leg payment at date $t_i$ is
+
+\begin{equation}
+C_i^{\text{fixed}}
+=
+N K \alpha_i,
+\label{eq:ch17-fixed-swap-payment}
+\end{equation}
+and the floating-leg payment is
+
+\begin{equation}
+C_i^{\text{float}}
+=
+N L_{i-1}\alpha_i.
+\label{eq:ch17-floating-swap-payment}
+\end{equation}
+
+When the two legs are denominated in the same currency and settle on the same date, the payments are typically netted. For the party receiving floating and paying fixed, the net cash flow is
+
+\begin{equation}
+C_i^{\text{net}}
+=
+N\alpha_i(L_{i-1}-K).
+\label{eq:ch17-net-interest-swap-payment}
+\end{equation}
+
+The notional principal determines the scale of the payments but is typically not exchanged in a standard single-currency interest-rate swap.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Changing Interest-Rate Exposure Without Replacing the Debt},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+A firm with fixed-rate debt can enter a swap in which it receives fixed and pays floating. The original debt remains unchanged, while the combined cash flows of the debt and the swap create a different interest-rate exposure.
+
+\end{tcolorbox}
+
+\subsection[Interest Rate Swaps and Interest-Rate Exposure Management]{Interest Rate Swaps and Interest-Rate Exposure Management}
+
+Suppose a firm has fixed-rate debt with coupon rate $c_D$ and enters a swap on the same notional amount in which it receives a fixed rate $K$ and pays a floating rate $L$. Abstracting from differences in payment dates, day-count conventions, fees, and other contractual details, the combined interest cost is approximately
+
+\begin{equation}
+c_D-K+L.
+\label{eq:ch17-fixed-debt-to-floating}
+\end{equation}
+
+The swap replaces part of the fixed-rate exposure with floating-rate exposure. The combined cost can be written as $L+(c_D-K)$, so changes in the floating reference rate pass through to the firm's net borrowing cost while the difference $c_D-K$ remains fixed.
+
+The reverse transformation is also possible. A borrower with floating-rate debt can pay fixed and receive floating under a swap. If the floating reference rate and reset conventions of the debt and the swap are closely matched, changes in the reference rate largely offset, leaving a more stable net borrowing cost.
+
+\begin{example}{Transforming Floating-Rate Debt into Fixed-Rate Exposure}{swap-floating-to-fixed}
+
+A firm has RMB~100 million of floating-rate debt priced at the reference rate plus 1.20 percent. It enters an interest-rate swap on RMB~100 million in which it pays a fixed rate of 3.00 percent and receives the same reference rate.
+
+The debt cost is
+
+\[
+L+1.20\%.
+\]
+
+The swap produces a net payment of
+
+\[
+3.00\%-L.
+\]
+
+The combined borrowing cost is therefore
+
+\[
+(L+1.20\%)+(3.00\%-L)
+=
+4.20\%.
+\]
+
+The common floating reference rate offsets across the two positions, leaving an approximately fixed borrowing cost before fees and any mismatch in payment or reset conventions.
+
+\end{example}
+
+Interest-rate swaps modify selected rate exposures rather than eliminate all sources of risk. Basis risk remains if the floating rate received under the swap does not closely match the rate paid on the underlying debt, while counterparty exposure may remain depending on the contractual and clearing arrangements.
+
+\subsection{Currency Swaps and Cross-Border Cash-Flow Management}
+
+A currency swap exchanges cash flows denominated in different currencies. In many structures, principal amounts are exchanged at inception and re-exchanged at maturity, while interest payments are exchanged over the life of the contract. This differs from a standard single-currency interest-rate swap, in which the notional principal is typically not exchanged.
+
+Currency swaps can separate the market in which funds are raised from the currency in which debt-service cash flows are ultimately borne. A firm may, for example, borrow in a market where it has favorable access and use a currency swap to align its financing cash flows more closely with the currency of its operating revenues.
+
+When principal is exchanged at inception, the agreed exchange rate determines the contractual principal amounts in the two currencies. Periodic payments may be fixed-fixed, fixed-floating, or floating-floating, depending on the terms of the contract.
+
+\begin{example}{Cash Flows in a Fixed-Fixed Currency Swap}{currency-swap-cash-flows}
+
+A Chinese firm issues USD~50 million of three-year dollar debt and wants to use the proceeds in renminbi. At an exchange rate of RMB~7.20 per dollar, it enters a currency swap with contractual principal amounts of USD~50 million and RMB~360 million.
+
+Suppose the firm receives dollar cash flows at a fixed rate of 4.00 percent and pays renminbi cash flows at a fixed rate of 3.00 percent. From the firm's perspective, the contractual swap cash flows are:
+
+\begin{table}[H]
+\centering
+\caption{Cash Flows of a Three-Year Currency Swap
+(millions)}
+\label{tab:ch17-currency-swap-cashflows}
+
+\begin{tabularx}{0.90\textwidth}{
+@{}p{0.22\textwidth}
+>{\centering\arraybackslash}X
+S[table-format=2.1]
+>{\centering\arraybackslash}X
+S[table-format=3.1]@{}}
+\toprule
+\textbf{Date}
+&
+\multicolumn{2}{c}{\textbf{USD leg}}
+&
+\multicolumn{2}{c}{\textbf{RMB leg}}
+\\
+\midrule
+Inception
+& Pay & 50.0 & Receive & 360.0
+\\
+Year 1
+& Receive & 2.0 & Pay & 10.8
+\\
+Year 2
+& Receive & 2.0 & Pay & 10.8
+\\
+Year 3 interest
+& Receive & 2.0 & Pay & 10.8
+\\
+Maturity principal
+& Receive & 50.0 & Pay & 360.0
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The dollar receipts can be used to service the dollar debt, while the firm finances the renminbi payments from its domestic cash flows. At maturity, the swap provides the dollar principal needed to repay the bond in exchange for the contractual renminbi principal.
+
+The bond remains a dollar liability to investors, but the combined position replaces much of the firm's dollar-denominated debt-service cash flow with renminbi-denominated cash outflows.
+
+\end{example}
+
+The effectiveness of this cash-flow transformation depends on how closely the swap matches the underlying financing position. Differences in principal amount, payment dates, maturity, or reference rates can leave residual currency or interest-rate exposure.
+
+\subsection{Swap Valuation and Par Swap Rates}
+
+At inception, the fixed rate on a standard interest-rate swap is set so that the present values of the fixed and floating legs are equal. The resulting rate is the par swap rate, and the swap has zero initial value under the valuation framework used to price the contract.
+
+Consider a plain-vanilla interest rate swap with payment
+dates $t_0<t_1<\cdots<t_n$ and unit notional. Let
+$\alpha_i$ denote the year fraction for the accrual period
+from $t_{i-1}$ to $t_i$, and let $P(0,t_i)$ denote the
+discount factor to date $t_i$. The present value of the
+fixed leg is
+
+\begin{equation}
+PV_{\text{fixed}}
+=
+K
+\sum_{i=1}^{n}
+\alpha_i P(0,t_i).
+\label{eq:ch17-fixed-leg-pv}
+\end{equation}
+
+If the same term structure is used both to derive forward
+rates and to discount cash flows, the floating leg's
+present value simplifies to
+
+\begin{equation}
+PV_{\text{float}}
+=
+P(0,t_0)-P(0,t_n).
+\label{eq:ch17-floating-leg-pv}
+\end{equation}
+
+Equating the two legs gives the par swap rate
+
+\begin{equation}
+K^{*}
+=
+\frac{
+P(0,t_0)-P(0,t_n)
+}{
+\sum_{i=1}^{n}
+\alpha_i P(0,t_i)
+}.
+\label{eq:ch17-par-swap-rate}
+\end{equation}
+
+For a spot-starting swap, $t_0=0$ and $P(0,t_0)=1$.
+
+\begin{example}{A Two-Year Par Swap Rate}{two-year-par-swap-rate}
+
+Consider a two-year annual-pay interest-rate swap. Suppose
+
+\[
+P(0,1)=0.96,
+\qquad
+P(0,2)=0.91.
+\]
+
+With annual accrual factors equal to one, the par fixed rate is
+
+\[
+K^{*}
+=
+\frac{1-0.91}{0.96+0.91}
+=
+0.04813,
+\]
+or approximately 4.81\%.
+
+At this rate, the present values of the fixed and floating legs are equal at inception.
+
+\end{example}
+
+After inception, the contractual fixed rate remains unchanged while market interest rates and discount factors change. The two legs therefore acquire different market values. For a party receiving floating and paying fixed,
+
+\begin{equation}
+V_{\text{swap}}
+=
+V_{\text{float}}
+-
+V_{\text{fixed}}.
+\label{eq:ch17-swap-value}
+\end{equation}
+
+The same leg-by-leg principle can be applied to a currency swap. If a party receives a domestic-currency leg with value $B_d$ and pays a foreign-currency leg with value $B_f$, and $S_t$ denotes domestic currency per unit of foreign currency, a simplified domestic-currency value is
+
+\begin{equation}
+V_t
+=
+B_d-S_tB_f.
+\label{eq:ch17-currency-swap-value}
+\end{equation}
+
+Here, $B_d$ and $B_f$ represent the values of the remaining contractual cash flows of the two legs in their respective currencies.
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Forwards, futures, and swaps are linear derivatives that reallocate financial exposure without requiring ownership of the underlying asset to change at contract inception. Forward prices are linked to spot values and cost of carry through no-arbitrage, while hedging combines derivative payoffs with underlying commercial or financial exposures.
+
+Futures preserve the basic linear exposure of forwards but operate through standardized contracts, daily settlement, margining, and central clearing. These features affect liquidity, cash-flow timing, counterparty exposure, and basis risk.
+
+Swaps extend a single future exchange into a sequence of cash-flow exchanges. Interest-rate swaps transform fixed and floating rate exposures, while currency swaps transform the currency denomination of financing cash flows. The par swap rate equates the present values of the two legs at inception; subsequent market movements give the swap positive value to one party and negative value to the other.
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Forward contract; forward price; cost of carry; convenience yield;
+long hedge; short hedge; basis risk; counterparty exposure;
+futures contract; standardization; variation margin; marking to market;
+central counterparty;
+swap; notional principal; interest-rate swap; currency swap;
+par swap rate.
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit a Futures Hedge}
+
+Ask an AI system to design a futures hedge for a firm that expects to buy a commodity in four months. Provide the expected purchase quantity, current spot price, available futures maturity, contract size, and current futures price.
+
+Audit the answer in five steps.
+
+\begin{enumerate}
+
+\item \textbf{Check hedge direction.}
+
+Verify that a future purchaser takes a long futures position, while a future seller takes a short futures position.
+
+\item \textbf{Check units and contract quantity.}
+
+Confirm that the exposure quantity and futures contract size are expressed in consistent units before calculating the required number of contracts. Identify any residual quantity exposure if the hedge cannot be matched exactly.
+
+\item \textbf{Separate futures profit from hedge performance.}
+
+Construct a scenario in which the futures position loses value while the change in the physical purchase cost moves in the opposite direction. Explain why futures profit or loss alone is not an adequate measure of hedge performance.
+
+\item \textbf{Introduce basis risk.}
+
+Assume that the hedge is closed before the futures contract expires and choose spot and futures prices that do not move by the same amount. Recalculate the effective purchase price and identify the effect of the closing basis.
+
+\item \textbf{Add a liquidity test.}
+
+Assume that the futures price moves against the hedge before the physical purchase occurs. Calculate the resulting variation-margin cash flow and assess whether the firm may face an interim liquidity need even when the hedge remains economically effective.
+
+\end{enumerate}
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Forward payoff and effective purchase price.}
+
+A manufacturer will buy 2,000 units of an input in six months and enters a long forward at RMB~125 per unit.
+
+\begin{enumerate}
+\item Calculate the forward payoff if the spot price at maturity is RMB~138.
+\item Calculate the physical purchase cost.
+\item Calculate the combined effective cost.
+\item Repeat the calculation for a maturity spot price of RMB~112.
+\item Explain why the forward can generate a loss in the second scenario without making the hedge unsuccessful.
+\end{enumerate}
+
+\item \textbf{Forward pricing and cost of carry.}
+
+An asset has a spot price of RMB~250. The continuously compounded financing rate is 3.5\% and the asset pays no income.
+
+\begin{enumerate}
+\item Calculate the six-month no-arbitrage forward price.
+\item Suppose the one-year market forward price is RMB~270. Describe the direction of a cash-and-carry arbitrage under the simplified assumptions of the model.
+\item Identify two real-world frictions that could prevent the observed forward price from matching the simple relation exactly.
+\end{enumerate}
+
+\item \textbf{Commodity carry and convenience yield.}
+
+A commodity has a spot price of RMB~600. The annual continuously compounded financing rate is 4\%, storage cost is 3\%, and convenience yield is 2\%.
+
+\begin{enumerate}
+\item Calculate the one-year forward price using Equation~(\ref{eq:ch17-commodity-cost-of-carry}).
+\item Recalculate the forward price if convenience yield rises to 5\%.
+\item Explain the economic direction of the change.
+\end{enumerate}
+
+\item \textbf{Basis risk in a long hedge.}
+
+A firm enters a long futures hedge at a futures price of RMB~75. At the hedge-close date, the spot price is RMB~83 and the futures price is RMB~81.50.
+
+\begin{enumerate}
+\item Calculate the basis at hedge close.
+\item Calculate the futures gain per unit.
+\item Calculate the effective purchase price using Equation~(\ref{eq:ch17-effective-long-hedge-price}).
+\item Explain why the effective price differs from the initial futures price.
+\end{enumerate}
+
+\item \textbf{Daily settlement and margin liquidity.}
+
+A firm holds 20 long futures contracts. Each contract covers 10 units. The settlement price falls from RMB~1,250 to RMB~1,215 in one day.
+
+\begin{enumerate}
+\item Calculate the variation-margin cash flow.
+\item If the margin account held RMB~100,000 before settlement and there are no other cash flows, calculate the balance after variation margin is posted.
+\item Explain how this cash-flow timing can matter even if the futures hedge later offsets a lower physical purchase price.
+\end{enumerate}
+
+\item \textbf{Interest-rate swap cash flows.}
+
+A firm enters a three-year swap with notional principal of RMB~200 million. It pays a fixed rate of 3.20\% and receives a six-month floating rate. The accrual factor for the next period is 0.5 and the floating rate set at the beginning of the period is 3.80\%.
+
+\begin{enumerate}
+\item Calculate the fixed payment for the period.
+\item Calculate the floating payment.
+\item Calculate the net cash flow to the fixed-rate payer.
+\item Explain how the answer changes if the floating rate falls to 2.60\%.
+\end{enumerate}
+
+\item \textbf{Par swap rate.}
+
+A three-year annual-pay swap has discount factors
+$P(0,1)=0.965$,$P(0,2)=0.925$, and $P(0,3)=0.880$.
+
+\begin{enumerate}
+\item Calculate the par swap rate using Equation~(\ref{eq:ch17-par-swap-rate}).
+\item Explain why the swap has zero value at inception when the fixed rate equals the par swap rate under the stated valuation framework.
+\item If market swap rates for comparable remaining maturities subsequently rise, explain the direction of the value change for the fixed-rate payer.
+\end{enumerate}
+
+\item \textbf{Currency-swap exposure.}
+
+A firm issues foreign-currency debt but receives most of its operating cash flows in domestic currency. It enters a currency swap that provides foreign-currency debt-service cash flows in exchange for domestic-currency payments.
+
+\begin{enumerate}
+
+\item Identify the exposure the firm is attempting to transform.
+
+\item Explain the role of the initial and final principal exchanges.
+
+\item Identify two mismatches that could prevent the swap from closely offsetting the underlying debt.
+
+\item Explain why the foreign-currency debt remains a contractual liability even though the combined debt-and-swap position changes the firm's net currency cash flows.
+
+\end{enumerate}
+
+\end{enumerate}
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Black, Fischer (1976),
+``The Pricing of Commodity Contracts,''
+\emph{Journal of Financial Economics}, 3(1--2), 167--179.
+
+\item Cox, John C., Jonathan E. Ingersoll, Jr., and Stephen A. Ross (1981),
+``The Relation between Forward Prices and Futures Prices,''
+\emph{Journal of Financial Economics}, 9(4), 321--346.
+
+\item Telser, Lester G. (1981),
+``Margins and Futures Contracts,''
+\emph{Journal of Futures Markets}, 1(2), 225--253.
+
+\item Smith, Clifford W., Jr., Charles W. Smithson, and Lee Macdonald Wakeman (1988),
+``The Market for Interest Rate Swaps,''
+\emph{Financial Management}, 17(4), 34--44.
+
+\end{itemize}
+
+\ChapterTail{summary,keyterms,aiprompt,appprobs,furtherread}
