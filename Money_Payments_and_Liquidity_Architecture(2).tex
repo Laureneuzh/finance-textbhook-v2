@@ -1,11 +1,11 @@
 \chapter{Money, Payments, and Liquidity Architecture}
 \label{chap:Money_Payments_and_Liquidity_Architecture}
 
-\begin{openingcase}{A Payment App Is Not the Settlement Asset}
+\begin{openingcase}[Historical Case Based on Public Information]{A Payment App Is Not the Settlement Asset}
 
 By the late 2010s, mobile and online payments had become deeply embedded in everyday commerce in China. To a user, the transaction often appeared simple: open an app, scan a code, confirm the amount, and the payment is complete. Behind that interface, however, the institutional path of the payment was changing.
 
-Non-bank payment institutions had previously connected directly with many commercial banks to process online payments involving bank accounts. The People's Bank of China required payment institutions to break these direct connections and route the relevant transactions through centralized clearing infrastructures. By January 14, 2019, payment businesses jointly conducted by non-bank payment institutions and commercial banks were processed through NetsUnion Clearing or China UnionPay.\footnote{People's Bank of China, \emph{Annual Report 2018}, discussion of the NetsUnion platform and the migration of non-bank payment institutions away from direct connections with commercial banks.}
+Non-bank payment institutions had previously connected directly with many commercial banks to process online payments involving bank accounts. The People's Bank of China required payment institutions to break these direct connections and route the relevant transactions through centralized clearing infrastructures. By January 14, 2019, payment businesses jointly conducted by non-bank payment institutions and commercial banks were processed through NetsUnion Clearing or China UnionPay.\footnote{People's Bank of China, Annual Report 2018, section on payment system development and the establishment of NetsUnion Clearing.}
 
 For most customers, the payment experience remained largely unchanged, even as the institutional architecture behind it changed substantially.
 
@@ -70,9 +70,9 @@ Money is not merely a social convention. Its use depends on both collective acce
 
 Once a monetary claim is widely accepted and institutionally supported, it can perform three core monetary functions.
 
-The \emph{unit of account} provides a common language for prices and financial obligations. A loan agreement can specify RMB~1 million rather than a changing bundle of goods. A bond can promise coupon and principal payments in the same unit used to record the issuer's revenues and the investor's wealth. Without a common unit, comparison and contracting become more costly.
+The unit of account provides a common language for prices and financial obligations. A loan agreement can specify RMB~1 million rather than a changing bundle of goods. A bond can promise coupon and principal payments in the same unit used to record the issuer's revenues and the investor's wealth. Without a common unit, comparison and contracting become more costly.
 
-The \emph{medium of exchange} function allows money to facilitate transactions and discharge obligations. Cash can settle a face-to-face transaction directly. A bank deposit can be transferred through a payment system. 
+The medium of exchange function allows money to facilitate transactions and discharge obligations. Cash can settle a face-to-face transaction directly. A bank deposit can be transferred through a payment system. 
 
 
 \begin{table}[H]
@@ -109,7 +109,7 @@ Store of value
 \end{tabularx}
 \end{table}
 
-The \emph{store of value} function allows purchasing power to be carried across time. Money is not a perfect store of value because inflation can reduce its real purchasing power. Even so, it is often more stable and liquid than many other assets. 
+The store of value function allows purchasing power to be carried across time. Money is not a perfect store of value because inflation can reduce its real purchasing power. Even so, it is often more stable and liquid than many other assets. 
 
 These functions provide a useful way to distinguish money from other financial assets and payment instruments.For example, a government bond may be a good store of value without serving as a medium of exchange. A payment card facilitates transactions but is not itself money: a debit card provides access to a bank deposit, while a credit card allows the holder to draw on a credit facility. A foreign currency may perform the functions of money in one jurisdiction while being held mainly as a financial asset in another.
 
@@ -622,6 +622,20 @@ Money; unit of account; medium of exchange; payment system; clearing; netting; s
 % Discussion Questions
 %========================================================
 
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Trace the Payment to Final Settlement}
+
+Select a payment method that can be documented from reliable sources, such as a bank transfer, bank card, QR-code payment, or digital wallet. Ask an AI system to describe the complete transaction path from the payer's instruction to final settlement. Treat the generated answer as a hypothesis to be verified rather than as an authoritative description.
+
+Reconstruct the transaction using five checks: identify the monetary claim held by the payer; identify the institution that issues that claim; identify the clearing arrangement; identify the asset used for final settlement; and identify the rule or institution that determines settlement finality. For each step, require a verifiable institutional source and mark any statement that cannot be confirmed.
+
+Compare the verified transaction path with the AI-generated answer. Identify any point at which the AI confuses the payment interface with the underlying monetary claim, clearing process, balance-sheet transfer, or settlement asset. Conclude by explaining which parts of the payment process are technological and which depend on financial and institutional arrangements.
+
+%========================================================
+% Further Reading
+%========================================================
+
 \TailModule{questions}{Discussion Questions}
 
 \begin{enumerate}
@@ -648,7 +662,7 @@ Money; unit of account; medium of exchange; payment system; clearing; netting; s
 
 \item A customer at Bank X transfers RMB~50,000 to a customer at Bank Y. Show the balance-sheet changes for Bank X, Bank Y, and the central bank when the interbank obligation is settled in reserve balances. Then explain how the balance-sheet effects would differ if both customers held accounts at Bank X.
 
-\item Two otherwise comparable one-year securities have the same expected cash flows and comparable credit risk. Security A yields 3.2 percent and is eligible as collateral for intraday central-bank credit, whereas Security B yields 3.8 percent and is not. Using equation~\eqref{eq:ch2-convenience-yield}, interpret the 0.6 percentage-point yield difference. What assumptions are required before this difference can be attributed entirely to liquidity and collateral services?
+\item Two otherwise comparable one-year securities have the same expected cash flows and comparable credit risk. Security A yields 3.2\% and is eligible as collateral for intraday central-bank credit, whereas Security B yields 3.8\% and is not. Using equation~\eqref{eq:ch2-convenience-yield}, interpret the 0.6 percentage-point yield difference. What assumptions are required before this difference can be attributed entirely to liquidity and collateral services?
 
 \end{enumerate}
 
@@ -686,20 +700,6 @@ whether the statistical definitions or coverage have changed.
 % Financial AI Lab
 %========================================================
 
-\TailModule{aiprompt}{Financial AI Lab}
-
-\textbf{Lab: Trace the Payment to Final Settlement}
-
-Select a payment method that can be documented from reliable sources, such as a bank transfer, bank card, QR-code payment, or digital wallet. Ask an AI system to describe the complete transaction path from the payer's instruction to final settlement. Treat the generated answer as a hypothesis to be verified rather than as an authoritative description.
-
-Reconstruct the transaction using five checks: identify the monetary claim held by the payer; identify the institution that issues that claim; identify the clearing arrangement; identify the asset used for final settlement; and identify the rule or institution that determines settlement finality. For each step, require a verifiable institutional source and mark any statement that cannot be confirmed.
-
-Compare the verified transaction path with the AI-generated answer. Identify any point at which the AI confuses the payment interface with the underlying monetary claim, clearing process, balance-sheet transfer, or settlement asset. Conclude by explaining which parts of the payment process are technological and which depend on financial and institutional arrangements.
-
-%========================================================
-% Further Reading
-%========================================================
-
 \TailModule{furtherread}{Further Reading}
 \begin{itemize}
 
@@ -724,4 +724,4 @@ Chapter III in \emph{BIS Annual Economic Report 2025}.
 % Tail row in Full Contents
 %========================================================
 
-\ChapterTail{summary,keyterms,questions,appprobs,dataapp,aiprompt,furtherread}
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,dataapp,furtherread}

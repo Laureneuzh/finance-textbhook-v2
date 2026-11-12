@@ -157,7 +157,7 @@ Loan origination and payment settlement are distinct balance-sheet events. Creat
 
 Within this balance-sheet structure, equity capital is the residual claim on the bank's assets after liabilities have been met. Declines in asset value reduce equity before they affect creditor claims. If losses are sufficiently large to exhaust the capital buffer, creditors can become exposed to loss.
 
-A simple balance-sheet measure of leverage is the asset-to-equity ratio $A/E$. A higher leverage ratio means that a larger asset position is supported by a given amount of equity. It also makes equity more sensitive to changes in asset value. When liabilities remain unchanged, losses on assets are reflected in equity, so a relatively small percentage decline in assets can produce a much larger percentage decline in equity.
+The asset-to-equity ratio $A/E$ measures balance-sheet leverage. A higher leverage ratio means that a larger asset position is supported by a given amount of equity. It also makes equity more sensitive to changes in asset value. When liabilities remain unchanged, losses on assets are reflected in equity, so a relatively small percentage decline in assets can produce a much larger percentage decline in equity.
 
 \begin{example}{Leverage and Loss Absorption}{bank-leverage-loss}
 
@@ -309,7 +309,7 @@ B_t=B_{t-1}+D_t-R_t.
 
 For a term loan, the principal is normally advanced at origination and subsequently declines as repayments are made. A revolving credit facility operates differently: the borrower may draw, repay, and draw again within a contractual credit limit. The credit limit is therefore distinct from the amount currently outstanding.
 
-This distinction creates two related measures of exposure. \emph{Funded exposure} is the amount already advanced and still outstanding. An \emph{undrawn commitment} is the unused portion of a committed facility that may become funded if the borrower draws additional amounts in accordance with the contract. A rise in utilization can therefore increase the bank's funded exposure even when the contractual credit limit remains unchanged.
+This distinction creates two related measures of exposure. Funded exposure is the amount already advanced and still outstanding. An undrawn commitment is the unused portion of a committed facility that may become funded if the borrower draws additional amounts in accordance with the contract. A rise in utilization can therefore increase the bank's funded exposure even when the contractual credit limit remains unchanged.
 
 \begin{example}{A Revolving Credit Facility and Bank Exposure}{revolving-credit-exposure}
 
@@ -319,7 +319,7 @@ A firm receives a one-year revolving credit facility with a limit of RMB~10 mill
 B_t=4+3-1=6
 \]
 
-million renminbi.
+million RMB.
 
 The bank therefore has RMB~6 million of funded exposure, while RMB~4 million remains undrawn under the facility. If the borrower later draws part of this unused amount, the funded exposure increases without any change in the contractual credit limit.
 
@@ -411,7 +411,7 @@ Funding structure is closely related to liquidity creation. Banks can fund relat
 
 Many bank liabilities can require payment before the bank's assets mature. A bank's liquidity capacity depends on the resources that can be converted into settlement funds within the relevant time horizon. These resources can include cash and reserves, proceeds from marketable assets, and additional borrowing capacity.
 
-A simple representation is
+Liquidity capacity can be represented as
 
 \begin{equation}
 LC_t=C_t+M_t+F_t^{\mathrm{avail}},
@@ -484,7 +484,7 @@ apart from other direct adjustments to equity. The two relations show the transm
 
 \[
 \begin{array}{c}
-\text{\emph{Income statement}} \\[2pt]
+\text{Income statement} \\[2pt]
 \text{Loan deterioration}
 \rightarrow
 \text{Provision expense}
@@ -493,7 +493,7 @@ apart from other direct adjustments to equity. The two relations show the transm
 \\[5pt]
 \Downarrow
 \\[-1pt]
-\text{\emph{Balance sheet}} \\[2pt]
+\text{Balance sheet} \\[2pt]
 \text{Lower retained earnings}
 \rightarrow
 \text{Weaker equity position}
@@ -510,7 +510,7 @@ Net income is RMB~50 million, and end-of-year equity is
 600+50-20=630
 \]
 
-million renminbi.
+million RMB.
 
 If provision expense rises to RMB~130 million under the same assumptions, net income becomes negative RMB~10 million and end-of-year equity falls to RMB~570 million. A larger recognized loan loss therefore reduces earnings and, other things equal, leaves the bank with less equity to absorb subsequent losses.
 
@@ -708,7 +708,7 @@ A second path is to raise no new equity and reduce assets. With equity remaining
 \frac{6}{0.08}=75
 \]
 
-billion renminbi.
+billion RMB.
 
 The bank would therefore need to reduce assets by RMB~23 billion from their post-loss level. The two responses restore the same ratio but leave different balance-sheet positions.
 
@@ -973,6 +973,8 @@ and any transformations used in the analysis.
 
 \TailModule{caseanalysis}{Case Analysis}
 
+\CaseLabel{Historical Case Based on Public Information}
+
 \textbf{Case: Silicon Valley Bank---An Individual-Bank Balance-Sheet Analysis}
 
 Silicon Valley Bank was closed by the California Department of Financial
@@ -980,7 +982,7 @@ Protection and Innovation on March 10, 2023, and the Federal Deposit Insurance
 Corporation was appointed receiver. The Federal Reserve's subsequent review
 identified rapid balance-sheet growth, a concentrated business model, heavy
 reliance on uninsured deposits, and weaknesses in liquidity and interest-rate
-risk management.
+risk management.\footnote{Board of Governors of the Federal Reserve System, \emph{Review of the Federal Reserve's Supervision and Regulation of Silicon Valley Bank}, April 2023, \url{https://www.federalreserve.gov/publications/review-of-the-federal-reserves-supervision-and-regulation-of-silicon-valley-bank.htm}. }
 
 As market interest rates rose during 2022, the market value of SVB's
 long-duration fixed-rate securities declined. At the same time, weaker

@@ -34,6 +34,12 @@
 \newcolumntype{Y}{>{\raggedright\arraybackslash
   \hyphenpenalty=10000
   \exhyphenpenalty=10000}X}
+\AtBeginEnvironment{tabularx}{\hyphenpenalty=10000\exhyphenpenalty=10000\emergencystretch=2em}
+\AtBeginEnvironment{tabular}{\hyphenpenalty=10000\exhyphenpenalty=10000\emergencystretch=2em}
+
+\newcommand{\CaseLabel}[1]{%
+  \par\noindent{\color{FinanceBlue}\small\bfseries [#1]}\par\vspace{3pt}%
+}
 \usepackage{graphicx}
 \usepackage{siunitx}
 \sisetup{
@@ -56,7 +62,7 @@
 % Two-color design: FinanceBlue + black
 %========================================================
 
-\NewDocumentEnvironment{openingcase}{m}{%
+\NewDocumentEnvironment{openingcase}{O{Teaching Illustration}m}{%
   \begin{tcolorbox}[
     enhanced,
     breakable,
@@ -73,15 +79,16 @@
     after skip=1.5em
   ]
 
-  % Opening Case label
+  % Opening Case label and case status
   \noindent
   {\color{FinanceBlue}\small\bfseries OPENING CASE\par}
+  {\color{FinanceBlue}\scriptsize\bfseries [#1]\par}
 
   \vspace{3pt}
 
   % Case title
   \noindent
-  {\large\bfseries #1\par}
+  {\large\bfseries #2\par}
 
   \vspace{8pt}
 
@@ -90,6 +97,10 @@
   \setlength{\parskip}{0.3em}
   \noindent
 }{%
+  \ifstrequal{#1}{Teaching Illustration}{%
+    \par\vspace{4pt}
+    {\footnotesize\noindent Note: Names, figures, and events in this case are hypothetical and are used solely for pedagogical purposes.\par}%
+  }{}%
   \end{tcolorbox}%
 }
 
@@ -379,47 +390,44 @@ An Information, Contract, and Valuation Perspective}
 \cleardoublepage
 
 %==== Main Content Area =====
-\mainmatter 
+\mainmatter
 
-% \part{Foundations of the Financial System}
-% \include{chapters6/The_Essence_of_Finance_Frictions_Functions_and_the_Financial_System}
-% \include{chapters6/Money_Payments_and_Liquidity_Architecture}
+\part{Foundations of the Financial System}
+\include{The_Essence_of_Finance_Frictions_Functions_and_the_Financial_System(4)}
+\include{Money_Payments_and_Liquidity_Architecture(2)}
 
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  \part{Information, Contracts, and Valuation}
-% \include{chapters6/Information_Economics_and_Financial_Contracts}
-% \include{chapters6/Financial_Intermediation_and_Financial_Structure}
-% \include{chapters6/The_Logic_of_Financial_Valuation}
+\part{Information, Contracts, and Valuation}
+\include{Information_Economics_and_Financial_Contracts(5)}
+\include{Financial_Intermediation_and_Financial_Structure(5)}
+\include{The_Logic_of_Financial_Valuation(4)}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \part{Financial Markets}
-% \include{chapters6/Interest_Rates_and_Capital_Allocation}
-% \include{chapters6/Money_Markets_and_Short_Term_Liquidity_Contracts}
-% \include{chapters6/Bond_Markets_and_Debt_Contracts}
-% \include{chapters6/Stock_Markets_and_Equity_Claims}
-% \include{chapters6/Foreign_Exchange_Markets_and_Cross_Border_Finance}
-% \include{chapters6/Derivatives_Markets_and_Contingent_Claims}
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \part{Financial Institutions}
-% \include{chapters6/Commercial_Banks_Credit_Intermediation_and_Liquidity_Creation}
-% \include{chapters6/Investment_Banks_Capital_Raising_and_Capital_Market_Intermediation}
-% \include{chapters6/Asset_Management_and_Institutional_Investment}
-% \include{chapters6/Insurance_and_Risk_Sharing_Institutions}
-% \include{chapters6/Shadow_Banking_and_Digital_Financial_Intermediation}
+\part{Financial Markets}
+\include{Interest_Rates_and_Capital_Allocation(6)}
+\include{Money_Markets_and_Short_Term_Liquidity_Contracts(3)}
+\include{Bond_Markets_and_Debt_Contracts(3)}
+\include{Stock_Markets_and_Equity_Claims(3)}
+\include{Foreign_Exchange_Markets_and_Cross_Border_Finance(5)}
+\include{Derivatives_Markets_and_Contingent_Claims(9)}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \part{Financial Instruments and Risk Management}
-% \include{chapters6/Linear_Derivatives_Forwards_Futures_and_Swaps}
-% \include{chapters6/Nonlinear_Derivatives_and_Embedded_Optionality}
-% \include{chapters6/Credit_Risk_Default_and_Risk_Transfer}
-% \include{chapters6/Structured_Finance_Engineering_Future_Cash_Flows}
+\part{Financial Institutions}
+\include{Commercial_Banks_Credit_Intermediation_and_Liquidity_Creation(5)}
+\include{Investment_Banks_Capital_Raising_and_Capital_Market_Intermediation(3)}
+\include{Asset_Management_and_Institutional_Investment(2)}
+\include{Insurance_and_Risk_Sharing_Institutions(4)}
+\include{Shadow_Banking_and_Digital_Financial_Intermediation(4)}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \part{Financial Stability, Policy, and Innovation}
-\include{chapters6/Systemic_Risk_and_Financial_Crises}
-\include{chapters6/Central_Banking_Liquidity_and_Crisis_Management}
-\include{chapters6/Financial_Regulation_and_Macroprudential_Policy}
-\include{chapters6/The_Future_Architecture_of_Finance}
+\part{Financial Instruments and Risk Management}
+\include{Linear_Derivatives_Forwards_Futures_and_Swaps(5)}
+\include{Nonlinear_Derivatives_and_Embedded_Optionality(5)}
+\include{Credit_Risk_Default_and_Risk_Transfer(2)}
+\include{Structured_Finance_Engineering_Future_Cash_Flows(2)}
+
+\part{Financial Stability, Policy, and Innovation}
+\include{Systemic_Risk_and_Financial_Crises(2)}
+\include{Central_Banking_Liquidity_and_Crisis_Management(2)}
+\include{Financial_Regulation_and_Macroprudential_Policy(2)}
+\include{The_Future_Architecture_of_Finance(4)}
 
 \backmatter
+\input{References}
 \end{document}

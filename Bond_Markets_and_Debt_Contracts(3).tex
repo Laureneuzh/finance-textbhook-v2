@@ -251,7 +251,7 @@ Bondholders may also benefit from guarantees. A guarantee gives the creditor a c
   boxrule=0.7pt,
   sharp corners,
   borderline west={2.2pt}{0pt}{FinanceBlue},
-  title=\textbf{Financial Perspective: A Secured Bond Is Not Risk Free},
+  title=\textbf{Financial Perspective: A Secured Bond Is Not risk-free},
   coltitle=white,
   colbacktitle=FinanceBlue,
   fonttitle=\bfseries,
@@ -304,20 +304,20 @@ Default does not by itself determine the loss on a debt claim. Creditors may rec
 RR=\frac{R}{D}.
 \label{eq:ch8-recovery-rate}
 \end{equation}
-and loss given default is
+Loss given default (LGD) is the proportion of exposure at default that is not recovered:
 
 \begin{equation}
 LGD=1-RR.
 \label{eq:ch8-lgd}
 \end{equation}
 
-A simplified expected-loss measure over a specified horizon is
+Let $PD$ denote the probability of default over the specified horizon, and let $EAD$ denote the exposure outstanding when default occurs. Expected loss over that horizon can be expressed as
 
 \begin{equation}
 EL=PD\times LGD\times EAD,
 \label{eq:ch8-expected-credit-loss}
 \end{equation}
-where $PD$ is the probability of default and $EAD$ is exposure at default. This expression separates the likelihood of default from the loss conditional on default.
+This expression separates the likelihood of default from the loss conditional on default.
 
 Restructuring modifies the original debt contract. It may involve extending maturity, reducing coupon or principal payments, exchanging existing debt for new securities, or converting debt into equity. Restructuring can preserve going-concern value when liquidation would destroy value.
 
@@ -329,7 +329,7 @@ Recovery reflects both the value preserved in resolution and the contractual pos
 
 Consider two one-year debt claims, each with an exposure of 100 and a 3\% probability of default. Claim A has an expected recovery rate of 70\% in default, while Claim B has an expected recovery rate of 20\%.
 
-Using the simplified expected-loss measure,
+Using this expected-loss measure,
 
 \[
 EL_A=0.03\times(1-0.70)\times100=0.9,
@@ -1124,7 +1124,7 @@ CF_t e^{-(r_t+z)t}.
 \label{eq:ch8-spread-price}
 \end{equation}
 
-The constant $z$ that equates the present value of the promised cash flows to the observed bond price is commonly called the \emph{Z-spread}. It summarizes the additional yield required over the benchmark spot curve under the assumption of a constant spread across maturities. Bonds with embedded options or more complex contingent cash flows require additional treatment.
+The constant $z$ that equates the present value of the promised cash flows to the observed bond price is commonly called the Z-spread. It summarizes the additional yield required over the benchmark spot curve under the assumption of a constant spread across maturities. Bonds with embedded options or more complex contingent cash flows require additional treatment.
 
 Credit-spread movements can change bond prices even when benchmark interest rates remain unchanged. Suppose a corporate bond yield rises from 5.0 to 6.0\% entirely as a result of a one-percentage-point increase in its spread. With the benchmark curve unchanged, the higher spread reduces the present value of the bond's promised cash flows.
 

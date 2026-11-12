@@ -1,13 +1,13 @@
 \chapter{Derivatives Markets and Contingent Claims}
 \label{chap:Derivatives_Markets_and_Contingent_Claims}
 
-\begin{openingcase}{How Can a Contract Change Risk Without Changing the Underlying Business?}
+\begin{openingcase}{How Do Derivatives Markets Organize Risk Transfer?}
 
-A manufacturer expects to buy 1,000 tonnes of copper in three months. At today's price, the purchase would cost about RMB~80 million. The firm is not trying to speculate on copper. Its concern is that a higher copper price would raise production costs before it can adjust the prices charged to customers.
+A manufacturer with operations in several countries uses foreign-exchange forwards, interest-rate swaps, and commodity options to manage different financial exposures. Some contracts are standardized and traded on organized exchanges, where central clearing, margining, and daily settlement support market-wide trading. Others are negotiated bilaterally with dealers to match the firm's currency, maturity, notional amount, and payment dates more closely.
 
-The firm can enter a forward contract that fixes a purchase price for copper in three months. It can instead buy a call option that limits the cost of a large price increase while allowing the firm to benefit if copper prices fall. The physical need for copper is unchanged in either case. What changes is the state-contingent pattern of the firm's future cash flows.
+The firm therefore uses more than one type of derivatives market. The choice affects contract flexibility, price transparency, liquidity, counterparty exposure, collateral requirements, and the way positions are valued and settled. A customized contract may provide a closer hedge, while a standardized contract may be easier to trade or clear.
 
-How can a contract redistribute the financial consequences of an uncertain future without transferring the underlying asset itself?
+The underlying business exposures remain with the firm. What changes is the market architecture through which selected risks are transferred, priced, and managed.
 
 \end{openingcase}
 
@@ -190,7 +190,7 @@ Consequently, suitable portfolio holdings can
 generate any payoff vector across the two states.
 A market in which every relevant state-contingent
 payoff can be constructed from available traded
-claims is called a \emph{complete market}.
+claims is called a complete market.
 
 If the available claims cannot generate all relevant state-contingent payoffs, the market is incomplete. Some desired patterns of cash flows cannot then be constructed exactly, and participants may continue to bear residual exposures after trading the available instruments.
 
@@ -208,7 +208,7 @@ A closer match, however, does not eliminate all risk. A customized claim may red
 
 \section{No-Arbitrage and Replication}
 
-Derivative markets rely on two related mechanisms
+Derivative markets rely on two related mechanisms \cite{BlackScholes1973,Merton1973,HarrisonKreps1979}
 to maintain pricing consistency. No-arbitrage
 restricts the relative prices of claims according
 to their state-contingent payoffs, while replication
@@ -367,7 +367,7 @@ Replication concerns the construction of a portfolio
 whose state-contingent payoffs match those of a target
 financial claim. A portfolio that reproduces the
 payoffs of another claim is called a
-\emph{synthetic position}. When replication is exact,
+synthetic position. When replication is exact,
 the two positions have identical future cash flows
 and must have the same current value under
 no-arbitrage conditions.
@@ -800,16 +800,13 @@ central counterparty (CCP).
 \TailModule{aiprompt}{Financial AI Lab}
 
 %========================================================
-% Financial AI Lab
+% Additional Financial AI Lab exercises
 %========================================================
-
-\TailModule{aiprompt}{Financial AI Lab}
 
 %========================================================
 % Financial AI Lab
 %========================================================
 
-\TailModule{aiprompt}{Financial AI Lab}
 
 \textbf{Lab: Audit Counterparty Exposure and Risk
 Management in Derivative Markets}
