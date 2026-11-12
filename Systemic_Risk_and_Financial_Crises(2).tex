@@ -1,0 +1,1122 @@
+\chapter{Systemic Risk and Financial Crises}
+\label{chap:Systemic_Risk_and_Financial_Crises}
+
+\begin{openingcase}{When the Safe Asset Became Hard to Trade}
+
+In March 2020, investors rushed for cash as the COVID-19 shock spread through global markets. They sold U.S. Treasury securities---assets normally treated as among the safest and most liquid in the financial system.
+
+Yet Treasury market liquidity deteriorated sharply. Market depth fell, bid--ask spreads widened, and dealers struggled to absorb heavy selling. Many institutions sought cash at the same time, while dealer balance-sheet capacity was limited.
+
+\end{openingcase}
+
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+\item How can credit growth, leverage, rising collateral values, and risk-taking build vulnerabilities that make the financial system more sensitive to reversal?
+
+\item How can runs, fire sales, margin calls, and funding pressure amplify an initial shock?
+
+\item How can financial linkages, common exposures, and cross-border connections transmit stress across institutions and markets?
+
+\end{enumerate}
+\end{tcolorbox}
+
+
+\section{Financial Cycles and the Build-Up of Systemic Fragility}
+
+The earlier chapters examined risk mainly at the level of individual contracts, institutions, and markets. Systemic risk concerns the stability of the financial system as a whole. It arises not only from the condition of individual institutions, but also from common exposures, financial linkages, and correlated balance-sheet adjustments.
+
+Systemic fragility can build during periods of financial expansion, particularly when credit growth, leverage, and asset prices reinforce one another. Such interactions can leave the financial system more sensitive to falling asset prices, tighter funding conditions, or shifts in expectations.
+
+\subsection{Credit Booms and Financial Cycles}
+
+A financial cycle describes persistent co-movements in credit, leverage, risk-taking, and financial conditions. Credit booms are an important part of this process, as expanding credit can increase borrowing capacity and alter the pricing and allocation of risk.
+
+During an upswing, stronger economic activity and low recent default rates may support more favorable assessments of borrower risk. Lenders may expand credit, investors may accept smaller risk premia, and borrowers may become more willing to take on debt. Credit growth can then be accompanied by higher leverage and greater refinancing needs.
+
+Let \(C_t\) denote aggregate private credit and \(Y_t\) a measure of income or output. A simple indicator of credit intensity is
+
+\begin{equation}
+\chi_t=\frac{C_t}{Y_t}.
+\label{eq:ch21-credit-income-ratio}
+\end{equation}
+
+An increase in \(\chi_t\) does not by itself indicate excessive credit growth. Financial deepening, structural change, and broader access to finance can also raise the ratio. Its interpretation is more informative when combined with debt-service capacity, lending standards, leverage, and the pace of credit expansion.
+
+The composition of credit may also change during an upswing. Lending can shift toward weaker covenants, shorter maturities, greater refinancing needs, or borrowers with smaller cash-flow buffers. Such changes may be less visible while defaults remain low and financing conditions are favorable.
+
+Intermediary behavior can reinforce the expansion. Institutions with strong recent performance may attract additional funding, expand their balance sheets, and compete more actively for borrowers. Greater competition can compress lending spreads and support further credit growth, increasing the sensitivity of borrowers and intermediaries to a later tightening of financial conditions.
+
+\begin{example}{Credit Growth and Borrower Capacity}{credit-cycle-example}
+
+Suppose household mortgage credit grows by 15\% while household income grows by 5\%. The credit-to-income ratio rises by approximately
+
+\[
+\frac{1.15}{1.05}-1
+\approx
+9.5\%.
+\]
+
+The increase does not by itself imply financial distress, but it indicates that household debt has grown faster than the income available to support it. If debt continues to rise relative to income, household balance sheets may become more sensitive to higher interest rates, weaker income growth, or tighter refinancing conditions.
+
+\end{example}
+
+Credit expansion is often closely connected to movements in asset prices. When asset values also affect collateral and borrowing capacity, the financial cycle can acquire an additional balance-sheet feedback mechanism.
+
+\subsection{Leverage and Risk-Taking Incentives}
+
+Credit growth becomes more relevant to systemic fragility when it is accompanied by rising leverage and changes in risk-taking incentives. Leverage allows a given amount of equity to support a larger asset position. As introduced earlier, the leverage ratio can be written as
+
+\begin{equation}
+\lambda=\frac{A}{E},
+\label{eq:ch21-leverage-ratio}
+\end{equation}
+where \(A\) is asset value and \(E\) is equity.
+
+Leverage increases the sensitivity of equity to changes in asset value. If liabilities remain unchanged over the adjustment interval, then \(\Delta E=\Delta A\), so
+
+\begin{equation}
+\frac{\Delta E}{E}
+=\lambda
+\frac{\Delta A}{A}.
+\label{eq:ch21-leverage-amplification}
+\end{equation}
+
+For example, a 2\% decline in asset value reduces equity by about 20\% when leverage is 10, before allowing for hedging, income, liability adjustments, or other balance-sheet responses.
+
+Leverage can also affect risk-taking incentives. Equity holders receive the residual value after fixed claims have been paid. With limited liability, gains from successful risk-taking accrue to equity, while losses beyond the equity buffer may be borne by creditors or, in some financial institutions, partly absorbed by deposit insurance or other elements of the financial safety net. Higher leverage can therefore strengthen incentives to take risk when downside losses are not fully borne by equity holders.
+
+Managerial incentives may add to this effect. Compensation linked strongly to short-horizon gains can reward risk before its full consequences become observable. Deferred compensation, clawback provisions, capital requirements, creditor monitoring, and reputational concerns can reduce this asymmetry.
+
+Risk-sensitive balance-sheet constraints provide another link between leverage and the financial cycle. Institutions often use volatility, credit spreads, or model-based risk measures when allocating balance-sheet capacity. Low measured risk may permit larger positions and higher leverage. If measured risk later rises, the same constraints can induce deleveraging, connecting changes in perceived risk to asset demand and balance-sheet adjustment.
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Leverage Can Be Procyclical},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Leverage can rise when asset values are strong and measured risk is low, increasing the sensitivity of equity to later losses. If risk measures tighten after conditions reverse, institutions may reduce positions at the same time. Leverage can therefore amplify both the expansion and the subsequent adjustment of balance sheets.
+
+\end{tcolorbox}
+
+\subsection{Asset Prices, Collateral, and Balance-Sheet Feedback}
+
+Leverage amplifies the effect of asset-price changes on equity. When borrowing is also secured by collateral, market prices can affect the amount of funding available to a balance sheet. Collateral therefore provides an additional channel through which asset prices and credit conditions can interact.
+
+Let an asset with market price \(p_t\) and quantity \(Q\) support borrowing with haircut \(h_t\). A simplified borrowing limit is
+
+\begin{equation}
+B_t
+\leq
+(1-h_t)p_tQ.
+\label{eq:ch21-collateral-borrowing-limit}
+\end{equation}
+
+When the constraint is binding, a rise in \(p_t\) increases borrowing capacity if the haircut remains unchanged. Additional financing may support asset purchases, investment, or lending. If stronger financing also increases demand for the asset, higher prices and greater borrowing capacity can reinforce one another.
+
+The mechanism can reverse when asset prices fall or haircuts rise. Borrowing capacity declines, and borrowers may need to post additional collateral, repay debt, reduce new financing, or sell assets. Asset sales can place further pressure on prices, tightening collateral constraints again.
+
+The same mechanism extends beyond traded securities. Higher property values can support mortgage and business borrowing, while lower property values can reduce refinancing capacity and borrower equity. For lenders, declining collateral values can also weaken expected recovery in default.
+
+When similar exposures are widespread, these adjustments can affect both borrowers and lenders. Tighter collateral constraints can reduce credit demand and borrowing capacity, while weaker collateral protection can make lenders more cautious in supplying credit. Asset-price changes can thus be transmitted into broader financial conditions.
+
+
+\subsection{Procyclicality and Endogenous Risk}
+
+The collateral feedback described above illustrates a broader feature of the financial system: procyclicality. A financial mechanism is procyclical when balance-sheet or financing responses tend to reinforce an ongoing expansion or contraction.
+
+During favorable conditions, higher collateral values and low measured risk may relax financing and risk constraints, allowing larger positions. When conditions reverse, tighter constraints may require institutions to reduce positions or obtain additional funding. These adjustments can reinforce the initial movement in prices and financial conditions.
+
+This interaction is one source of \emph{endogenous risk}: risk that arises partly from the responses of market participants themselves. An initial change in prices or measured risk can induce balance-sheet adjustments, which may then affect market prices and the constraints facing other institutions.
+
+Consider an institution that targets leverage \(\lambda^{*}\). Its desired asset position is
+
+\begin{equation}
+A_t^{*}
+=
+\lambda^{*}E_t.
+\label{eq:ch21-target-assets}
+\end{equation}
+
+If an asset-price decline reduces equity, maintaining the same leverage target requires a smaller asset position. When many institutions follow similar rules, simultaneous asset sales can place additional pressure on market prices and generate further balance-sheet losses.
+
+A similar mechanism can arise from volatility-sensitive risk limits. Suppose permitted exposure is determined by
+
+\begin{equation}
+W_t
+=
+\frac{\bar{R}}{\sigma_t},
+\label{eq:ch21-volatility-sensitive-position}
+\end{equation}
+where \(W_t\) is permitted exposure, \(\bar{R}\) is a fixed risk budget, and \(\sigma_t\) is measured volatility. A rise in \(\sigma_t\) reduces permitted exposure. If similar rules are widely used, changes in measured risk can produce correlated adjustments across institutions.
+
+Procyclicality becomes especially relevant to systemic risk when many institutions respond to the same prices, risk measures, or financing conditions. Individually prudent adjustments can then contribute to system-wide amplification.
+
+
+\subsection{Systemic Externalities and the Build-Up of Fragility}
+
+The procyclical responses described above can generate systemic externalities when institutions do not fully internalize the effects of their decisions on the rest of the financial system. A systemic externality arises when a balance-sheet or financing decision imposes costs on other market participants that are not fully reflected in the decision itself.
+
+For example, an institution may sell assets to reduce its own leverage without fully accounting for the effect of those sales on market prices and other holders' balance sheets. Similarly, a lender may restrict credit to strengthen its own position, while widespread credit contraction can weaken borrower cash flows and increase losses elsewhere in the system.
+
+These externalities help explain why individual resilience does not necessarily imply system resilience. Institutions may appear sound when considered separately, yet common exposures and similar responses can make the financial system more sensitive to a common shock.
+
+Systemic fragility can become greater when several structural features are present together:
+
+\begin{itemize}
+
+\item high leverage or limited loss-absorbing capacity;
+
+\item maturity and liquidity transformation;
+
+\item common asset or funding exposures;
+
+\item collateral-sensitive financing and interconnected claims;
+
+\item limited market-making capacity or uncertainty about the location of losses.
+
+\end{itemize}
+
+No single feature necessarily creates systemic instability. Their interaction can, however, influence whether losses remain concentrated or are transmitted and amplified across institutions and markets.
+
+
+\section{Banking Crises, Runs, and Credit Contraction}
+
+Banks are exposed to liquidity pressure when relatively illiquid assets are financed by short-term or withdrawable liabilities. When similar funding structures are widespread, withdrawals and refinancing pressure can become correlated across institutions.
+
+A banking crisis may involve asset losses, funding stress, uncertainty about bank condition, and reductions in credit supply. These pressures can interact through interbank exposures, common asset holdings, funding markets, and depositor behavior. As banks adjust their balance sheets to preserve liquidity and capital, lending may contract, transmitting financial stress to households and firms.
+
+\subsection{Asset Deterioration, Bank Losses, and Insolvency}
+
+Systemic fragility can become more acute when losses begin to erode bank balance sheets. For a bank,
+
+\begin{equation}
+A=D+E,
+\label{eq:ch21-bank-balance-sheet}
+\end{equation}
+
+where \(A\) is total assets, \(D\) denotes liabilities other than equity, and \(E\) is equity.
+
+Suppose the bank recognizes an asset loss \(L\) while liabilities remain unchanged. The post-loss balance sheet becomes
+
+\begin{equation}
+A'=A-L,
+\qquad
+E'=E-L.
+\label{eq:ch21-bank-loss}
+\end{equation}
+
+A loss that is small relative to total assets can absorb a much larger share of equity. In this simplified balance-sheet setting, equity is exhausted when\[
+L \geq E,
+\]leaving asset value insufficient to cover liabilities.
+
+Asset deterioration may arise from borrower defaults, declines in securities values, interest-rate movements, or other changes that reduce asset value. The accounting treatment may differ across exposures, but the common balance-sheet effect is a reduction in the loss-absorbing equity buffer.
+
+These losses become more relevant to systemic risk when banks hold similar exposures. Falling property prices can weaken mortgage portfolios across several institutions, while a repricing of widely held securities can generate correlated losses even without direct interbank claims.
+
+Funding pressure can emerge before insolvency occurs. As uncertainty about asset quality increases, creditors and depositors may become less willing to provide or renew funding. Asset-side deterioration can therefore develop into liability-side stress, creating the conditions under which withdrawals and runs become more likely.
+
+\subsection{Liquidity and Maturity Mismatches}
+
+Funding pressure becomes a liquidity problem when available cash and liquid assets are insufficient to meet near-term obligations. A bank may remain solvent in economic terms while still being unable to meet withdrawals or maturing liabilities when due.
+
+Let \(O_t\) denote cash outflows over a given horizon, \(I_t\) contractual cash inflows, and \(H_t\) liquid assets that can be mobilized at acceptable cost. A simplified liquidity gap is
+
+\begin{equation}
+G_t
+=
+O_t-I_t-H_t.
+\label{eq:ch21-liquidity-gap}
+\end{equation}
+
+A positive \(G_t\) indicates a residual funding need over the chosen horizon.
+
+The amount of effective liquidity can change with market conditions. Assets that are readily sold or pledged in normal markets may require larger price concessions or higher collateral haircuts during stress. Thus, \(H_t\) may fall at the same time that funding needs increase.
+
+Maturity mismatch adds a second source of pressure. Long-term loans and other illiquid assets may continue to perform, but their cash flows arrive more slowly than short-term liabilities come due. If short-term funding is not renewed, the bank may need to obtain replacement funding or liquidate assets before maturity.
+
+Liquidity stress can also feed back into solvency. Forced asset sales may generate losses, while concerns about asset quality can accelerate withdrawals and reduce access to funding. Liquidity and solvency are therefore distinct dimensions of bank condition, but stress in one can intensify the other.
+
+\subsection{Depositor Runs and Wholesale Funding Runs}
+
+Liquidity pressure can intensify when funding providers withdraw funds or refuse to renew short-term claims. A run occurs when funding leaves faster than an institution can generate liquidity without substantial losses.
+
+Depositor runs may reflect concerns about asset quality or solvency, uncertainty about the behavior of other depositors, or a stronger preference for immediate liquidity. When deposits can be withdrawn quickly, expectations about future withdrawals can influence the decision to withdraw today.
+
+Similar dynamics can arise in wholesale funding markets. Interbank lenders, repo counterparties, commercial-paper investors, and other short-term creditors may decline to renew funding or tighten its terms. Adjustment can occur through nonrenewal, higher haircuts, shorter maturities, wider spreads, or lower lending limits.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Funding Structure Shapes Run Risk},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Run risk depends not only on the amount of short-term funding, but also on its structure. Concentrated or uninsured funding can be more sensitive to changes in confidence, while digital access and rapid information transmission can shorten the time over which withdrawals occur. The same liquidity position can therefore become more fragile when funding can leave quickly and in a coordinated way.
+
+\end{tcolorbox}
+
+Runs can force institutions to obtain costly replacement funding, sell assets, or reduce lending. These responses can transmit funding stress into market prices and credit conditions, creating a link between an institution-specific run and broader financial stress.
+
+\subsection{Lending Retrenchment and Credit Contraction}
+
+Funding withdrawals and capital losses can lead banks to adjust the asset side of their balance sheets. Banks may tighten lending standards, reduce new lending, or limit credit lines. When such adjustments occur across many institutions, bank-level lending retrenchment can develop into a broader contraction in credit supply.
+
+Suppose a bank seeks to maintain a simplified capital ratio$
+k^{*}=E/A$.
+After losses reduce equity to \(E'\), the asset level consistent with the target ratio is
+
+\begin{equation}
+A^{*}
+=
+\frac{E'}{k^{*}}.
+\label{eq:ch21-capital-constrained-assets}
+\end{equation}
+
+If post-loss assets exceed \(A^{*}\), the bank must either increase equity or reduce assets to restore the target ratio. When new equity is difficult or costly to raise, reducing lending can become an important part of the adjustment.
+
+A contraction in bank credit can affect borrowers that depend on bank financing. Firms may postpone investment, households may reduce borrowing and expenditure, and relationship borrowers may find it difficult to replace lost credit when alternative sources of finance are limited.
+
+Credit contraction can also feed back into bank balance sheets. Weaker borrower income and cash flow may reduce debt-service capacity and increase credit losses. Balance-sheet adjustment by banks can therefore contribute to conditions that place further pressure on bank assets.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Two Routes to Restore a Capital Ratio},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+After an equity loss, a bank can restore its capital ratio by raising equity or reducing assets. Raising equity preserves lending capacity but may be difficult during stress. Asset contraction can restore the ratio without new capital, but widespread reductions in lending can tighten credit conditions for households and firms.
+
+\end{tcolorbox}
+
+
+
+\section{Market Crises and Systemic Amplification}
+
+Systemic stress can also arise through market-based finance. In this setting, asset prices, market liquidity, and financing conditions can interact through the balance sheets of investors and intermediaries.
+
+A decline in asset prices can increase margin requirements, reduce collateral values, trigger investor redemptions, or constrain dealer balance sheets. These adjustments may lead to further asset sales and weaker market liquidity, which can place additional pressure on prices and funding conditions.
+
+\subsection{Fire Sales and Liquidity Spirals}
+
+One important source of market amplification is forced asset selling. A fire sale occurs when an institution sells assets to meet funding, collateral, redemption, leverage, or risk constraints and has limited ability to delay the sale.
+
+Suppose cumulative forced sales of an asset are \(Q_s\). A stylized price-impact relation is
+
+\begin{equation}
+P
+=
+P_0-\alpha Q_s,
+\qquad
+\alpha>0,
+\label{eq:ch21-price-impact}
+\end{equation}
+where \(\alpha\) is a price-impact coefficient. A larger \(\alpha\) implies that a given quantity of sales produces a larger price decline, consistent with lower market depth.
+
+The price effect can extend beyond the original seller. Lower market prices may reduce the equity and collateral values of other holders or cause risk constraints to bind. These balance-sheet effects can induce additional sales, creating a liquidity spiral:
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.9cm,
+  >=Latex,
+  stage/.style={
+    font=\small,
+    align=center
+  },
+  flow/.style={
+    ->,
+    line width=0.8pt,
+    draw=FinanceBlue
+  }
+]
+
+\node[stage] (funding) {\textbf{Funding pressure}};
+\node[stage, below=of funding] (sales) {Asset sales};
+\node[stage, below=of sales] (prices) {Lower asset prices};
+\node[stage, below=of prices] (balance) {Weaker balance sheets\\and collateral};
+
+\draw[flow] (funding) -- (sales);
+\draw[flow] (sales) -- (prices);
+\draw[flow] (prices) -- (balance);
+
+\draw[
+  flow,
+  rounded corners=12pt
+]
+(balance.west)
+-- ++(-1.5,0)
+|- (funding.west);
+
+\end{tikzpicture}
+
+\caption{Funding Pressure and the Liquidity Spiral}
+\label{fig:ch21-liquidity-spiral}
+\end{figure}
+
+The strength of this feedback can vary with market conditions. During stress, dealers may become less willing to absorb inventory and uncertainty about asset values may increase. Market depth can then decline, increasing the price impact of a given volume of sales.
+
+\begin{example}{A Fire Sale and Mark-to-Market Spillover}{fire-sale-example}
+
+A fund sells a large position to meet redemptions, pushing the market price of the security from 100 to 94. Another fund holds RMB~200 million of the same security but does not sell.
+
+Assuming the position is marked to the new market price, the second fund records a loss of approximately
+
+\[
+200(1-0.94)=12
+\]
+
+million renminbi.
+
+If the loss increases leverage or causes a risk limit to bind, the second fund may also reduce its position. The initial sale can therefore affect another balance sheet even without a direct contractual link between the two funds.
+
+\end{example}
+
+\subsection{Margin Calls, Collateral Dynamics, and Deleveraging}
+
+Fire sales and liquidity spirals can be triggered by margin and collateral requirements. Margining reduces counterparty exposure, but it can also convert market-value changes into immediate liquidity demands.
+
+Let \(M_t\) denote margin payments due at date \(t\) and \(H_t\) the liquid resources available to meet them. A simplified margin liquidity shortfall is
+
+\begin{equation}
+\Phi_t
+=
+\max\{M_t-H_t,0\}.
+\label{eq:ch21-margin-shortfall}
+\end{equation}
+
+When \(\Phi_t>0\), the institution must obtain additional liquidity, for example by borrowing, selling assets, or reducing positions.
+
+Margin and collateral requirements can also vary with market conditions. Variation margin transfers current mark-to-market losses, while initial margin may rise when measured risk increases. At the same time, higher haircuts can reduce the amount of funding available against pledged assets. Liquidity needs may therefore rise while collateral supports less borrowing.
+
+These pressures can induce deleveraging. Institutions may reduce positions or sell other assets to meet margin requirements and restore liquidity buffers. When similar adjustments occur across many institutions, margin and collateral dynamics can contribute to broader market contraction.
+
+A hedged position can still create short-term liquidity risk. Derivative losses may require immediate margin payments even when offsetting gains on the underlying exposure are realized later. Hedging can therefore reduce price exposure without eliminating liquidity needs.
+
+
+\subsection{Dealer Balance Sheets and the Withdrawal of Market Liquidity}
+
+The asset sales described above require other market participants to absorb the positions being sold. Dealers perform part of this function by holding inventory and intermediating between buyers and sellers. Their capacity to do so depends on balance-sheet space, funding conditions, capital usage, and risk limits.
+
+Let \(I_t\) denote dealer inventory and \(Q_t^C\) net purchases from clients, defined as positive when the dealer buys securities from clients. Inventory evolves according to
+
+\begin{equation}
+I_t
+=
+I_{t-1}+Q_t^C.
+\label{eq:ch21-dealer-inventory}
+\end{equation}
+
+Persistent client selling can increase dealer inventories and use more balance-sheet capacity. As funding, capital, or risk constraints become more binding, dealers may widen bid--ask spreads, reduce quoted size, or become less willing to absorb additional positions.
+
+When similar constraints affect several dealers, market liquidity can contract even if the underlying securities remain fundamentally sound. Trading larger quantities becomes more costly, market depth declines, and order imbalances have greater price effects. The deterioration reflects limited intermediation capacity rather than necessarily a deterioration in asset quality.
+
+Dealer constraints can also transmit liquidity pressure across markets. Balance-sheet capacity used to intermediate one market is unavailable elsewhere, while common funding or risk constraints can reduce market-making capacity across several asset classes.
+
+
+\subsection{Market Freezes and Funding Stress}
+
+When intermediation capacity becomes sufficiently constrained, market liquidity can deteriorate into a market freeze, with trading or funding activity falling sharply relative to normal conditions. Fewer transactions can weaken price discovery and increase uncertainty about asset values or counterparties.
+
+Funding stress can develop at the same time. Lenders may become less willing to extend or renew short-term financing, especially when collateral values or counterparty conditions are uncertain. Institutions that depend on frequent refinancing may then face liquidity pressure even before large losses are recognized on their underlying assets.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Market Liquidity and Funding Liquidity},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Market liquidity and funding liquidity can reinforce one another. When assets become more difficult to sell or pledge, they provide less effective liquidity. At the same time, tighter funding conditions increase the need to raise cash. The resulting asset sales can further weaken market liquidity and collateral values.
+
+\end{tcolorbox}
+
+Funding stress can also affect the financing of new activity. Firms that rely on commercial paper or bond issuance may face higher financing costs or reduced market access. Some borrowers may then draw more heavily on committed bank credit lines, shifting part of the funding demand onto bank balance sheets.
+
+
+
+\section{Contagion and System-Wide Crisis}
+
+Contagion refers to the transmission of financial stress across institutions, markets, sectors, or countries. It can operate through financial linkages, balance-sheet adjustments, funding conditions, or changes in market confidence.
+
+Contagion differs from common exposure. Several institutions may suffer losses from the same underlying shock without directly transmitting stress to one another. The two mechanisms can nevertheless interact and allow initially localized stress to spread more widely.
+
+\subsection{Counterparty Networks and Interconnectedness}
+
+A direct channel of contagion arises from contractual exposures between financial institutions. Loans, derivatives, securities financing, and payment obligations create networks through which losses or liquidity pressure can pass from one balance sheet to another.
+
+Let \(x_{ij}\) denote the exposure of institution \(i\) to institution \(j\). If institution \(j\) imposes a loss rate \(\ell_j\) on its creditors, the direct loss to institution \(i\) can be approximated by
+
+\begin{equation}
+\Delta E_i^{\mathrm{direct}}
+=
+-\sum_j x_{ij}\ell_j.
+\label{eq:ch21-network-loss}
+\end{equation}
+
+A first-round loss can weaken the capital or liquidity position of institution \(i\), which may then affect its obligations to other counterparties. Distress can therefore propagate through successive links in the network.
+
+Interconnectedness can both distribute and transmit risk. Interbank markets redistribute liquidity, derivatives reallocate exposures, and payment networks support settlement. Under stress, however, the same connections can transmit losses or liquidity pressure across institutions.
+
+The structure of the network influences this transmission. Concentrated exposures can increase dependence on particular counterparties, while institutions that perform important clearing, custody, settlement, or funding functions can affect many participants when their capacity is impaired.
+
+Gross and net exposures also convey different information. Netting can reduce final credit exposure, while large gross obligations may still create substantial short-term liquidity needs.
+
+\subsection{Common Exposures and Indirect Contagion}
+
+Direct counterparty claims are not the only channel through which financial stress can spread. Institutions may also be exposed to the same assets, funding sources, or market conditions, creating dependence that is not visible in bilateral claims.
+
+Suppose institution \(i\) holds quantity \(q_{ik}\) of asset \(k\). Holding other balance-sheet items unchanged, a change in asset prices affects its equity by
+
+\begin{equation}
+\Delta E_i^{\mathrm{common}}
+=
+\sum_k q_{ik}\Delta p_k.
+\label{eq:ch21-common-exposure-loss}
+\end{equation}
+
+When several institutions hold the same assets, an external price decline can generate correlated losses across their balance sheets. This reflects common exposure. Indirect contagion arises when the response of one institution changes market prices or financing conditions faced by others. Forced sales can create such a channel by lowering the value of assets held elsewhere in the system.
+
+Common funding sources can create a similar dependence. Institutions that rely on the same short-term lenders may face tighter funding conditions at the same time. Funding stress becomes a transmission channel when withdrawals or balance-sheet adjustments at one institution affect the capacity or willingness of lenders to finance others.
+
+Similar risk measures and portfolio rules can also produce correlated adjustments. Institutions using comparable volatility estimates, risk limits, or hedging strategies may reduce positions at similar times, increasing the market impact of a common shock.
+
+These forms of dependence may not be captured by bilateral exposure data. Shared assets, funding sources, and balance-sheet rules can therefore create indirect connections across institutions even when direct contractual links are limited.
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Common Exposure Is Not Necessarily Contagion},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Common exposure creates correlated losses when institutions are affected by the same underlying shock. Indirect contagion requires an additional transmission mechanism: the response of one institution changes prices, funding conditions, or collateral values faced by others.
+
+\end{tcolorbox}
+
+\subsection{Information Contagion and Confidence Effects}
+
+Indirect contagion can also arise through information. When one institution fails or reports unexpected losses, investors may revise their assessment of other institutions with similar assets, business models, or funding structures.
+
+Such reassessment can be rational when the observed loss reveals information about exposures or vulnerabilities that were previously uncertain. Institutions with similar characteristics may then face higher funding costs, greater withdrawal pressure, or reduced market access.
+
+Information contagion can become stronger when balance sheets or exposures are difficult to assess. If market participants cannot identify where losses are concentrated, they may reduce exposure to a broader set of institutions. Funding conditions can therefore deteriorate even for institutions that have not experienced the original loss.
+
+Confidence effects become economically important when changes in beliefs lead to financial actions. Greater uncertainty can contribute to deposit withdrawals, reduced rollover, wider funding spreads, lower market depth, or stronger demand for liquid assets. These responses can translate information shocks into balance-sheet and funding pressure.
+
+Transparency can reduce uncertainty by clarifying the location and scale of exposures. During stress, however, new information can also lead to rapid repricing when previously unrecognized losses become visible. Its effect depends on the content, credibility, and timing of disclosure.
+
+
+\subsection{Sovereign--Bank Feedback}
+
+Beyond information effects, contagion can also operate through balance-sheet links between banks and the sovereign. Banks may hold substantial government securities, while governments provide deposit protection and, during severe stress, other forms of support to the banking system.
+
+Sovereign stress can weaken banks through declines in government bond values, lower collateral values, or higher funding costs. Banks may respond by preserving capital and liquidity, which can reduce credit supply.
+
+Stress can also move in the opposite direction. Banking losses may increase fiscal costs through deposit protection, recapitalization, or other support measures. Weaker credit supply can also reduce economic activity and tax revenues, placing additional pressure on public finances.
+
+The interaction between sovereign stress and banking weakness can form the feedback loop shown in Figure~\ref{fig:ch21-sovereign-bank-feedback}.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    >=Latex,
+    node distance=0.8cm,
+    every node/.style={align=center, font=\small},
+    box/.style={
+        draw,
+        rounded corners,
+        minimum width=4.2cm,
+        minimum height=0.95cm,
+        inner sep=4pt
+    },
+    flow/.style={->, line width=0.8pt}
+]
+
+\node[box] (sov) {Sovereign stress};
+\node[box, below=of sov] (bank) {Bank losses and\\funding pressure};
+\node[box, below=of bank] (credit) {Weaker credit supply};
+\node[box, below=of credit] (macro) {Weaker economic and\\fiscal conditions};
+
+\draw[flow] (sov) -- (bank);
+\draw[flow] (bank) -- (credit);
+\draw[flow] (credit) -- (macro);
+\draw[flow, rounded corners=10pt] (macro.west) -- ++(-1.6,0) |- (sov.west);
+
+\end{tikzpicture}
+\caption{Sovereign--Bank Feedback}
+\label{fig:ch21-sovereign-bank-feedback}
+\end{figure}
+
+The strength of this feedback depends on banks' sovereign exposures, capitalization and funding structures, and the government's fiscal capacity and institutional framework.
+
+\subsection{Cross-Border Spillovers}
+
+Financial stress can also spread across national borders through international lending, portfolio investment, foreign-currency borrowing, and global funding markets. These cross-border links can transmit changes in funding conditions, asset prices, and balance-sheet strength from one economy to another.
+
+International banks may reduce foreign lending when their capital or liquidity becomes constrained, while global investors may sell assets across several markets to raise cash. Such adjustments can tighten financing conditions outside the economy in which the original shock occurred.
+
+Foreign-currency mismatch provides another transmission channel. Suppose a borrower has foreign-currency debt \(D^{*}\), and \(S_t\) is the domestic-currency price of one unit of foreign currency. The domestic-currency value of the debt is
+
+\begin{equation}
+D_t=S_tD^{*}.
+\label{eq:ch21-fx-debt}
+\end{equation}
+
+A depreciation of the domestic currency raises the local-currency value of an unchanged foreign-currency obligation. Borrowers without matching foreign-currency revenues may then face higher leverage and weaker debt-service capacity.
+
+Global funding markets can reinforce these pressures. Banks and firms may borrow in major funding currencies while holding assets or earning revenues in other currencies. During periods of stress, stronger demand for funding liquidity can widen cross-currency funding spreads and tighten financing conditions across several economies.
+
+Cross-border spillovers tend to be stronger when foreign-currency mismatches, short-term external funding, common international investors, and globally connected intermediaries are present together. These features can allow a localized disturbance to affect funding and credit conditions across countries.
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Currency Mismatch Amplifies Cross-Border Stress},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Foreign-currency borrowing can convert exchange-rate movements into balance-sheet pressure. When liabilities are denominated in foreign currency but revenues are mainly domestic, a depreciation of the domestic currency raises the local-currency value of debt and can weaken debt-service capacity.
+
+\end{tcolorbox}
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Systemic risk arises from interactions across institutions, markets, and balance sheets. Credit growth, leverage, collateral values, and risk-taking can reinforce one another during expansions, leaving the financial system more sensitive to reversal.
+
+Amplification occurs when responses to a shock affect other participants. Asset losses reduce capital, withdrawals create liquidity pressure, lending retrenchment weakens borrower activity, and fire sales depress market prices. Margin calls, tighter collateral terms, redemptions, and constrained dealer capacity can further increase cash demand and deleveraging.
+
+Contagion can operate through counterparty networks, common exposures, information effects, sovereign--financial links, and cross-border finance. The central systemic insight is that financial stability depends not only on individual institutions, but also on how their balance-sheet adjustments interact through prices, funding, liquidity, and credit.
+
+
+%========================================================
+% Mind Map
+%========================================================
+
+\TailModule{mindmap}{Mind Map}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  main/.style={
+    draw=FinanceBlue,
+    fill=FinanceBlue!7,
+    rounded corners=2pt,
+    align=center,
+    text width=4.5cm,
+    minimum height=0.95cm,
+    inner sep=5pt
+  },
+  side/.style={
+    draw=FinanceBlue,
+    rounded corners=2pt,
+    align=center,
+    text width=4.0cm,
+    minimum height=0.9cm,
+    inner sep=5pt
+  },
+  arrow/.style={-Latex,line width=0.8pt,FinanceBlue},
+  dash/.style={-Latex,dashed,line width=0.8pt,FinanceBlue}
+]
+
+\node[main] (build) at (0,0)
+{\textbf{Build-up}\\credit, leverage, collateral, common risk-taking};
+
+\node[main] (shock) at (0,-2.2)
+{\textbf{Shock or reversal}\\asset-price declines, volatility, withdrawals};
+
+\node[main] (amp) at (0,-4.7)
+{\textbf{Amplification}\\fire sales, margin calls, funding pressure, credit contraction};
+
+\node[main] (system) at (0,-7.2)
+{\textbf{System-wide stress}\\contagion and real-economy effects};
+
+\draw[arrow] (build) -- (shock);
+\draw[arrow] (shock) -- (amp);
+\draw[arrow] (amp) -- (system);
+
+\node[side] (bank) at (6.2,-2.2)
+{\textbf{Bank channel}\\capital, runs, lending};
+
+\node[side] (market) at (6.2,-4.7)
+{\textbf{Market channel}\\liquidity, dealers, collateral};
+
+\node[side] (network) at (6.2,-7.2)
+{\textbf{Contagion channel}\\networks, common exposures, cross-border links};
+
+\draw[dashed] (shock.east) -- (bank.west);
+\draw[dashed] (amp.east) -- (market.west);
+\draw[dashed] (system.east) -- (network.west);
+
+\end{tikzpicture}
+\caption{From financial-cycle build-up to system-wide stress}
+\label{fig:ch21-mind-map}
+\end{figure}
+
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Systemic risk; financial cycle; credit boom; leverage;
+collateral constraint; procyclicality; endogenous risk;
+systemic externality; banking crisis; bank run; liquidity gap;
+credit contraction; fire sale; market liquidity; funding liquidity;
+liquidity spiral; margining; deleveraging; dealer balance-sheet capacity;
+market freeze; contagion; counterparty network; common exposure;
+information contagion; sovereign--bank feedback; cross-border spillover;
+foreign-currency mismatch.
+
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit a Systemic-Risk Narrative}
+
+Ask an AI system to analyze a financial stress episode using available evidence on leverage, asset prices, capital, funding structure, margin calls, market liquidity, and cross-institution exposures.
+
+Audit the analysis in five stages.
+
+\begin{enumerate}
+
+\item \textbf{Separate the shock from amplification.}
+
+Identify the initial disturbance and distinguish it from subsequent changes caused by balance-sheet adjustment, funding pressure, or market responses.
+
+\item \textbf{Distinguish solvency from liquidity.}
+
+Determine whether the institutions involved face losses in net worth, shortages of immediately available liquidity, or both.
+
+\item \textbf{Trace a feedback loop.}
+
+Express one amplification mechanism as a sequence, such as
+
+\[
+\text{Price decline}
+\rightarrow
+\text{Margin call}
+\rightarrow
+\text{Asset sale}
+\rightarrow
+\text{Further price decline}.
+\]
+
+Check whether each link is supported by data or institutional evidence.
+
+\item \textbf{Distinguish contagion from common exposure.}
+
+Determine whether stress is transmitted through financial links or whether several institutions are responding to the same asset, funding source, or underlying shock.
+
+\item \textbf{Assess causal uncertainty.}
+
+Identify alternative explanations, missing balance-sheet information, and the evidence needed to distinguish a transmission mechanism from simple correlation.
+
+\end{enumerate}
+
+The final report should identify the initial shock, the main amplification mechanism, the relevant balance-sheet constraint, and the channel through which stress spread beyond its initial location.
+
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why can low realized volatility during a financial expansion coexist with rising systemic fragility?
+
+\item How does leverage translate a change in asset value into a larger percentage change in equity?
+
+\item How can collateralized borrowing create feedback between asset prices and borrowing capacity?
+
+\item How can a bank remain solvent while facing severe liquidity pressure or a run?
+
+\item Why can lending retrenchment strengthen an individual bank's balance sheet while contributing to a broader credit contraction?
+
+\item How can margining reduce counterparty exposure while increasing short-term liquidity needs?
+
+\item Why can a security with low credit risk become difficult to trade during a market-wide liquidity stress?
+
+\item How does direct counterparty contagion differ from losses arising from common exposures?
+
+\item How can sovereign stress weaken banks, and how can banking stress feed back to the sovereign?
+
+\item How can stress in a major funding currency transmit financial pressure across countries?
+
+\end{enumerate}
+
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Leverage and Equity Sensitivity}
+
+A financial institution has assets of RMB~500 million and equity of RMB~50 million.
+
+\begin{enumerate}
+
+\item Calculate the leverage ratio.
+
+\item Suppose asset values decline by 2\% while liabilities remain unchanged. Calculate the percentage decline in equity using Equation~\eqref{eq:ch21-leverage-amplification}.
+
+\item Calculate the post-loss value of equity.
+
+\item Explain how a higher initial leverage ratio would affect equity sensitivity to the same percentage decline in asset value.
+
+\end{enumerate}
+
+
+\item \textbf{Collateral and Borrowing Capacity}
+
+An institution pledges securities with a market value of RMB~100 million. The initial haircut is 5\%.
+
+\begin{enumerate}
+
+\item Calculate the simplified borrowing limit.
+
+\item Suppose the market value of the securities falls by 8\% and the haircut rises to 10\%. Calculate the new borrowing limit.
+
+\item Calculate the reduction in borrowing capacity.
+
+\item Explain how similar adjustments across many borrowers could affect asset prices and collateral constraints.
+
+\end{enumerate}
+
+
+\item \textbf{Bank Losses and Capital Constraints}
+
+A bank has RMB~1,000 million of assets and RMB~80 million of equity.
+
+\begin{enumerate}
+
+\item Calculate the initial capital ratio.
+
+\item The bank recognizes RMB~25 million of asset losses. Calculate its post-loss assets and equity.
+
+\item If the bank seeks to restore an 8\% capital ratio without raising new equity, calculate the asset level consistent with the target using Equation~\eqref{eq:ch21-capital-constrained-assets}.
+
+\item Calculate the required reduction in assets and explain how such adjustment could affect borrowers.
+
+\end{enumerate}
+
+
+\item \textbf{Liquidity Gap}
+
+Over the next week, a bank expects RMB~120 million of cash outflows and RMB~55 million of contractual cash inflows. It holds RMB~45 million of assets that can be mobilized readily.
+
+\begin{enumerate}
+
+\item Calculate the liquidity gap.
+
+\item Suppose market stress reduces readily mobilizable assets to RMB~30 million. Recalculate the liquidity gap.
+
+\item Identify three possible balance-sheet responses and explain one potential system-wide effect of each.
+
+\end{enumerate}
+
+
+\item \textbf{Fire-Sale Price Impact}
+
+A stylized market has the price-impact relation
+
+\[
+P=100-0.04Q_s,
+\]
+
+where \(Q_s\) is cumulative forced sales measured in millions of units.
+
+\begin{enumerate}
+
+\item Calculate the price after forced sales of 50 million units.
+
+\item Calculate the price after forced sales of 150 million units.
+
+\item Explain why the price-impact coefficient may increase during market stress.
+
+\item Explain how mark-to-market losses at other institutions can generate additional asset sales.
+
+\end{enumerate}
+
+
+\item \textbf{Margin and Liquidity}
+
+A fund faces RMB~35 million of margin payments and has RMB~22 million of immediately available liquid resources.
+
+\begin{enumerate}
+
+\item Calculate the margin liquidity shortfall.
+
+\item Identify three ways in which the fund could meet the shortfall.
+
+\item For each response, explain one possible effect on another market participant or on market prices.
+
+\item Explain why a hedged position can still create short-term liquidity risk.
+
+\end{enumerate}
+
+
+\item \textbf{Counterparty Network Exposure}
+
+Bank A has exposures of RMB~20 million to Bank B and RMB~10 million to Bank C. After distress, Bank B pays 70\% of its obligation and Bank C pays 90\%.
+
+\begin{enumerate}
+
+\item Calculate Bank A's direct loss using Equation~\eqref{eq:ch21-network-loss}.
+
+\item Explain how this loss could generate a second round of effects if Bank A has limited capital relative to its assets.
+
+\item Identify one reason why bilateral exposure data alone may understate system-wide risk.
+
+\end{enumerate}
+
+
+\item \textbf{Common Asset Exposure}
+
+Three funds hold the same corporate bond. Before the price decline, Fund A holds RMB~40 million, Fund B RMB~60 million, and Fund C RMB~100 million of the bond. Its market price then falls by 12\%.
+
+\begin{enumerate}
+
+\item Calculate the mark-to-market loss for each fund.
+
+\item Suppose Fund C sells part of its position to meet redemptions. Explain how the sale can affect Funds A and B even though they have no contractual claim on Fund C.
+
+\item Identify another form of common exposure that could contribute to indirect contagion.
+
+\end{enumerate}
+
+
+\item \textbf{Foreign-Currency Debt}
+
+A firm has USD~50 million of debt and receives most of its revenues in renminbi. The exchange rate moves from RMB~7.0 per dollar to RMB~7.7 per dollar.
+
+\begin{enumerate}
+
+\item Calculate the renminbi value of the debt before and after the exchange-rate movement.
+
+\item Calculate the percentage increase in the domestic-currency value of the debt.
+
+\item Explain how the balance-sheet effect would differ if the firm received substantial dollar revenues.
+\item Describe one channel through which similar currency mismatches across many firms could affect the domestic banking system.
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Tracing a Financial Cycle and Its Reversal}
+
+Select a country and a period that includes a substantial credit expansion followed by a slowdown, financial stress, or asset-price reversal. Use reliable data from sources such as a central bank, national statistical agency, the BIS, IMF, or World Bank.
+
+Collect a small set of indicators covering credit, asset prices, bank balance sheets, funding conditions, and loan performance. Examples include private-sector credit relative to GDP or income, property prices, bank capital or leverage, funding spreads, nonperforming loans, and lending growth.
+
+Address the following questions:
+
+\begin{enumerate}
+
+\item Which indicators changed during the expansion, and which remained relatively stable?
+
+\item How did credit growth, leverage, and asset prices evolve together?
+
+\item What were the earliest signs of reversal?
+
+\item Which developments reflected deterioration in credit quality, and which reflected funding or liquidity stress?
+
+\item Trace one amplification mechanism after the reversal.
+
+\item Which observations support a financial-cycle interpretation, and which may have alternative explanations?
+
+\item Document the definition, unit, frequency, source, and any important revisions for each series.
+
+\end{enumerate}
+
+The final report should distinguish the build-up of financial fragility from the shock that triggered the reversal and from the mechanisms that amplified subsequent stress.
+
+
+%========================================================
+% Case Analysis
+%========================================================
+
+\TailModule{caseanalysis}{Case Analysis}
+
+\textbf{The March 2020 Dash for Cash}
+
+Use Federal Reserve, Financial Stability Board, BIS, or other authoritative sources to examine the market turmoil of March 2020.
+
+\begin{enumerate}
+
+\item \textbf{Liquidity demand.}
+
+Identify why investors sought cash and which assets were sold.
+
+\item \textbf{Treasury-market functioning.}
+
+Explain how large sales affected dealer inventories, market depth, and intermediation capacity.
+
+\item \textbf{Margin and collateral.}
+
+Examine how market movements affected variation margin, initial margin, collateral requirements, or other short-term liquidity needs.
+
+\item \textbf{Funding and market liquidity.}
+
+Trace one feedback mechanism linking cash demand, asset sales, market liquidity, and funding conditions.
+
+\item \textbf{Institutional balance sheets.}
+
+Identify which institutions faced liquidity pressure and which balance sheets were able to absorb assets or provide funding.
+
+\item \textbf{Systemic amplification.}
+
+Distinguish default risk from liquidity and intermediation stress. Explain how severe market dysfunction could arise even in markets for securities with very low credit risk.
+
+\item \textbf{Policy boundary.}
+
+Identify the main forms of public intervention used to restore market functioning, leaving detailed analysis of crisis-management tools to Chapter~22.
+
+\end{enumerate}
+
+The final analysis should distinguish the initial shock from the balance-sheet, funding, and market mechanisms that amplified subsequent stress.
+
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Diamond, Douglas W., and Philip H. Dybvig (1983),
+``Bank Runs, Deposit Insurance, and Liquidity,''
+\emph{Journal of Political Economy}, 91(3), 401--419.
+
+\item Kiyotaki, Nobuhiro, and John Moore (1997),
+``Credit Cycles,''
+\emph{Journal of Political Economy}, 105(2), 211--248.
+
+\item Allen, Franklin, and Douglas Gale (2000),
+``Financial Contagion,''
+\emph{Journal of Political Economy}, 108(1), 1--33.
+
+\item Brunnermeier, Markus K., and Lasse Heje Pedersen (2009),
+``Market Liquidity and Funding Liquidity,''
+\emph{The Review of Financial Studies}, 22(6), 2201--2238.
+
+\item Adrian, Tobias, and Hyun Song Shin (2010),
+``Liquidity and Leverage,''
+\emph{Journal of Financial Intermediation}, 19(3), 418--437.
+
+\item Hanson, Samuel G., Anil K. Kashyap, and Jeremy C. Stein (2011),
+``A Macroprudential Approach to Financial Regulation,''
+\emph{Journal of Economic Perspectives}, 25(1), 3--28.
+
+\end{itemize}
+
+
+\ChapterTail{summary,mindmap,keyterms,aiprompt,questions,appprobs,dataapp,caseanalysis,furtherread}
