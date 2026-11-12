@@ -1,0 +1,1339 @@
+\chapter{Financial Regulation and Macroprudential Policy}
+\label{chap:Financial_Regulation_and_Macroprudential_Policy}
+
+\begin{openingcase}{When Every Bank Tries to Protect Itself}
+
+Suppose falling property prices weaken the capital positions of several major banks. Each bank responds in the same prudent way: it sells risky assets and cuts new lending to protect its capital ratio.
+
+For one bank acting alone, this response may reduce risk. But when many banks do it at the same time, asset sales drive prices lower, losses increase, and tighter credit further weakens borrower cash flows. Banks may then face renewed pressure to sell assets and restrict lending.
+
+\end{openingcase}
+
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+
+\item Which market failures and systemic externalities create a case for financial regulation, and what costs can poorly designed regulation impose?
+
+\item How do prudential, conduct, insurance, and resolution arrangements address different sources of financial fragility?
+
+\item How should regulation respond when similar financial activities migrate across banks, non-bank intermediaries, markets, and digital platforms?
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Why Financial Regulation Matters}
+
+Financial regulation responds to frictions such as information asymmetry, agency problems, externalities, market power, and coordination failures. In such settings, private decisions may not fully reflect risks imposed on other market participants or on the financial system.
+
+Regulation can improve information, strengthen loss-absorbing and liquidity capacity, limit destabilizing incentives, support market integrity, and make institutional failure less disruptive to the broader financial system.
+
+\subsection{Market Failures, Systemic Externalities, and Collective-Action Problems}
+
+The case for financial regulation can be organized around three related mechanisms: market failures within financial relationships, external effects transmitted across institutions and markets, and collective responses that amplify stress.
+
+\textbf{Market failures} arise when private contracting does not fully resolve information, agency, or market-power problems. Issuers may possess information that dispersed investors cannot obtain efficiently, while managers, brokers, or advisers may face incentives that differ from those of investors or clients. Disclosure, auditing, fiduciary standards, and conduct rules can reduce some of these frictions.
+
+\textbf{Systemic externalities} arise when the actions of one institution affect prices, funding conditions, or the financial positions of others. A leveraged intermediary that sells assets under pressure may contribute to lower market prices, while heavy reliance on short-term funding can increase refinancing pressure elsewhere in the system.
+
+\textbf{Collective-action problems} arise when individually reasonable responses become destabilizing when undertaken simultaneously. Banks may reduce lending to preserve capital, investors may sell assets to obtain liquidity, and depositors may withdraw funds to protect themselves. The combined response can intensify credit contraction, price declines, or funding stress.
+
+These mechanisms can be summarized by distinguishing private from social cost. Let a financial institution choose risk exposure \(x\). Its private expected cost is \(C_P(x)\), while its actions impose an external cost \(C_E(x)\) elsewhere in the financial system. The social cost is
+
+\begin{equation}
+C_S(x)
+=C_P(x)+C_E(x).
+\label{eq:ch23-social-cost}
+\end{equation}
+
+If the institution bears only part of \(C_E(x)\), its privately chosen exposure may exceed the level that reflects the wider effects of its decision. Regulatory design can then be viewed as an effort to alter private incentives so that more of these wider costs enter financing, risk-taking, and failure decisions.
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: Private Decisions Can Have System-Wide Effects},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+Financial regulation addresses not only risks within individual contracts or institutions, but also effects that private parties may not fully consider. The distinction between private and system-wide consequences provides the basis for choosing among different regulatory instruments.
+
+\end{tcolorbox}
+
+\subsection{Stability, Efficiency, Competition, and the Costs of Regulation}
+
+Identifying a market failure or systemic externality establishes a rationale for intervention, but it does not determine the appropriate form or intensity of regulation. Regulatory rules can improve stability and market functioning while also changing funding choices, entry conditions, competition, and the allocation of financial resources.
+
+These effects differ across regulatory instruments. Capital requirements can increase loss-absorbing capacity while altering the cost and composition of funding. Liquidity requirements can reduce refinancing vulnerability while increasing demand for liquid assets. Conduct and licensing rules can strengthen market standards while raising compliance costs or affecting entry. Regulatory design therefore involves trade-offs between resilience and the costs created by intervention.
+
+A simple framework makes this trade-off explicit. Let regulatory intensity be \(z\). A stylized net social benefit can be written as
+
+\begin{equation}
+NB(z)
+=B_S(z)+B_E(z)-C_R(z)-C_D(z),
+\label{eq:ch23-regulatory-net-benefit}
+\end{equation}
+
+where \(B_S\) denotes benefits from greater financial stability, \(B_E\) benefits from more efficient and better-informed financial activity, \(C_R\) direct regulatory and compliance costs, and \(C_D\) indirect costs arising from distortions such as reduced competition, migration toward less-regulated activities, or constraints on useful financial activity.
+
+These components are difficult to measure precisely, but the framework highlights an important principle: stronger regulation need not always produce greater net benefit. The appropriate calibration depends on how a rule changes both risk and economic activity.
+
+Competition is part of this balance. Greater competition can lower prices, widen access, and encourage innovation, while changes in margins and market structure can also affect risk-taking incentives. Rules that raise entry barriers or impose similar requirements on institutions with very different risk profiles may create costs without producing equivalent gains in resilience.
+
+Effective regulation therefore depends on calibration, scope, proportionality, and enforceability. The objective is not to maximize the intensity of regulation, but to address financial vulnerabilities while limiting unnecessary distortions to efficient financial activity and competition.
+
+
+\section{Investor Protection and Market Integrity}
+
+Prudential regulation focuses on institutional resilience and financial stability. Conduct regulation focuses on the quality of financial transactions, including disclosure, intermediary duties, and fair trading.
+
+Investor protection does not eliminate investment risk. It seeks to ensure that investors can assess risks with adequate information and that market prices are not distorted by misleading, conflicted, or abusive conduct.
+
+
+\subsection{Disclosure, Transparency, and Information Quality}
+
+One important channel of conduct regulation is the information available to market participants. Disclosure requirements expand the information set used in valuation, while transparency improves the accessibility and comparability of that information.
+
+Suppose a security is valued using the information set \(\mathcal{I}\):
+
+\begin{equation}
+V_0
+=\sum_{t=1}^{T}
+\frac{E[CF_t\mid\mathcal{I}]}{(1+r_t)^t}.
+\label{eq:ch23-information-valuation}
+\end{equation}
+
+Improved information can revise expected cash flows, reduce uncertainty about possible outcomes, and affect the required return. It can therefore support more informative valuation and price discovery.
+
+Transparency also supports market discipline. When investors can compare leverage, liquidity, fees, conflicts of interest, and risk exposures, these differences can be reflected in prices, funding costs, and portfolio allocation.
+
+The effectiveness of disclosure depends on information quality rather than volume alone. Excessive detail can obscure material information, while excessive aggregation can conceal important exposures. Relevance, timeliness, comparability, consistency, and presentation therefore remain central to effective disclosure.
+
+\subsection{Suitability, Fiduciary Duties, and Investor Protection}
+
+Disclosure improves the information available to investors, but information alone does not resolve conflicts that arise when investment decisions are delegated to intermediaries. Brokers, advisers, and asset managers may recommend or select financial products on behalf of clients whose interests need not fully coincide with their own.
+
+A suitability standard generally requires a recommendation to reflect relevant client characteristics, including investment objectives, risk tolerance, time horizon, financial circumstances, and knowledge. The precise standard varies across jurisdictions and financial products.
+
+Where fiduciary duties apply, they impose broader obligations of loyalty and care toward the client or beneficiary. Suitability focuses on whether a recommendation is appropriate for a particular client, while fiduciary duties govern how delegated authority is exercised and how conflicts of interest are managed.
+
+The underlying mechanism can be represented as an agency problem. Let \(F(P)\) denote the compensation received by an intermediary from recommending product \(P\). If compensation differs across products and conflicts are not effectively constrained, the intermediary may prefer
+
+\begin{equation}
+P^{*}
+\in
+\arg\max_P F(P),
+\label{eq:ch23-conflicted-choice}
+\end{equation}
+
+even when another product is better aligned with the client's objectives.
+
+Suitability rules, fiduciary duties, compensation disclosure, product governance, and supervision can reduce this divergence by changing the incentives and constraints faced by intermediaries. Investor protection in this setting concerns the quality of the recommendation and decision process rather than the elimination of investment risk.
+
+
+\subsection{Conflicts of Interest and Market Conduct}
+
+The agency problem in client advice is one form of a broader conduct problem. Conflicts can also arise when a financial intermediary serves several parties or performs activities whose incentives do not fully align.
+
+An investment bank may advise an issuer while distributing its securities, an asset manager may allocate trades across several funds, and a platform may rank financial products while receiving fees from providers. Such arrangements do not necessarily imply misconduct, but they can affect allocation, pricing, execution, or access to information.
+
+Regulatory controls seek to limit the influence of these conflicts on financial decisions. Common mechanisms include organizational separation, information barriers, independent review, compensation controls, disclosure, restricted activities, and transaction monitoring.
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: A Conflict Is Not the Same as Misconduct},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+A conflict of interest creates the possibility that one interest may influence another. Misconduct arises when behavior violates applicable duties or market rules. Regulation therefore distinguishes between conflicts that can be managed through disclosure, separation, monitoring, or governance and those that require stronger restrictions.
+
+\end{tcolorbox}
+
+
+Market conduct rules extend beyond conflicts of interest to the trading process itself. They address the use of confidential information, treatment of client orders, trade allocation, execution, and other practices that can distort transactions or price formation.
+
+Effective conduct rules can reduce the informational and transactional disadvantages faced by market participants. This can support participation, improve the quality of trading, and strengthen market integrity.
+
+
+\subsection{Insider Trading}
+
+Among market-conduct concerns, insider trading focuses on the use of material nonpublic information in securities transactions. The central issue is not informational advantage itself, but how that advantage is obtained.
+
+Financial markets reward investors who acquire and interpret information through research and analysis. A different concern arises when information is available through corporate position, fiduciary responsibility, or confidential access. A manager who trades before the public announcement of a major corporate event, for example, can act on information unavailable to other market participants.
+
+Insider-trading rules seek to limit the use of such privileged information under conditions defined by applicable law. The precise legal boundaries vary across jurisdictions, particularly with respect to duties, tipping, and the treatment of possession or use of information.
+
+The economic effect extends beyond individual transactions. If access to privileged information provides a systematic trading advantage, other investors may face greater informational disadvantage and may adjust their willingness to participate or the compensation they require for trading.
+
+Insider-trading regulation therefore complements disclosure requirements. Timely public disclosure narrows the period during which material corporate information remains available only to a limited group of market participants.
+
+\subsection{Market Manipulation}
+
+Insider trading concerns the use of privileged information. Market manipulation involves a different form of market-conduct problem: attempts to distort the signals conveyed by prices, orders, or trading activity.
+
+An informed trader seeks to profit from an assessment of fundamental value. A manipulative strategy instead seeks to influence how other market participants perceive price, supply, demand, liquidity, or trading interest.
+
+Such conduct can include wash transactions, matched orders, dissemination of false information, price marking, or orders designed to create a misleading impression of market conditions. The legal treatment of particular practices varies across jurisdictions and market structures.
+
+Manipulation can impair price discovery by reducing the informational content of observed prices and order flow. If market participants cannot distinguish genuine trading interest from artificial signals, they may place less weight on quoted prices, liquidity, and transaction activity.
+
+Electronic trading can change both the form of manipulation and the means of control. Rapid order submission may allow some strategies to operate at greater scale, while detailed audit trails and automated surveillance can improve the detection of unusual trading patterns.
+
+\begin{table}[H]
+\centering
+\caption{Informational Advantage and Market Manipulation}
+\begin{tabularx}{0.92\textwidth}{lXX}
+\toprule
+ & \textbf{Informational Trading} & \textbf{Market Manipulation} \\
+\midrule
+Source of advantage 
+& Superior information or analysis 
+& Distortion of prices, orders, or trading signals \\
+
+Primary mechanism
+& Interpreting information about value
+& Influencing how market conditions appear to others \\
+
+Main concern
+& Unequal or privileged access to information
+& Misleading price discovery or trading activity \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Enforcement, Surveillance, and Market Integrity}
+
+The effectiveness of market-conduct rules depends partly on whether suspicious activity can be detected and violations can be credibly enforced. Surveillance identifies activity that may require examination, while enforcement determines whether applicable rules have been breached and applies the relevant consequences.
+
+Market surveillance draws on orders, trades, positions, disclosures, and account information to identify unusual patterns. Such patterns are signals for further investigation rather than evidence of misconduct by themselves. Their interpretation requires information about the surrounding transactions, relationships, and market conditions.
+
+Technology can expand the scale and speed of this process. Automated systems can identify unusual trading patterns or links across accounts, although their outputs remain subject to model error and changes in trading behavior. Data analysis therefore supports, rather than replaces, investigation and legal review.
+
+Enforcement affects incentives by changing the expected cost of misconduct. Let \(G\) denote the private gain from a prohibited strategy, \(q\) the probability that the violation is detected and successfully enforced, and \(L\) the loss imposed on the violator if enforcement occurs. A stylized expected payoff is
+
+\begin{equation}
+E[\Pi_M]
+=G-qL.
+\label{eq:ch23-enforcement-deterrence}
+\end{equation}
+
+A higher probability of detection or a more consequential sanction can reduce the expected return from misconduct. The deterrent effect, however, depends on credible enforcement and on procedures that distinguish abusive conduct from legitimate trading.
+
+Market integrity may also require cooperation across jurisdictions. When issuers, intermediaries, trading venues, and beneficial owners span several markets, information sharing and supervisory coordination can improve the tracing of transactions and the application of market rules.
+
+
+\section{Microprudential Regulation and Supervision}
+
+Microprudential regulation does not seek to eliminate all bank failures. It aims to strengthen the capacity of individual institutions to absorb losses and meet obligations, while reducing the likelihood of disorderly failure. If failure occurs, the objective is to limit disruption to depositors, creditors, and financial intermediation.
+
+\subsection{Capital Requirements and Loss-Absorbing Capacity}
+
+A first mechanism for strengthening institutional resilience is to require sufficient capital relative to bank exposures. Capital absorbs losses before many creditor claims are impaired, thereby providing a buffer against deterioration in asset values.
+
+A simplified risk-weighted capital ratio is
+
+\begin{equation}
+\kappa
+=\frac{K}{RWA},
+\label{eq:ch23-risk-weighted-capital}
+\end{equation}
+
+where \(K\) denotes eligible regulatory capital and \(RWA\) denotes risk-weighted assets.
+
+Risk weights adjust required capital for differences in the measured risk of bank exposures. Lower-risk assets may receive lower weights, while higher-risk exposures may require more capital relative to their accounting value.
+
+This risk sensitivity improves the link between measured risk and capital requirements, but it also introduces measurement and model risk. If risk weights understate potential losses, a bank may report a strong risk-weighted capital ratio while still carrying substantial exposure relative to its capital.
+
+A leverage ratio provides a complementary non-risk-based constraint:
+
+\begin{equation}
+LR
+=\frac{K_{\mathrm{Tier1}}}{E_{\mathrm{total}}},
+\label{eq:ch23-leverage-ratio}
+\end{equation}
+
+where \(E_{\mathrm{total}}\) denotes the regulatory exposure measure.
+
+The two ratios serve different purposes. The risk-weighted ratio relates capital to the measured risk of asset composition, while the leverage ratio limits total exposure relative to capital and reduces reliance on risk weights alone.
+
+\begin{example}{Risk-Weighted and Unweighted Constraints}{capital-example}
+
+Suppose Bank A has RMB~100 billion of total exposure and RMB~8 billion of eligible capital. Under the simplified measure, its leverage ratio is
+
+$$
+LR=\frac{8}{100}=8\%.
+$$
+
+If risk-weighted assets are RMB~50 billion, its risk-weighted capital ratio is
+
+$$
+\kappa=\frac{8}{50}=16\%.
+$$
+
+The difference reflects the role of risk weights. The leverage ratio compares capital with total exposure, while the risk-weighted ratio compares capital with measured risk-weighted exposure.
+
+\end{example}
+
+Capital strengthens loss-absorbing capacity, but it does not by itself ensure that a bank can meet short-term cash outflows. Liquidity regulation addresses that separate dimension of resilience.
+
+\subsection{Liquidity Requirements and Funding Resilience}
+
+The next dimension of institutional resilience is the ability to meet cash outflows without relying on distressed asset sales or unstable refinancing. Liquidity regulation therefore addresses both readily available liquid resources and the stability of bank funding.
+
+A short-horizon liquidity measure compares high-quality liquid assets with expected net cash outflows under stress. In simplified form,
+
+\begin{equation}
+LCR
+=\frac{HQLA}
+{\text{Net Cash Outflows over the Stress Horizon}}.
+\label{eq:ch23-lcr}
+\end{equation}
+
+The liquidity coverage ratio focuses on the capacity to meet short-term cash needs during a period of stress.
+
+Funding resilience depends on a longer horizon. A simplified net stable funding ratio is
+
+\begin{equation}
+NSFR
+=
+\frac{ASF}{RSF},
+\label{eq:ch23-nsfr}
+\end{equation}
+
+where \(ASF\) denotes available stable funding and \(RSF\) denotes required stable funding based on the maturity and liquidity characteristics of assets and other exposures.
+
+The two measures address different dimensions of liquidity risk. The LCR emphasizes short-term liquidity under stress, while the NSFR limits excessive reliance on unstable funding to support longer-term or less liquid assets.
+
+These measures necessarily rely on standardized assumptions about cash outflows, funding stability, and asset liquidity. Actual liquidity conditions can deteriorate during stress, so regulatory ratios complement rather than replace internal liquidity and funding management.
+
+
+\subsection{The Basel Framework and Risk-Based Supervision}
+
+Capital, leverage, and liquidity requirements operate within a broader prudential framework. The Basel framework organizes these requirements together with supervisory review and public disclosure, while national and regional authorities determine their legal implementation.
+
+The framework combines three broad elements. \textbf{Minimum quantitative requirements} establish common constraints on capital, leverage, liquidity, and major risk exposures. \textbf{Supervisory review} assesses risks that may not be captured fully by standardized requirements, including concentration, governance, internal controls, and risk-management quality. \textbf{Public disclosure} provides information that can support market discipline.
+
+Risk-based supervision extends this framework by directing supervisory attention toward institutions, activities, and exposures associated with greater potential losses or wider consequences. Supervisory assessment therefore considers both reported ratios and the underlying sources of risk.
+
+Risk measurement creates an additional trade-off. Internal models can incorporate institution-specific information and improve risk sensitivity, but they may reduce comparability across banks and create incentives to lower measured risk. Standardized approaches improve consistency, although they may capture portfolio differences less precisely.
+
+The resulting architecture combines common quantitative standards with supervisory judgment, disclosure, and simpler backstops. This reduces reliance on any single measure of bank risk.
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: Regulatory Ratios Embed Assumptions about Risk},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+A regulatory ratio summarizes selected dimensions of risk through defined exposures, weights, and measurement rules. Its interpretation therefore depends partly on how those elements are specified. Supervisory review, disclosure, and simpler backstops provide complementary perspectives on institutional resilience.
+
+\end{tcolorbox}
+
+
+
+\section{Macroprudential Policy and Systemic Risk}
+
+Microprudential regulation focuses on the resilience of individual institutions. Macroprudential policy focuses on vulnerabilities that emerge from interactions across institutions, markets, and the financial cycle.
+
+Systemic risk can be viewed along two broad dimensions. The \textbf{time dimension} concerns the build-up and unwinding of vulnerabilities over the financial cycle, including rapid credit growth, rising leverage, and procyclical adjustment. The \textbf{cross-sectional dimension} concerns how risk is distributed and transmitted across the financial system through common exposures, interconnectedness, concentration, and the systemic importance of particular institutions.
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+    node distance=0.6cm and 1.0cm,
+    every node/.style={font=\small},
+    box/.style={
+        draw=FinanceBlue,
+        rounded corners=2pt,
+        align=center,
+        minimum width=4.8cm,
+        minimum height=0.9cm,
+        inner sep=6pt
+    },
+    subbox/.style={
+        draw=FinanceBlue,
+        rounded corners=2pt,
+        align=center,
+        minimum width=4.6cm,
+        minimum height=0.85cm,
+        inner sep=5pt
+    },
+    tool/.style={
+        draw=FinanceBlue,
+        fill=FinanceBlue!5,
+        rounded corners=2pt,
+        align=center,
+        minimum width=4.6cm,
+        minimum height=0.85cm,
+        inner sep=5pt
+    },
+    arrow/.style={
+        -{Latex[length=2mm]},
+        thick,
+        draw=gray!75
+    }
+]
+
+% Main dimension boxes
+\node[box] (time) {
+    \textbf{Time Dimension}\\
+    Build-up and unwinding \\of vulnerabilities
+};
+
+\node[box, right=1.5cm of time] (cross) {
+    \textbf{Cross-Sectional Dimension}\\
+    Distribution and transmission \\of systemic risk
+};
+
+% Sources of vulnerability
+\node[subbox, below=of time] (timevul) {
+    Credit growth\\
+    Leverage build-up\\
+    Procyclical adjustment
+};
+
+\node[subbox, below=of cross] (crossvul) {
+    Common exposures\\
+    Interconnectedness\\
+    Concentration and systemic importance
+};
+
+% Policy tools
+\node[tool, below=of timevul] (timetools) {
+    Countercyclical capital buffers\\
+    Borrower-based instruments
+};
+
+\node[tool, below=of crossvul] (crosstools) {
+    Structural buffers\\
+    Large-exposure limits\\
+    System-wide stress testing
+};
+
+% Bottom integrating box
+\node[box,
+      below=1.25cm of $(timetools.south)!0.5!(crosstools.south)$,
+      minimum width=11.4cm] (coord) {
+    \textbf{System-Wide Surveillance and Policy Coordination}
+};
+
+% Arrows
+\draw[arrow] (time) -- (timevul);
+\draw[arrow] (timevul) -- (timetools);
+
+\draw[arrow] (cross) -- (crossvul);
+\draw[arrow] (crossvul) -- (crosstools);
+
+\draw[arrow] (timetools) -- (coord);
+\draw[arrow] (crosstools) -- (coord);
+
+\end{tikzpicture}
+
+\caption{Two Dimensions of Macroprudential Policy}
+\label{fig:ch23-macroprudential-dimensions}
+
+\end{figure}
+
+
+\subsection{Countercyclical Capital Buffers}
+
+The time dimension of systemic risk creates a role for capital requirements that vary over the financial cycle. A countercyclical capital buffer allows banks to build additional capital during periods of rising system-wide vulnerability and to draw on that buffer when stress emerges.
+
+Let the required capital ratio be
+
+\begin{equation}
+\kappa_t^{req}
+=
+\kappa^{base}+b_t,
+\label{eq:ch23-ccyb}
+\end{equation}
+
+where \(b_t\) denotes the time-varying buffer.
+
+When credit expansion and related vulnerabilities increase, a higher \(b_t\) raises loss-absorbing capacity before losses materialize. During stress, reducing or releasing the buffer gives banks more room to absorb losses without immediately restoring capital ratios through asset contraction.
+
+This mechanism can moderate procyclical balance-sheet adjustment. In a downturn, losses reduce capital while external equity may become more costly to raise. A fixed binding requirement can then increase pressure to reduce lending or other assets. A releasable buffer provides additional adjustment capacity.
+
+Calibration is less straightforward. Rapid credit growth may reflect financial deepening as well as rising vulnerability, and turning points in the financial cycle are difficult to identify in real time. Buffer decisions therefore depend on both the strength and the persistence of observed vulnerabilities.
+
+\subsection{Borrower-Based Instruments}
+
+Countercyclical capital buffers operate through bank capital. Borrower-based instruments address vulnerabilities more directly at the level of the loan contract by limiting borrower leverage or debt-servicing burdens.
+
+A loan-to-value ratio is
+
+\begin{equation}
+LTV
+=\frac{L}{V_C},
+\label{eq:ch23-ltv}
+\end{equation}
+
+where \(L\) denotes the loan amount and \(V_C\) the value of collateral. A lower maximum LTV requires a larger borrower equity contribution and provides a greater cushion against declines in collateral value.
+
+A debt-service-to-income ratio can be written as
+
+\begin{equation}
+DSTI
+=\frac{\text{Periodic Debt Service}}
+{\text{Periodic Borrower Income}}.
+\label{eq:ch23-dsti}
+\end{equation}
+
+A lower maximum DSTI limits the share of income committed to debt payments and can reduce vulnerability to income or interest-rate shocks.
+
+The two instruments address different dimensions of borrower risk. LTV focuses on leverage and collateral coverage, while DSTI focuses on repayment capacity.
+
+Borrower-based limits can be targeted toward lending markets in which vulnerabilities are concentrated. Their calibration also affects credit access: tighter LTV limits, for example, may constrain borrowers with limited accumulated wealth even when their income is sufficient to service the loan. Differentiated limits or exemptions can partly address these trade-offs.
+
+\subsection{Systemically Important Institutions and Structural Buffers}
+
+Borrower-based instruments operate at the level of lending conditions. Macroprudential policy also distinguishes among institutions according to the wider consequences of their distress or failure.
+
+Systemic importance can arise from size, interconnectedness, substitutability, complexity, or cross-border activity. An institution with greater systemic importance can transmit larger losses or operational disruption to other parts of the financial system.
+
+Let \(L_i\) denote the direct loss associated with the failure of institution \(i\), and \(X_i\) the additional loss transmitted to the rest of the system. The social loss can be written as
+
+\begin{equation}
+L_i^{S}
+=L_i+X_i.
+\label{eq:ch23-systemic-loss}
+\end{equation}
+
+When \(X_i\) is substantial, private risk-taking decisions may not fully reflect the wider consequences of institutional distress.
+
+Structural buffers provide additional loss-absorbing capacity for institutions whose distress could impose larger system-wide costs. Other requirements can address related channels: large-exposure limits reduce concentration, while enhanced supervision and resolution planning can improve operational continuity and resolvability.
+
+Systemic importance is therefore multidimensional rather than a function of size alone. An institution may be difficult to replace, highly interconnected, or complex to resolve even when its balance sheet is not the largest in the market.
+
+\subsection{System-Wide Stress Testing and Surveillance}
+
+Identifying systemically important institutions is only one part of macroprudential assessment. System-wide analysis also examines how common shocks and financial linkages can transmit stress across institutions and markets.
+
+A system-wide stress test considers both direct losses and losses generated through these interactions. Suppose institution \(i\) experiences a direct scenario loss \(L_i^{0}\). If fire sales, funding spillovers, or counterparty exposures generate an additional loss \(L_i^{F}\), total stress loss can be written as
+
+\begin{equation}
+L_i^{stress}
+=L_i^{0}+L_i^{F}.
+\label{eq:ch23-system-stress-loss}
+\end{equation}
+
+The second term can depend on the responses of other institutions. Stress testing therefore examines not only exposure to a common shock, but also the feedback mechanisms through which balance-sheet adjustments can amplify and redistribute losses.
+
+Surveillance serves a different but complementary function. It monitors the build-up of vulnerabilities through indicators such as credit growth, leverage, funding structures, common exposures, interconnectedness, market prices, and conditions in non-bank finance.
+
+Stress tests are scenario-based exercises rather than forecasts. Their results depend on assumptions about market liquidity, correlations, counterparty behavior, and balance-sheet adjustment. Stress testing and surveillance therefore provide complementary views of systemic vulnerability: one examines how stress may propagate under specified conditions, while the other tracks how vulnerabilities evolve over time.
+
+\subsection{Monetary and Macroprudential Policy Coordination}
+
+System-wide surveillance identifies vulnerabilities, but policy response also depends on which instruments are best suited to address them. Monetary and macroprudential policies can influence the same financial conditions while pursuing different primary objectives.
+
+Monetary policy affects economy-wide financing conditions through interest rates and related transmission channels. Macroprudential policy is more directly targeted at financial resilience, leverage, and the build-up of sector-specific vulnerabilities.
+
+This distinction matters when financial risks are concentrated. If credit expands rapidly in one sector while broader economic conditions remain weak, changing the policy rate affects the entire economy, whereas a targeted prudential measure can act more directly on the source of vulnerability.
+
+The two policies can also alter each other's transmission. Macroprudential constraints may moderate the response of credit to changes in interest rates, while stronger financial buffers can affect how the banking system absorbs shifts in monetary conditions.
+
+Coordination therefore concerns the assignment and interaction of policy instruments. The relevant question is not whether the two policies share a single objective, but whether their combined effects are consistent with both macroeconomic and financial stability.
+
+
+\section{Financial Safety Nets and Resolution}
+
+Prudential regulation can reduce the likelihood of institutional failure, but it cannot remove it entirely. Financial safety nets and resolution regimes provide mechanisms for dealing with distress when normal private adjustment is no longer sufficient.
+
+Financial safety nets protect selected claims and can reduce destabilizing withdrawals. Resolution regimes determine how a non-viable institution is restructured, transferred, recapitalized, or closed, while allocating losses and maintaining critical financial functions where possible.
+
+\subsection{Deposit Insurance Design and Coverage}
+
+Within the financial safety net, deposit insurance determines which deposit claims are protected and to what extent. Coverage is typically limited by depositor, account, institution, or other rules specified by the relevant framework.
+
+Let \(D_i\) denote the eligible deposit balance of depositor \(i\), and let \(C\) denote the coverage limit. A simplified insured amount is
+
+\begin{equation}
+I_i
+=
+\min\{D_i,C\}.
+\label{eq:ch23-deposit-insurance}
+\end{equation}
+
+The uninsured portion is
+
+\begin{equation}
+U_i
+=
+\max\{D_i-C,0\}.
+\label{eq:ch23-uninsured-deposit}
+\end{equation}
+
+Coverage changes withdrawal incentives. If depositors expect timely access to the insured portion of their balances, concern about bank failure provides less reason to withdraw those funds preemptively.
+
+Deposit-insurance design also determines which institutions and accounts are eligible, how coverage limits are applied, how rapidly insured deposits are paid or transferred, and how the system is financed. These features affect both the degree of protection and the credibility of the guarantee.
+
+Broader coverage can reduce the sensitivity of deposits to changes in confidence, but it can also weaken depositor incentives to monitor bank risk. Narrower coverage leaves a larger role for market discipline while exposing more funding to withdrawal pressure. Effective design therefore balances protection, credibility, and incentives.
+
+\subsection{Safety-Net Pricing and Moral Hazard}
+
+The same protection that reduces withdrawal incentives can also weaken depositor monitoring. When insured depositors bear less of the loss from bank failure, bank funding costs may become less sensitive to changes in risk. This creates a moral-hazard problem.
+
+Risk-based insurance premiums seek to restore part of the link between risk and the cost of protection. A simple premium schedule can be written as
+
+\begin{equation}
+\pi_i
+=
+\pi_0+\alpha z_i,
+\qquad
+\alpha>0,
+\label{eq:ch23-risk-based-premium}
+\end{equation}
+
+where \(\pi_i\) denotes the premium charged to institution \(i\), \(\pi_0\) the base premium, and \(z_i\) a measure of institution-specific risk. Higher measured risk therefore increases the price of insurance.
+
+Risk-based pricing is imperfect. Risk can change more rapidly than premium schedules, and measured risk may not capture vulnerabilities that become visible only under stress. Premiums that respond too little to risk provide limited discipline, while highly sensitive premiums can increase funding pressure when an institution is already under strain.
+
+Pricing therefore addresses only part of the incentive problem created by the safety net. Capital requirements, supervision, and resolution arrangements provide complementary constraints on risk taking and determine how losses are absorbed when failure occurs.
+
+\subsection{Recovery and Resolution Planning}
+
+Safety-net design affects incentives before distress occurs. Recovery and resolution planning address a later stage, when an institution's financial condition has deteriorated and ordinary adjustment may no longer be sufficient.
+
+Recovery planning applies while the institution remains viable. It identifies actions that management can take to restore capital, liquidity, or profitability, including capital raising, asset or business-line sales, liability management, reductions in risk-weighted assets, and restrictions on distributions.
+
+Resolution planning applies when recovery is no longer sufficient and the institution is failing or likely to fail under the relevant framework. It identifies critical functions, loss-absorbing resources, legal and operational dependencies, funding needs, and possible strategies for restructuring, transfer, or orderly exit.
+
+The distinction is functional. Recovery seeks to restore the institution to viability under private management, whereas resolution manages non-viability while preserving critical financial functions where feasible.
+
+Advance planning can improve resolvability by revealing obstacles before a crisis occurs. Complex legal structures, shared operational systems, cross-border dependencies, or insufficient loss-absorbing resources may otherwise limit the available options when rapid action is required.
+
+\subsection{Bail-In, Loss Allocation, and Orderly Resolution}
+
+Once resolution begins, the central questions are how losses are allocated and how critical financial functions can continue while the institution is restructured or closed.
+
+A simplified loss hierarchy can be represented as
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[
+    every node/.style={font=\small},
+    levelbox/.style={
+        draw=FinanceBlue,
+        rounded corners=2pt,
+        align=center,
+        minimum width=5.2cm,
+        minimum height=0.85cm,
+        inner sep=5pt
+    },
+    lossarrow/.style={
+        -{Latex[length=2mm]},
+        thick,
+        draw=gray!75
+    }
+]
+
+\node[levelbox] (eq) {\textbf{Equity}};
+
+\node[levelbox, below=0.45cm of eq] (sub)
+{\textbf{Subordinated debt}};
+
+\node[levelbox, below=0.45cm of sub] (senior)
+{\textbf{Eligible senior unsecured claims}};
+
+\node[levelbox, below=0.45cm of senior] (other)
+{\textbf{Other bail-in-eligible claims}\\
+according to the applicable creditor hierarchy};
+
+\draw[lossarrow] (eq) -- (sub);
+\draw[lossarrow] (sub) -- (senior);
+\draw[lossarrow] (senior) -- (other);
+
+\node[
+    font=\small\itshape,
+    below=0.35cm of other,
+    align=center
+] {
+    Subject to applicable creditor hierarchy and statutory exclusions
+};
+
+\end{tikzpicture}
+
+\caption{Simplified Loss-Absorption Sequence in Resolution}
+\label{fig:ch23-loss-hierarchy}
+
+\end{figure}
+The precise order depends on the legal framework, contractual terms, secured claims, depositor preference, and other resolution rules.
+
+Bail-in is one mechanism for applying this hierarchy. It writes down or converts eligible creditor claims after equity has absorbed losses. Suppose a failing bank has loss \(L\), equity \(E\), and bail-in-eligible debt \(B\). The loss allocated to eligible debt can be written as
+
+\begin{equation}
+L_B
+=\min\{\max(L-E,0),B\}.
+\label{eq:ch23-bail-in-loss}
+\end{equation}
+
+If sufficient liabilities can absorb losses and recapitalize viable activities, selected financial services may continue while ownership and creditor claims are restructured.
+
+Bail-in differs from public solvency support in the source of loss absorption. Under bail-in, losses are borne primarily by shareholders and eligible creditors rather than by public capital support.
+
+Orderly resolution can also involve sale-of-business transactions, bridge institutions, asset transfers, or liquidation. The choice of tool depends on the structure of the institution, the location of losses, and the need to preserve critical functions.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Loss Allocation and Continuity},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Orderly resolution combines two tasks: allocating losses according to the applicable hierarchy and maintaining critical financial functions where feasible. The effectiveness of resolution depends on whether these objectives can be achieved without shifting losses away from the investors intended to bear them.
+
+\end{tcolorbox}
+
+\section{The Regulatory Perimeter}
+
+The regulatory perimeter defines which institutions and activities are subject to particular financial rules. This boundary becomes important when similar financial functions are performed through banks, non-bank intermediaries, markets, or digital platforms.
+
+Differences in regulatory treatment can influence where financial activity is conducted and where risks accumulate. Perimeter design therefore seeks to align regulation with the economic function and risk of an activity while allowing for differences in funding structure, liabilities, and the consequences of failure.
+
+\subsection{Entity-Based and Activity-Based Regulation}
+
+The regulatory perimeter can be drawn in two complementary ways. One follows the institution performing the financial function; the other follows the activity and the risks it creates.
+
+\textbf{Entity-based regulation} applies requirements according to an institution's legal form, license, or regulatory status. Different regimes can therefore apply to banks, insurers, broker-dealers, asset managers, payment firms, and exchanges, reflecting differences in their balance sheets, liabilities, governance, and failure mechanisms.
+
+\textbf{Activity-based regulation} focuses on the economic function or risk generated by an activity. Similar requirements can then apply across institutional forms when comparable activities create similar risks.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Entity-Based and Activity-Based Regulation}
+
+\label{tab:ch23-entity-activity}
+
+\begin{tabularx}{\textwidth}{@{}p{3.5cm}YY@{}}
+
+\toprule
+
+\textbf{Dimension} &
+\textbf{Entity-Based Approach} &
+\textbf{Activity-Based Approach} \\
+
+\midrule
+
+Regulatory basis &
+Institution type, license, or legal status &
+Economic activity or risk characteristic \\
+
+Primary focus &
+Risks arising across the institution's balance sheet and organization &
+Risks associated with a particular financial function \\
+
+Potential limitation &
+Activities can migrate outside the regulated entity type &
+Interactions among activities within one institution may receive less attention \\
+
+Typical application &
+Banks, insurers, broker-dealers, and other regulated financial institutions &
+Payments, lending, custody, market conduct, and other cross-institution activities \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+The two approaches can be combined. Entity-based regulation captures risks that arise from the interaction of activities within an institution, while activity-based regulation promotes more consistent treatment when similar functions are performed across different institutional forms.
+
+The principle of ``same activity, same risk, similar regulatory treatment'' expresses this logic, but similar treatment need not imply identical rules. Funding structure, leverage, client relationships, and the consequences of failure can still differ across institutions.
+
+\subsection{Non-Bank Intermediation and Regulatory Arbitrage}
+
+Differences in regulatory treatment can influence where financial activities are conducted. Lending, funding, liquidity transformation, and other functions can be performed by non-bank intermediaries as well as by banks.
+
+Non-bank intermediation is not itself regulatory arbitrage. It can support specialization, market-based funding, innovation, and risk distribution. Regulatory arbitrage arises when an activity is reorganized partly to obtain more favorable regulatory treatment while preserving a similar underlying economic exposure.
+
+Suppose exposure \(X\) has regulatory cost \(c_B\) when held inside a bank and \(c_N\) when held through a non-bank structure, with
+
+\begin{equation}
+c_N<c_B.
+\label{eq:ch23-reg-arbitrage}
+\end{equation}
+
+Other things equal, this difference can create an incentive to shift the activity toward funds, finance companies, special-purpose vehicles, platforms, or other non-bank structures.
+
+The regulatory concern is whether risk declines with the change in institutional form. Leverage, maturity transformation, liquidity mismatch, or implicit support expectations may remain even when the activity moves outside the banking sector. Risk transfer can also be incomplete when banks remain connected to non-bank intermediaries through credit lines, sponsorship, securities holdings, or market-making relationships.
+
+Regulatory perimeter design therefore needs to distinguish genuine changes in economic structure from changes that mainly relocate risk across institutional forms.
+
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Financial regulation responds to information problems, agency conflicts, systemic externalities, and collective-action failures that private contracting may not fully internalize. Its design involves trade-offs among stability, efficiency, competition, and compliance cost.
+
+Investor-protection and market-integrity rules improve the information and conduct environment in which financial transactions take place. Microprudential regulation strengthens the resilience of individual institutions, while macroprudential policy addresses risks that arise from credit cycles, common exposures, correlated behavior, and systemic importance.
+
+Financial safety nets can reduce destabilizing withdrawals but may weaken private monitoring. Deposit insurance, recovery planning, resolution planning, and bail-in therefore combine protection with incentives, loss allocation, and continuity of critical functions.
+
+The regulatory perimeter determines how these rules apply across banks, non-bank intermediaries, markets, and other financial structures. Entity-based and activity-based approaches provide complementary ways to address risks that can migrate across institutional forms.
+
+
+%========================================================
+% Mind Map
+%========================================================
+
+\TailModule{mindmap}{Mind Map}
+
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  main/.style={
+    draw=FinanceBlue,
+    fill=FinanceBlue!7,
+    rounded corners=2pt,
+    align=center,
+    text width=4.4cm,
+    minimum height=0.95cm,
+    inner sep=5pt
+  },
+  sub/.style={
+    draw=FinanceBlue,
+    rounded corners=2pt,
+    align=center,
+    text width=3.8cm,
+    minimum height=0.85cm,
+    inner sep=5pt
+  },
+  wide/.style={
+    draw=FinanceBlue,
+    rounded corners=2pt,
+    align=center,
+    text width=7.6cm,
+    minimum height=0.9cm,
+    inner sep=5pt
+  },
+  line/.style={
+    line width=0.8pt,
+    draw=FinanceBlue
+  },
+  arrow/.style={
+    -Latex,
+    line width=0.8pt,
+    draw=FinanceBlue
+  }
+]
+
+% ------------------------------------------------
+% Nodes
+% ------------------------------------------------
+
+\node[main] (rationale) at (0,0)
+{Rationales for financial regulation\\
+information problems, incentives, externalities};
+
+\node[sub] (conduct) at (-5.0,-3.0)
+{Market conduct\\
+disclosure, investor protection, integrity};
+
+\node[sub] (micro) at (0,-3.2)
+{Microprudential regulation\\
+capital, liquidity, supervision};
+
+\node[sub] (macro) at (5.0,-3.5)
+{Macroprudential policy\\
+cycles, common exposures, systemic risk};
+
+\node[sub] (safety) at (2.5,-6.7)
+{Safety nets and resolution\\
+deposit insurance, recovery, bail-in};
+
+\node[wide] (perimeter) at (0,-9.4)
+{Regulatory perimeter\\
+entities, activities, and non-bank intermediation};
+
+% ------------------------------------------------
+% Top distribution bus
+% ------------------------------------------------
+
+\coordinate (topbus) at (0,-1.5);
+\coordinate (topL) at (-5.0,-1.5);
+\coordinate (topR) at (5.0,-1.5);
+
+\draw[line] (rationale.south) -- (topbus);
+\draw[line] (topL) -- (topR);
+
+\draw[arrow] (topL) -- (conduct.north);
+\draw[arrow] (topbus) -- (micro.north);
+\draw[arrow] (topR) -- (macro.north);
+
+% ------------------------------------------------
+% Micro + Macro to Safety Net
+% ------------------------------------------------
+
+\coordinate (mergeL) at (0,-5.2);
+\coordinate (mergeR) at (5.0,-5.2);
+\coordinate (mergeC) at (2.5,-5.2);
+
+\draw[line] (micro.south) -- (mergeL);
+\draw[line] (macro.south) -- (mergeR);
+\draw[line] (mergeL) -- (mergeR);
+\draw[arrow] (mergeC) -- (safety.north);
+
+
+% ------------------------------------------------
+% Regulatory perimeter as a cross-cutting layer
+% ------------------------------------------------
+
+\coordinate (perimbusL) at (-5.0,-8.1);
+\coordinate (perimbusR) at (5.0,-8.1);
+\coordinate (perimbusC) at (2.5,-8.1);
+\coordinate (perimbusCe) at (0,-8.1);
+
+% Horizontal bus
+\draw[line] (perimbusL) -- (perimbusR);
+
+% Left and right branches
+\draw[line] (conduct.south) -- (perimbusL);
+\draw[line] (macro.south) -- (perimbusR);
+
+% Safety connects vertically to the center
+\draw[line] (safety.south) -- (perimbusC);
+
+% Down to the regulatory perimeter
+\draw[arrow] (perimbusCe) -- (perimeter.north);
+
+\end{tikzpicture}
+
+\caption{Main Domains of Financial Regulation}
+\label{fig:ch23-regulation-structure}
+
+\end{figure}
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Financial regulation; market failure; systemic externality; collective-action problem;
+investor protection; disclosure; suitability; fiduciary duty; conflict of interest;
+insider trading; market manipulation; surveillance and enforcement;
+microprudential regulation; regulatory capital; risk-weighted assets; leverage ratio;
+Liquidity Coverage Ratio (LCR); Net Stable Funding Ratio (NSFR); Basel framework;
+macroprudential policy; countercyclical capital buffer; loan-to-value ratio (LTV);
+debt-service-to-income ratio (DSTI); systemically important institution;
+system-wide stress test; deposit insurance; moral hazard;
+recovery and resolution planning; bail-in; regulatory perimeter;
+entity-based regulation; activity-based regulation; non-bank financial intermediation;
+regulatory arbitrage.
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit an AI-Generated Regulatory Recommendation}
+
+Ask an AI system to recommend a regulatory response to a hypothetical financial vulnerability, such as rapid mortgage growth, rising bank leverage, conflicts in investment-product distribution, or liquidity transformation in a non-bank fund.
+
+Evaluate the recommendation in six stages.
+
+\begin{enumerate}
+
+\item \textbf{Identify the underlying problem.}
+
+Determine whether the vulnerability arises from information asymmetry, agency conflict, market conduct, systemic externalities, liquidity mismatch, or another mechanism.
+
+\item \textbf{Match the instrument to the problem.}
+
+Classify the proposed measure as conduct, microprudential, macroprudential, safety-net, resolution, or perimeter policy. Assess whether its mechanism corresponds to the identified vulnerability.
+
+\item \textbf{Separate institution-level and system-level effects.}
+
+Examine how the measure affects an individual institution and how similar responses across institutions could alter system-wide risk.
+
+\item \textbf{Assess costs and regulatory migration.}
+
+Consider effects on credit supply, competition, compliance costs, innovation, and the possible movement of activity toward differently regulated entities.
+
+\item \textbf{Identify jurisdiction-specific assumptions.}
+
+Distinguish general financial reasoning from claims that depend on legal definitions, regulatory rules, or current supervisory calibration.
+
+\item \textbf{Compare an alternative instrument.}
+
+Evaluate at least one alternative regulatory tool and explain how its transmission mechanism differs from that of the original recommendation.
+
+\end{enumerate}
+
+The final report should separate financial logic, regulatory design, and jurisdiction-specific legal requirements.
+
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why can a privately optimal level of leverage differ from the socially preferred level?
+
+\item Why is investor protection not the same as protection from investment losses, and how do disclosure and fiduciary standards address different problems?
+
+\item Why can a risk-weighted capital ratio and a leverage ratio provide different information about the same bank?
+
+\item How do the LCR and NSFR address different dimensions of liquidity risk?
+
+\item Why can a countercyclical capital buffer reduce procyclical adjustment more effectively than a fixed capital requirement alone?
+
+\item How do LTV and DSTI limits target different borrower vulnerabilities?
+
+\item Why can a systemically important institution face additional requirements even when its stand-alone probability of failure is not unusually high?
+
+\item How does deposit insurance reduce run incentives while also weakening depositor monitoring?
+
+\item What is the difference between recovery and resolution, and how does bail-in allocate losses once resolution begins?
+
+\item Why can entity-based regulation become incomplete when financial functions migrate across institutional forms?
+
+\end{enumerate}
+
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Private and Social Cost of Risk}
+
+A financial institution chooses a strategy with expected private cost of 4 and expected external cost of 3.
+
+\begin{enumerate}
+\item Calculate the social cost using Equation~\eqref{eq:ch23-social-cost}.
+\item Explain why the institution may underweight the external cost in its private decision.
+\item Identify one regulatory instrument that could make part of the external cost enter the institution's decision.
+\end{enumerate}
+
+
+\item \textbf{Risk-Weighted Capital and Leverage}
+
+A bank has RMB~120 billion of total regulatory exposure, RMB~60 billion of risk-weighted assets, and RMB~9 billion of eligible Tier~1 capital.
+
+\begin{enumerate}
+\item Calculate the simplified risk-weighted capital ratio.
+\item Calculate the simplified leverage ratio.
+\item Explain why both measures can be informative even when they move in different directions.
+\end{enumerate}
+
+
+\item \textbf{Liquidity Coverage}
+
+A bank holds RMB~30 billion of high-quality liquid assets. Under the regulatory stress scenario, expected cash outflows are RMB~45 billion and permitted inflows are RMB~18 billion.
+
+\begin{enumerate}
+\item Calculate net cash outflows.
+\item Calculate the LCR using Equation~\eqref{eq:ch23-lcr}.
+\item Explain how the ratio changes if expected outflows rise while HQLA remains unchanged.
+\end{enumerate}
+
+
+\item \textbf{Stable Funding}
+
+A bank has RMB~85 billion of available stable funding and RMB~80 billion of required stable funding.
+
+\begin{enumerate}
+\item Calculate the NSFR.
+\item Explain what economic change could reduce the ratio even if total assets remain unchanged.
+\item Explain why a stable-funding requirement complements rather than replaces short-horizon liquidity requirements.
+\end{enumerate}
+
+
+\item \textbf{Countercyclical Buffer}
+
+A banking system has a base capital requirement of 10 percent. The macroprudential authority adds a 2 percentage-point countercyclical buffer.
+
+\begin{enumerate}
+\item Calculate the total requirement using Equation~\eqref{eq:ch23-ccyb}.
+\item Suppose the buffer is later released during system-wide stress. Explain how release can reduce pressure for immediate balance-sheet contraction.
+\item Identify one risk of activating the buffer too late in a credit boom.
+\end{enumerate}
+
+
+\item \textbf{Borrower-Based Measures}
+
+A household seeks a RMB~3.6 million mortgage on a property valued at RMB~4.5 million. Monthly debt service would be RMB~18,000 and monthly household income is RMB~45,000.
+
+\begin{enumerate}
+\item Calculate the LTV.
+\item Calculate the DSTI.
+\item Explain which ratio is more directly related to collateral protection and which is more directly related to cash-flow capacity.
+\item Explain how a decline in property value affects LTV even if the loan balance does not change.
+\end{enumerate}
+
+
+\item \textbf{Deposit Insurance and Moral Hazard}
+
+A deposit-insurance system covers eligible deposits up to RMB~500,000 per depositor at an institution.
+
+\begin{enumerate}
+
+\item Calculate the insured and uninsured amounts for a depositor with RMB~320,000.
+
+\item Repeat the calculation for a depositor with RMB~800,000.
+
+\item Explain why the second depositor may have stronger incentives to monitor bank risk.
+
+\item Explain how risk-based insurance premiums can partly reduce the moral-hazard problem created by deposit protection.
+
+\end{enumerate}
+
+
+\item \textbf{Conflicts of Interest and Market Conduct}
+
+An investment platform recommends two similar financial products to a client. Product A pays the platform a commission of 1 percent, while Product B pays 3 percent. The client characteristics suggest that either product could meet the stated investment objective.
+
+\begin{enumerate}
+
+\item Identify the potential conflict of interest.
+
+\item Explain why disclosure of the commission may reduce, but not necessarily eliminate, the agency problem.
+
+\item Identify one suitability or fiduciary consideration that should enter the recommendation.
+
+\item Explain how compensation design or product-governance rules could change the intermediary's incentive.
+
+\end{enumerate}
+
+
+\item \textbf{Bail-In and Loss Allocation}
+
+A failing bank has RMB~12 billion of equity and RMB~20 billion of bail-in-eligible debt. Total losses are RMB~25 billion.
+
+\begin{enumerate}
+\item Calculate the loss absorbed by equity, assuming equity absorbs losses first.
+\item Calculate the loss allocated to eligible debt using Equation~\eqref{eq:ch23-bail-in-loss}.
+\item Calculate the remaining eligible debt after the loss allocation.
+\item Explain how the result would differ conceptually if the losses were covered by a public capital injection instead.
+\end{enumerate}
+
+\item \textbf{Regulatory Perimeter}
+
+A digital platform originates loans using its customer data, while licensed banks provide 80 percent of funding and investors in asset-backed securities provide most of the remainder. The platform retains little credit exposure.
+
+\begin{enumerate}
+\item Identify the main financial functions performed by the platform, banks, and investors.
+\item Explain which risks are best addressed through entity-based regulation.
+\item Identify one activity-based rule that could follow the lending function across institutions.
+\item Explain how regulation applied only to the legal lender could miss an important source of operational or model risk.
+\end{enumerate}
+
+\end{enumerate}
+
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Comparing Prudential Conditions over the Financial Cycle}
+
+Select a banking system for which consistent regulatory and macrofinancial data are available from a central bank, financial supervisor, the BIS, the IMF, or another authoritative source.
+
+Choose a period that includes both credit expansion and tighter financial conditions. Collect four to six indicators, such as:
+
+\begin{itemize}
+
+\item regulatory capital or leverage ratios;
+
+\item liquidity or stable-funding ratios;
+
+\item private credit growth;
+
+\item residential property prices;
+
+\item nonperforming loans;
+
+\item countercyclical capital buffer settings or borrower-based measures.
+
+\end{itemize}
+
+Use the data to address the following questions:
+
+\begin{enumerate}
+
+\item How did bank capital, liquidity, and asset quality change as credit conditions evolved?
+
+\item Did credit growth and property prices indicate a build-up of system-wide vulnerability?
+
+\item How did macroprudential policy respond as financial conditions changed?
+
+\item Did institution-level prudential indicators and system-level indicators ever point in different directions? Explain the economic significance of the divergence.
+
+\item Which indicators provided information not captured by credit growth or market prices alone?
+
+\end{enumerate}
+
+Document data definitions, sources, and any breaks in series arising from regulatory, accounting, or measurement changes.
+
+
+%========================================================
+% Case Analysis
+%========================================================
+
+\TailModule{caseanalysis}{Case Analysis}
+
+\textbf{From the Global Financial Crisis to the Post-Crisis Regulatory Architecture}
+
+Use sources from the BIS, Basel Committee, Financial Stability Board, IOSCO, national regulators, or well-documented academic research to examine how financial regulation changed after the Global Financial Crisis. Organize the analysis around economic mechanisms rather than a chronology of reforms.
+
+\begin{enumerate}
+
+\item \textbf{Loss Absorption.}
+
+Explain which weaknesses in pre-crisis capital and leverage arrangements the post-crisis reforms sought to address, and how the new requirements changed banks' capacity to absorb losses.
+
+\item \textbf{Liquidity and Funding.}
+
+Explain why short-term liquidity and longer-term funding stability became separate regulatory concerns and how the corresponding requirements address different vulnerabilities.
+
+\item \textbf{Systemic Risk.}
+
+Examine both dimensions of systemic risk. Explain why systemically important institutions may face additional requirements, and identify one macroprudential instrument designed to respond to vulnerabilities that build over the financial cycle.
+
+\item \textbf{Recovery and Resolution.}
+
+Explain how recovery planning, resolution planning, and bail-in seek to allocate losses, maintain critical functions, and improve the resolvability of large financial institutions.
+
+\item \textbf{Market Integrity.}
+
+Identify one post-crisis change in disclosure, conduct, trading, or derivatives-market oversight and relate it to an information, agency, or market-integrity problem.
+
+\item \textbf{Regulatory Perimeter.}
+
+Identify one financial activity that expanded or migrated outside traditional banks. Explain whether regulatory treatment followed the institution, the activity, or both.
+
+\item \textbf{Regulatory Trade-Offs.}
+
+Examine one case in which greater resilience was associated with higher compliance costs, changes in market structure, or migration of activity across the regulatory perimeter.
+
+\end{enumerate}
+
+The final analysis should distinguish the economic purpose of each regulatory mechanism from the specific legal or institutional form through which it is implemented.
+
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item La Porta, Rafael, Florencio Lopez-de-Silanes, and Andrei Shleifer (2006),
+``What Works in Securities Laws?''
+\emph{The Journal of Finance}, 61(1), 1--32.
+
+\item Acharya, Viral V. (2009),
+``A Theory of Systemic Risk and Design of Prudential Bank Regulation,''
+\emph{Journal of Financial Stability}, 5(3), 224--255.
+
+\item Hanson, Samuel G., Anil K. Kashyap, and Jeremy C. Stein (2011),
+``A Macroprudential Approach to Financial Regulation,''
+\emph{Journal of Economic Perspectives}, 25(1), 3--28.
+
+\item Basel Committee on Banking Supervision (2026),
+\emph{Basel Framework},
+Bank for International Settlements.
+
+\item International Organization of Securities Commissions (2017),
+\emph{Objectives and Principles of Securities Regulation},
+IOSCO.
+
+\item Financial Stability Board (2024),
+\emph{Key Attributes of Effective Resolution Regimes for Financial Institutions: Revised Version},
+Financial Stability Board.
+
+\end{itemize}
+
+
+\ChapterTail{summary,mindmap,keyterms,aiprompt,questions,appprobs,dataapp,caseanalysis,furtherread}
