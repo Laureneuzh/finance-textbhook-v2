@@ -1,0 +1,960 @@
+\chapter{The Future Architecture of Finance}
+\label{chap:The_Future_Architecture_of_Finance}
+
+\begin{openingcase}{The Bond Became a Token---What Actually Changed?}
+
+In February 2023, the Hong Kong government issued a tokenized green bond to institutional investors. Economically, the instrument remained a government debt claim: investors provided funds today in exchange for contractual future payments. Yet parts of its issuance, ownership recording, and settlement were carried out through digital ledger infrastructure.
+
+The financial promise did not change; the infrastructure supporting its issuance, ownership records, and settlement did.
+
+\end{openingcase}
+
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+
+\item How do AI and autonomous agents change information production and financial decision-making?
+
+\item How do CBDCs, tokenized deposits, and stablecoins differ as forms of digital money?
+
+\item How does tokenization change the representation, trading, and settlement of financial claims?
+
+
+\end{enumerate}
+\end{tcolorbox}
+
+
+\section{AI and Autonomous Financial Agents}
+
+Artificial intelligence is increasingly used not only to process information and support financial decisions, but also to perform sequences of tasks under delegated authority. An AI agent may collect information, evaluate alternatives, communicate with digital systems, and initiate transactions within a defined mandate. This creates a form of \emph{agentic intermediation}, in which software performs part of the decision and execution process on behalf of a principal.
+
+Such delegation can reduce information-processing and coordination costs, while increasing the importance of mandate design, authorization, monitoring, and accountability. Model error and misaligned objectives remain relevant when automated systems move from advice to action.
+
+\subsection{Generative AI and LLMs as Financial Information Infrastructure}
+
+Before AI systems act on financial decisions, they first change how information is produced, organized, and interpreted. Financial activity generates large amounts of text and semi-structured information, including financial statements, contracts, research reports, regulations, client communications, and transaction records. Generative AI and large language models (LLMs) can transform part of this material into searchable, comparable, and machine-actionable information, reducing the cost of information processing.
+
+Let raw information be \(D\), a model be \(M_{\theta}\), and task-specific context be \(C\). An AI-generated output can be represented as
+
+\begin{equation}
+Y=M_{\theta}(D,C).
+\label{eq:ch24-ai-information-output}
+\end{equation}
+
+This representation highlights that the quality of an output depends jointly on the underlying information, the model, and the context in which the task is defined. Errors may arise from any of these components.
+
+Lower processing costs do not remove information frictions. As summaries, classifications, and forecasts become easier to produce, verification may become relatively more important. Retrieval systems and external tools can improve grounding and calculation, but reliable analysis still depends on data provenance, definitions, timing, and economic interpretation.
+
+At the market level, these technologies can alter both the demand for and the supply of information. Investors may process more disclosures, while firms and other participants can generate more content at lower cost. Search costs may fall even as information volume rises, increasing the value of mechanisms that distinguish relevant signals from error, repetition, manipulation, and synthetic noise.
+
+In this sense, generative AI can become part of the information infrastructure of finance. When information-processing systems are given authority to act on that information, the problem shifts from analysis to delegation and execution.
+
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: AI Can Move the Bottleneck from Production to Verification},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+When information can be generated at low cost, reliable verification becomes more valuable. The usefulness of AI in finance depends partly on whether the data, assumptions, and sources underlying an output can be traced and checked.
+
+\end{tcolorbox}
+
+\subsection{Autonomous Agents and Agent-to-Agent Finance}
+
+An autonomous financial agent extends information processing into delegated action. It may observe information, select an action, use external tools, and execute transactions within a mandate specified by a principal.
+
+A simple decision rule can be represented as
+
+\begin{equation}
+a_t=\pi_{\theta}(I_t,M,C_t),
+\label{eq:ch24-agent-policy}
+\end{equation}
+
+where \(I_t\) is the information available at date \(t\), \(M\) is the principal's mandate, \(C_t\) represents operational and risk constraints, and \(a_t\) is the action selected by the agent. The mandate defines the objective, while the constraints limit the actions available to the system.
+
+Autonomous agents may perform standardized tasks such as cash management, payments, collateral allocation, trade execution, portfolio rebalancing, claims processing, and compliance checks. \emph{Agent-to-agent finance} arises when such systems interact directly. A treasury agent, for example, may request funding quotes from several financial institutions, compare the terms, and execute a transaction within predefined limits. Automation can reduce the coordination costs associated with repeated information exchange and execution.
+
+Delegation, however, introduces familiar agency problems in a new form. Objectives may be incomplete, constraints may be poorly specified, and observable targets may not fully represent the principal's interests. Greater transaction authority therefore places greater weight on mandate design, monitoring, and escalation rules.
+
+Control also depends on authorization and identity. Access to information can be separated from authority to transfer funds, pledge collateral, enter contracts, or alter portfolios. In agent-to-agent transactions, participants must also be able to identify whom an agent represents, determine its authority, and attribute its actions for verification and audit.
+
+Autonomous and agent-to-agent finance therefore depend not only on model capability, but also on permissions, digital identity, auditability, legal authority, and secure payment and settlement infrastructure.
+
+
+\subsection{Algorithmic Governance, Model Risk, and Financial Stability}
+
+As automated systems gain greater authority and operate at larger scale, errors can affect not only individual decisions but also the behavior of financial institutions and markets. The same speed and consistency that make automation useful can also transmit common errors more quickly.
+
+For institution \(i\), an automated decision can be represented as
+
+\begin{equation}
+a_{i,t}=\pi_{\theta_i}(I_{i,t}),
+\label{eq:ch24-common-model-action}
+\end{equation}
+
+where \(I_{i,t}\) is the information available to the institution and \(\theta_i\) represents its model and decision rule. When institutions rely on similar models, data sources, or optimization rules, similar information may generate correlated actions even when each institution acts independently.
+
+Model risk arises when a system is inaccurate, unstable, poorly calibrated, or unsuitable for the decision at hand. Data problems and dependence on common model, cloud, or infrastructure providers can extend such weaknesses across institutions. If automated systems respond similarly to changes in prices, volatility, liquidity, or collateral values, these responses may reinforce market movements and funding pressures.
+
+Algorithmic governance is therefore concerned with both model quality and the authority attached to model outputs. Relevant controls include validation, permissions, transaction limits, monitoring, escalation procedures, and audit trails. The appropriate level of control depends on the scale, speed, reversibility, and financial consequences of the activity.
+
+Human oversight remains useful, but it may be insufficient when decisions occur faster or in greater volume than meaningful case-by-case review allows. In such settings, governance relies more heavily on ex ante limits and system-level controls that constrain how automated decisions can affect institutions and markets.
+
+
+
+\section{Digital Money and the Future Monetary System}
+
+Digital money is a monetary claim represented and transferred through digital infrastructure. Its economic characteristics depend less on its technological form than on the issuer, the assets or balance sheet supporting the claim, the terms of redemption, and the mechanism of settlement.
+
+These features distinguish different forms of digital money. A central bank digital currency is a direct claim on the central bank. A tokenized deposit remains a liability of a commercial bank. A stablecoin may represent a claim backed by reserve assets, while some cryptoassets offer no redemption at par. Similar digital forms can therefore embody different credit, liquidity, and settlement risks.
+
+A monetary system must also connect these claims. Convertibility at par, interoperability across platforms, and reliable final settlement help different forms of money function as a common unit of payment rather than as separate digital instruments.
+
+
+\subsection{CBDCs and Public Digital Money}
+
+A central bank digital currency (CBDC) extends central bank money into a digital form that can circulate on new payment and settlement infrastructures. Its defining feature is the underlying claim on the central bank. Retail CBDC is intended for broader use by households and firms, while wholesale CBDC is designed mainly for settlement among eligible financial institutions.
+
+Retail CBDC can change how the public allocates balances between central bank money and commercial-bank deposits. A shift from deposits into CBDC reduces deposit funding available to banks and may become more pronounced during periods of financial stress. Design features such as holding limits, remuneration, and intermediated distribution can influence the scale and speed of this substitution.
+
+Its design also involves trade-offs among privacy, financial integrity, operational resilience, and recoverability. Greater traceability can support compliance and fraud control, while stronger privacy protection limits the information available to the payment system. The balance among these objectives depends partly on the role assigned to CBDC within the wider monetary system.
+
+Wholesale CBDC addresses a different part of the financial infrastructure. It can provide central bank settlement money for transactions involving tokenized securities and other digital assets, allowing the asset and payment legs to operate on more closely integrated infrastructures. This may reduce settlement frictions while preserving settlement in central bank money.
+
+CBDC is only one possible form of digital money. 
+Private institutions can also issue digital monetary claims, but their backing, redemption, and settlement structures differ from those of central bank money.
+
+
+
+\subsection{Tokenized Bank Deposits and Private Bank Money}
+
+A tokenized bank deposit differs from CBDC in its issuer. It remains a liability of a commercial bank, even when the claim is represented and transferred on tokenized infrastructure. The underlying deposit relationship is therefore preserved while the transaction mechanism changes.
+
+Tokenization can make bank deposits more compatible with programmable financial infrastructure. Deposit tokens may interact with smart contracts, tokenized securities, and automated payment conditions, allowing the transfer of money to be linked more closely to the transfer of other financial claims.
+
+As private bank money, however, tokenized deposits must also remain part of a common monetary system. Deposits issued by different banks can function at par when they are reliably convertible into one another and ultimately settle against a common monetary anchor. Prudential regulation, liquidity arrangements, and access to central bank settlement can support this convertibility.
+
+Tokenization need not change the way bank money is created. Commercial banks may continue to create deposits through lending and other balance-sheet operations, subject to capital, liquidity, funding, and regulatory constraints. A tokenized deposit therefore differs from a fully reserve-backed instrument that requires each unit issued to be matched by external backing assets.
+
+The main change lies in the representation and use of bank liabilities rather than in their monetary nature. Tokenized deposits remain part of the banking system, providing a useful benchmark for comparing other forms of private digital money with different backing and redemption structures.
+
+
+
+
+\subsection{Stablecoins and Private Digital Liquidity}
+
+Stablecoins are privately issued digital instruments designed to maintain a relatively stable value against a reference asset, often a sovereign currency. Their ability to function as digital liquidity depends on the structure supporting par value and redemption.
+
+For a reserve-backed stablecoin issuer, the balance sheet can be represented schematically as
+
+\begin{equation}
+R+O=S+E,
+\label{eq:ch24-stablecoin-balance-sheet}
+\end{equation}
+
+where \(R\) is the reserve portfolio, \(O\) represents other net assets, \(S\) is the outstanding stablecoin claim, and \(E\) is issuer equity or residual net worth. The quality and liquidity of the reserve portfolio affect the issuer's capacity to meet redemptions at the stated value.
+
+Stablecoins can circulate on programmable networks and support payments, trading, collateral transfers, and settlement within digital markets. Their liquidity role depends on the ability of users to transfer the instrument readily and convert it into the reference currency at or near par.
+
+This structure differs from that of bank deposits. Bank deposits are linked to bank credit creation, prudential regulation, payment systems, and central bank settlement, while stablecoins generally depend more directly on reserve management, custody, legal claims, and redemption procedures.
+
+Par value may weaken when users become uncertain about reserve quality, liquidity, redemption rights, or operational access. Such concerns can increase redemption pressure and cause the secondary-market price to depart from the stated value.
+
+Stablecoins can provide private digital liquidity while remaining linked to the sovereign unit of account through their redemption arrangements. As different forms of digital money coexist, the broader question is how these claims can remain connected within a common monetary system.
+
+
+\subsection{Interoperability and the Singleness of Money}
+
+When several monetary claims are denominated in the same currency, their usefulness depends partly on their ability to exchange at par. This property is commonly described as the \emph{singleness of money}: one unit of the currency retains the same monetary value across different issuers and payment arrangements.
+
+Suppose \(M_A\) and \(M_B\) are two digital monetary claims denominated in the same currency, and \(M_{CB}\) denotes central bank money. Under normal conversion and settlement conditions,
+
+\begin{equation}
+1M_A \approx 1M_B \approx 1M_{CB}.
+\label{eq:ch24-singleness}
+\end{equation}
+
+The claims need not be identical. They may differ in issuer, credit exposure, liquidity, and legal structure. Singleness instead requires that these differences do not produce persistent exchange-rate differences among claims expressed in the same unit of account.
+
+Interoperability supports this monetary integration by allowing information, payment instructions, and value to move across platforms. Technical connectivity may rely on common infrastructures, standardized messaging, or application interfaces. Effective interoperability also depends on legal recognition, identity, liquidity arrangements, compliance rules, and settlement finality.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Selected forms of digital money}
+
+\label{tab:ch24-digital-money}
+
+\begin{tabularx}{\textwidth}{@{}p{3.2cm}YYY@{}}
+
+\toprule
+
+\textbf{Form} &
+\textbf{Issuer / claim} &
+\textbf{Monetary anchor} &
+\textbf{Selected design issue} \\
+
+\midrule
+
+CBDC &
+Central-bank liability &
+Direct claim on central-bank money &
+Privacy, access, resilience \\
+
+Tokenized bank deposit &
+Commercial-bank liability &
+Par convertibility and central-bank settlement &
+Interoperability, bank risk, programmability \\
+
+Reserve-backed stablecoin &
+Private claim supported by reserve and redemption arrangements &
+Redemption into sovereign money &
+Reserve quality, liquidity, and par stability \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+A digital monetary system therefore requires more than multiple instruments that share the same unit of account. Its infrastructures must also support reliable conversion, transfer, and settlement across platforms. Once these systems are interoperable, transaction rules can also be embedded more directly into the execution process.
+
+
+\subsection{Programmable Money and Conditional Settlement}
+
+Programmability allows payment and settlement instructions to be executed according to predefined conditions. It is useful to distinguish \emph{programmable payments}, in which rules govern how a transfer is executed, from \emph{programmable monetary units}, in which restrictions or conditions are attached to the monetary instrument itself. Many financial applications rely on the former without changing the nature of the money being transferred.
+
+Suppose a payment \(P\) is executed only when condition \(Z=1\), such as verified delivery of an asset:
+
+\begin{equation}
+P=
+\begin{cases}
+P^{*}, & Z=1,\\
+0, & Z=0.
+\end{cases}
+\label{eq:ch24-conditional-payment}
+\end{equation}
+
+This is a contingent payment with automated execution. In delivery-versus-payment, the transfer of an asset is linked to the transfer of money so that settlement of one leg depends on settlement of the other. Payment-versus-payment applies a similar principle to linked currency transfers, reducing principal risk.
+
+Conditional settlement can reduce coordination and settlement frictions, but it also creates dependence on the rules, data, identity, and infrastructure used to trigger execution. Errors in coding, external data, authentication, or system availability can delay or misdirect a transaction.
+
+Programmability therefore changes the execution of contractual conditions rather than the underlying requirement for reliable information. Automated settlement remains dependent on how relevant states are defined, observed, and verified.
+
+
+\section{Tokenization of Assets and Programmable Securities}
+
+Tokenization extends programmable infrastructure from the payment side of a transaction to the asset or contractual claim being transferred.
+
+The economic nature of a tokenized asset depends on the underlying claim and the rights attached to it. Tokenization can change how these rights are recorded, transferred, and settled without necessarily changing the claim itself.
+
+\subsection{Digital Representation and Tokenization of Assets}
+
+Conditional settlement requires not only a transferable payment instrument but also a reliable digital representation of the asset or claim being exchanged. Tokenization provides this representation on programmable infrastructure.
+
+Let an underlying claim \(A\) be represented by token \(T_A\). A meaningful economic mapping requires
+
+\begin{equation}
+T_A \longleftrightarrow \mathcal{R}(A),
+\label{eq:ch24-token-mapping}
+\end{equation}
+
+where \(\mathcal{R}(A)\) denotes the rights associated with the underlying claim. The reliability of the token therefore depends on the legal and operational arrangements that connect the digital record to those rights.
+
+The mapping can take different forms. A tokenized existing asset represents a claim that is also recognized through an existing ownership or recordkeeping system, requiring consistency between the token and the underlying record. A digitally native security is issued directly on digital infrastructure, with ownership and transfer defined within the applicable legal and operational framework.
+
+Tokenization can reduce reconciliation when participants rely on a consistent record and can coordinate ownership transfer with settlement and contractual execution. These gains are more limited when tokenized records remain layered over fragmented systems that still require separate reconciliation.
+
+Fractional representation may also permit smaller transaction sizes and broader participation. 
+Once financial rights can be represented reliably in digital form, some of their contractual provisions can also be linked directly to programmable execution.
+
+
+\subsection{Smart Contracts and Programmable Financial Claims}
+
+A smart contract applies programmed rules to the execution of a financial claim. It may implement part of a legally enforceable agreement, while the underlying rights and obligations continue to depend on the relevant contractual and legal framework.
+
+Many financial claims already contain conditional provisions. Payments, collateral release, conversion, exercise, or termination may depend on dates, prices, repayment status, or other events. These contractual changes can be represented as
+
+\begin{equation}
+S_{t+1}=F(S_t,Z_t),
+\label{eq:ch24-smart-contract-state}
+\end{equation}
+
+where \(S_t\) is the current contractual state and \(Z_t\) is verified information that determines the next state or action.
+
+Programmable execution works more directly when the relevant information is digitally available and can be validated reliably. When a claim depends on information outside the platform, an external data source is required. This creates the \emph{oracle problem}: an incorrect or manipulated input may lead to an incorrect economic outcome even when the programmed rule operates as intended.
+
+Programmability can also make specification errors more consequential. Financial contracts may require interpretation, exceptions, amendment, or dispute resolution, while code executes the rule that has been specified. 
+Smart contracts can automate parts of financial claims, but automated execution does not by itself determine ownership, custody, or legal finality.
+
+
+\subsection{Ownership, Custody, and Legal Finality}
+
+Ownership, custody, and digital control are related but distinct. A ledger entry may serve as the authoritative record of ownership in one system, while in another it represents a claim whose legal title is recorded elsewhere.
+
+Custody concerns control over the credentials and infrastructure required to transfer the asset. Investors may hold digital keys directly or rely on custodians and institutional control arrangements. These structures allocate operational risk, recovery rights, and responsibility differently.
+
+Legal finality concerns the point at which a transfer becomes legally effective and the associated obligation is discharged. Technical confirmation may precede legal finality when applicable rules allow reversal, correction, or competing claims. This distinction matters when the transferred asset is subsequently sold, pledged, or used in another transaction.
+
+A tokenized financial system therefore requires alignment among three layers:
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=1.5cm,
+  box/.style={
+    draw,
+    rounded corners,
+    align=center,
+    minimum width=3.0cm,
+    minimum height=1.1cm
+  },
+  >=Stealth
+]
+
+\node[box] (tech) {Technical record};
+\node[box] (econ) [right=of tech] {Economic claim};
+\node[box] (legal) [right=of econ] {Legal right};
+
+\draw[<->, thick] (tech) -- (econ);
+\draw[<->, thick] (econ) -- (legal);
+
+\end{tikzpicture}
+\caption{Alignment among technical record, economic claim, and legal right}
+\label{fig:ch24-layer-alignment}
+\end{figure}
+
+Misalignment among these layers can create uncertainty over ownership, transferability, and settlement. Once ownership and transfer rights are clearly defined, the next question is whether tokenized claims can circulate efficiently in secondary markets.
+
+\subsection{Liquidity, Interoperability, and Secondary Markets}
+
+Once ownership and transfer rights are established, tokenized claims still require market infrastructure to support trading and liquidity. Liquidity depends on investor participation, information availability, market-making capacity, collateral use, settlement arrangements, and the ability to transfer positions across venues.
+
+Interoperability affects whether liquidity can be shared across platforms. Suppose similar tokenized bonds trade on platforms \(A\) and \(B\), but positions cannot move easily between them. The liquidity accessible to investors may be smaller than the combined liquidity across platforms:
+
+\begin{equation}
+L_{\mathrm{accessible}}<L_A+L_B,
+\label{eq:ch24-fragmented-liquidity}
+\end{equation}
+
+when transferability across venues is limited.
+
+Common standards and connections with existing market infrastructure can reduce fragmentation. During a transition period, tokenized markets may operate alongside securities depositories, custodians, payment systems, and traditional trading venues. The interaction between these systems can influence how efficiently liquidity moves.
+
+Secondary markets also require appropriate mechanisms for price discovery. Tokenized assets may trade through order books, dealer markets, auctions, request-for-quote systems, or automated protocols. The digital form of a claim does not by itself determine the most suitable market structure.
+
+Extended trading hours may improve availability of markets while increasing requirements for monitoring, collateral management, and operational support. The value of tokenization therefore depends partly on whether it connects liquidity across participants and venues or creates additional isolated markets.
+Efficient secondary markets also require reliable mechanisms for transferring ownership and completing settlement across financial infrastructure.
+
+
+
+\subsection{Tokenized Settlement and Financial Infrastructure}
+
+Once a trade has been agreed, the remaining challenge is to coordinate the transfer of the asset and the corresponding payment.
+
+Trading liquidity depends not only on the ability to exchange claims, but also on the ability to complete the transfer of assets and payment. Tokenized settlement focuses on coordinating these two sides of a transaction through compatible digital infrastructure.
+
+In traditional securities markets, trading, clearing, custody, and settlement are often performed by different institutions and systems. This structure provides specialized functions but requires communication and reconciliation among records. Tokenized infrastructure can integrate some of these processes by linking asset transfer with payment execution.
+
+Consider delivery-versus-payment. Let \(A\) represent the asset leg and \(M\) the money leg. Atomic settlement seeks to implement
+
+\begin{equation}
+\Delta A \neq 0
+\quad\Longleftrightarrow\quad
+\Delta M \neq 0,
+\label{eq:ch24-atomic-dvp}
+\end{equation}
+
+so that neither leg is completed independently of the other.
+
+Such coordination can reduce settlement and reconciliation frictions. It can also change liquidity requirements because participants may need available funds or collateral at the moment of execution rather than relying on resources expected later in the settlement cycle. Liquidity-saving mechanisms, netting, credit facilities, and collateral arrangements can therefore remain important.
+
+Tokenized settlement can be organized through different infrastructure designs. One approach places money and financial assets on a common programmable platform. Another connects specialized systems through interoperability arrangements. In both cases, the objective is to coordinate ownership transfer, payment, and contractual execution while maintaining reliable settlement.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+> =Latex,
+ box/.style={
+ draw=FinanceBlue,
+ rounded corners=2pt,
+ align=center,
+ text width=3.6cm,
+ minimum height=0.95cm,
+ inner sep=5pt
+ },
+ flow/.style={-Latex,line width=0.8pt,FinanceBlue}
+ ]
+
+\node[box] (asset) at (-4.4,0) {Tokenized asset\\ownership record};
+\node[box] (logic) at (0,0) {Programmable transaction\\conditions and validation};
+\node[box] (money) at (4.4,0) {Settlement money\\public or private claim};
+
+\draw[flow] (asset) -- (logic);
+\draw[flow] (money) -- (logic);
+
+\node[box] (final) at (0,-2.7) {Coordinated settlement\\asset transfer + payment};
+\draw[flow] (logic) -- (final);
+
+\end{tikzpicture}
+\caption{A simplified tokenized settlement architecture}
+\label{fig}
+\end{figure}
+
+Tokenized infrastructure can reduce some existing frictions while introducing new dependencies on software, standards, platform governance, cyber resilience, and interoperability.
+
+
+
+
+
+
+
+
+
+
+\section{Decentralized Finance and New Architectures of Trust}
+
+
+Decentralized finance (DeFi) uses smart contracts, distributed-ledger infrastructure, and digital assets to provide financial functions such as trading, lending, and investment through alternative coordination mechanisms.
+
+Decentralization does not eliminate trust; it changes where trust is placed. Trust may rely on code, governance arrangements, validators, oracle providers, service operators, and other participants involved in the system.
+
+
+\subsection{Distributed Ledgers and Protocol-Based Trust}
+
+A distributed ledger records and updates financial information across multiple participants according to a consensus mechanism. Instead of relying on a single institution to maintain the authoritative record, the system uses protocol rules to determine the accepted ledger state.
+
+A simplified state transition can be represented as
+
+\begin{equation}
+S_{t+1}=G(S_t,\mathcal{T}_t,\mathcal{C}),
+\label{eq:ch24-ledger-consensus}
+\end{equation}
+
+where \(\mathcal{T}_t\) is the set of proposed transactions and \(\mathcal{C}\) is the consensus mechanism. Trust is therefore placed partly in the protocol, software implementation, validator incentives, and governance structure.
+
+Distributed ledgers can adopt different architectures. Public permissionless networks allow broad participation under protocol rules, while permissioned networks restrict participation and assign governance rights to identified entities. The choice involves trade-offs among openness, performance, privacy, resilience, and accountability.
+
+
+\subsection{Automated Market Makers and On-Chain Market Design}
+
+Distributed-ledger systems can organize markets through protocol-based trading mechanisms. Automated market makers (AMMs) replace continuous dealer quotes or order matching with predefined pricing rules embedded in smart contracts.
+
+In a simple constant-product AMM, reserves of two assets, \(X\) and \(Y\), satisfy
+
+\begin{equation}
+xy=k,
+\label{eq:ch24-amm-constant-product}
+\end{equation}
+
+where \(k\) is the pool invariant before fees and other adjustments. The relative price of \(X\) in units of \(Y\) can be approximated by
+
+\begin{equation}
+p_X=\frac{y}{x}.
+\label{eq:ch24-amm-price}
+\end{equation}
+
+When traders exchange assets, reserve balances change and the pricing rule adjusts automatically. This provides continuous liquidity without requiring a dealer to update quotes manually.
+
+Liquidity providers supply assets to the pool and receive trading fees. In return, they bear exposure to changes in the relative value of the pooled assets. When market prices move, arbitrage transactions adjust the pool price toward external market prices, creating a link between on-chain and off-chain markets.
+
+The design changes several aspects of market organization. Pricing is determined by the protocol rather than by a dealer's inventory decision. Execution costs depend on pool depth and trade size, creating slippage when available liquidity is limited. Liquidity providers may also experience impermanent loss when price movements change the value of the pooled assets relative to a passive holding strategy.
+
+On-chain market design also introduces operational and governance considerations. Transaction ordering, validator behavior, and protocol rules can affect execution outcomes and the distribution of trading gains.
+
+AMMs illustrate how financial functions can be reorganized through code. They replace some traditional market-making functions with automated rules while creating new roles for liquidity providers, arbitrageurs, validators, and protocol designers.
+
+
+\subsection{Decentralized Lending, Collateral, and Liquidation}
+
+DeFi lending protocols organize credit through automated collateral management. Borrowers typically lock digital assets as collateral before obtaining liquidity.
+
+If collateral has market value \(V_C\) and borrowing amount \(D\), the collateral ratio is
+
+\begin{equation}
+CR=\frac{V_C}{D}.
+\label{eq:ch24-defi-collateral-ratio}
+\end{equation}
+
+A protocol may require \(CR\) to remain above a liquidation threshold \(\bar{c}\). When
+
+\begin{equation}
+CR<\bar{c},
+\label{eq:ch24-defi-liquidation-condition}
+\end{equation}
+
+the position can be liquidated according to predefined rules.
+
+This mechanism relies on continuously available price information and transferable collateral. It is more suitable for assets with observable market values and less suitable for credit decisions that depend heavily on private information about borrowers or projects.
+
+Automated liquidation can reduce execution delays, but it can also amplify market movements. A decline in collateral prices may trigger sales, which further reduce collateral values. When many positions rely on similar assets, this mechanism can contribute to procyclical deleveraging.
+
+The effectiveness of DeFi lending therefore depends not only on automated rules, but also on collateral quality, liquidity conditions, and the reliability of price information.
+
+
+\subsection{Composability and Protocol Interdependence}
+
+A defining feature of DeFi is \emph{composability}: one smart contract can interact with or build upon another. Financial services can therefore be assembled from multiple protocols, such as lending, trading, and liquidity components.
+
+This structure creates protocol interdependence. If Protocol \(A\) relies on Protocol \(B\), and \(B\) relies on oracle \(O\), the reliability of \(A\) depends partly on the reliability of these underlying components:
+
+\begin{equation}
+\mathcal{R}_A
+=f(\mathcal{R}_B,\mathcal{R}*O,\mathcal{R}*{A}^{own}),
+\label{eq:ch24-composability-reliability}
+\end{equation}
+
+where \(\mathcal{R}\) denotes operational and economic reliability.
+
+Interdependence can transmit failures across connected applications. Unlike many traditional financial relationships that are linked through explicit contracts and institutions, DeFi dependencies may be embedded directly in software interactions, shared liquidity, and common infrastructure.
+
+The analysis of a DeFi application therefore requires attention to its underlying protocols, data sources, liquidity dependencies, and governance arrangements.
+
+
+\subsection{Governance, Oracles, and the Limits of Decentralized Finance}
+
+DeFi protocols require governance over software updates, risk parameters, collateral rules, oracle selection, and emergency functions. These decisions may involve token holders, developers, validators, foundations, or multisignature committees. Formal voting rights, however, may differ from practical influence due to token concentration, technical expertise, or administrative permissions.
+
+Oracles create another layer of dependence. A smart contract that relies on market prices, weather conditions, credit events, or legal information requires an external process to produce reliable inputs.
+
+A smart contract can execute rules automatically, but the reliability of the outcome depends on the process that connects external information to on-chain execution.
+
+\[
+\text{Off-chain information}
+\quad\longrightarrow\quad
+\text{Oracle}
+\quad\longrightarrow\quad
+\text{On-chain execution}
+\]
+
+
+These dependencies illustrate an important limit of DeFi. Software can automate rules and coordination, but financial claims still rely on market information, legal recognition, and institutional arrangements. The key issue is therefore not whether finance is centralized or decentralized, but how trust and responsibility are allocated among code, institutions, markets, and participants.
+
+
+\section{Revisiting the Fundamental Frictions of Finance}
+
+Digital technologies change the infrastructure through which finance operates. They influence how information is produced, how contracts are executed, how ownership is recorded, and how payments are settled.
+
+The fundamental frictions of finance remain the basis for analysis: intertemporal mismatch, uncertainty, information asymmetry, and the need for coordination, trust, and enforcement. Digital systems change how these frictions are managed, rather than replacing them.
+
+\subsection{Intertemporal Frictions in a Programmable Financial System}
+
+Finance connects current resources with future obligations. A firm may receive funding today in exchange for future repayments, and an investor may provide capital today in exchange for future cash flows.
+
+Programmable systems can change how these intertemporal contracts are recorded, executed, and monitored. They can improve the implementation of future obligations, but the economic distance between current resources and future cash flows remains.
+
+For a claim that pays \(CF_T\) at date \(T\), value depends on the timing and expected value of future cash flows:
+
+\begin{equation}
+V_0=
+\frac{E[CF_T]}{(1+r_T)^T}.
+\label{eq:ch24-time-remains}
+\end{equation}
+
+Under this simplified expected-cash-flow representation, the value of the claim depends on the timing and expected value of future cash flows. Digital infrastructure may reduce settlement and coordination costs, but it does not remove the discounting of future resources. The distinction is:
+
+$$
+\text{shorter settlement time}
+\neq
+\text{shorter economic maturity}.
+$$
+
+Settlement speed reflects the design of transaction infrastructure, while maturity reflects the timing of the underlying financial claim.
+
+
+\subsection{Uncertainty, Risk Sharing, and New Sources of Fragility}
+
+Financial innovation does not remove uncertainty. It changes how uncertainty is measured, transferred, and absorbed among different participants. Digital systems can automate contingent payments, collateral adjustments, and risk-management actions, allowing some risks to be allocated through predefined rules.
+
+At the same time, risk transfer can create new dependencies. Financial outcomes may depend not only on the underlying economic exposure, but also on software, data inputs, digital infrastructure, and interactions among connected systems.
+
+A simple decomposition of total loss can be written as
+
+\begin{equation}
+L^{total}
+=
+L^{economic}
++
+L^{infrastructure}
++
+L^{interaction},
+\label{eq:ch24-new-fragility-loss}
+\end{equation}
+
+where the components represent losses from the underlying economic exposure, failures in supporting infrastructure, and amplification arising from interactions among systems.
+
+The additional layers of risk include:
+
+\textbf{Code risk} arises when software contains errors or behaves unexpectedly under certain conditions.
+
+\textbf{Oracle risk} arises when automated decisions rely on inaccurate, delayed, or manipulated external information.
+
+\textbf{Operational and cyber risk} arises when digital infrastructure, credentials, or connected systems fail.
+
+\textbf{Concentration risk} arises when many participants depend on common models, providers, stablecoins, bridges, or settlement infrastructures.
+
+These risks can interact with traditional financial risks. A tokenized loan still contains borrower credit risk, while its digital structure may introduce additional custody, software, and settlement dependencies.
+
+Automation can improve consistency and reduce execution delays, but it can also synchronize actions across participants. When many systems respond to similar signals or rules, market adjustments may become faster and more interconnected.
+
+The role of digital finance is therefore not to eliminate uncertainty, but to reshape how uncertainty is distributed and transmitted within the financial system.
+
+\subsection{Information Frictions, Data, and Model Opacity}
+
+Digital finance changes the sources and processing of financial information. More data and stronger analytical tools can improve assessment and prediction, but they do not eliminate uncertainty about economic outcomes.
+
+A financial decision can be represented as
+
+\begin{equation}
+d=f(X;\theta),
+\label{eq:ch24-model-decision}
+\end{equation}
+
+where \(X\) represents available data and \(\theta\) represents the model parameters. The model may improve predictive accuracy while making the relationship between inputs and decisions less transparent.
+
+This creates a new form of information friction. Traditional information asymmetry often arises because one party has information that another party lacks. Model opacity arises when the decision process itself becomes difficult to interpret, verify, or challenge.
+
+Data availability also affects the distribution of information advantages. Platforms with access to large transaction or behavioral datasets may improve financial assessment while creating dependence on particular information sources.
+
+The information problem of digital finance therefore extends beyond data access. It also involves data quality, provenance, model interpretation, and the ability to verify automated decisions.
+
+
+\subsection{Coordination, Trust, and Enforcement in a New Financial Architecture}
+
+Financial systems coordinate exchanges among participants who face uncertainty and incomplete information. Such coordination requires trust that commitments will be honored and enforcement mechanisms that define rights, responsibilities, and responses to failure.
+
+Digital technologies change how these functions are organized. Trust and enforcement may rely on different combinations of institutions, law, software, data, and governance mechanisms.
+
+A useful representation is
+
+\begin{equation}
+\mathcal{T}
+=
+\mathcal{T}*{law}
++
+\mathcal{T}*{institutions}
++
+\mathcal{T}*{technology}
++
+\mathcal{T}*{governance},
+\label{eq:ch24-trust-architecture}
+\end{equation}
+
+where \(\mathcal{T}\) represents the architecture supporting credible financial exchange rather than a quantity that can be measured mechanically.
+
+Different financial architectures allocate these functions differently. Traditional banking relies mainly on regulated institutions, public money, contract enforcement, supervision, and payment infrastructure. Tokenized finance may retain these foundations while changing how ownership and transactions are recorded. DeFi relies more heavily on code, collateral mechanisms, protocol governance, and distributed validation, while claims connected to real-world assets continue to depend on legal arrangements. AI-mediated finance adds further requirements for governing delegated decisions and assigning responsibility.
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: Technology Reallocates Trust and Enforcement},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+A financial architecture can be evaluated by asking where information is produced, who bears risk, what rights are created, how obligations are settled, who can modify rules, and how disputes or failures are handled.
+
+\end{tcolorbox}
+
+The architecture of finance will continue to evolve. Some processes may become more automated and some claims more programmable, but financial systems still need mechanisms for coordination, credible commitments, and enforcement.
+
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Artificial intelligence is becoming part of financial information infrastructure. Generative models reduce the cost of processing information, while autonomous agents extend automation from analysis to action. Their effectiveness depends on data quality, model governance, authorization, and accountability.
+
+Digital money and tokenization change how financial claims are represented, transferred, and settled. CBDCs, tokenized deposits, and stablecoins differ in issuer, backing, and redemption structure. Interoperability and legal arrangements determine whether digital systems preserve common monetary and financial claims.
+
+DeFi reorganizes financial coordination through protocols, collateral, automated markets, and distributed validation. It reallocates trust across code, governance, data, and institutions while creating new forms of interdependence.
+
+The fundamental frictions of finance remain. Time still separates current resources from future cash flows. Uncertainty still requires risk sharing. Information still requires production, verification, and interpretation. Coordination and enforcement still require credible rules and institutions. Digital technologies change how these problems are managed, rather than replacing the underlying economic foundations of finance.
+
+
+
+%========================================================
+% Mind Map
+%========================================================
+
+\TailModule{mindmap}{Mind Map}
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  main/.style={
+    draw=FinanceBlue,
+    fill=FinanceBlue!7,
+    rounded corners=2pt,
+    align=center,
+    text width=4.8cm,
+    minimum height=0.95cm,
+    inner sep=5pt
+  },
+  sub/.style={
+    draw=FinanceBlue,
+    rounded corners=2pt,
+    align=center,
+    text width=3.6cm,
+    minimum height=0.9cm,
+    inner sep=5pt
+  },
+  line/.style={
+    line width=0.8pt,
+    FinanceBlue
+  },
+  arrow/.style={
+    -Latex,
+    line width=0.8pt,
+    FinanceBlue
+  }
+]
+
+% Top layer
+\node[main] (frictions) at (0,0.5)
+{Enduring financial frictions\\
+time, uncertainty, information, coordination};
+
+% Second layer
+\node[sub] (ai) at (-5,-2.5)
+{AI and agents\\
+information processing\\
+delegated decisions};
+
+\node[sub] (money) at (0,-2.5)
+{Digital money\\
+claims, convertibility,\\
+settlement};
+
+\node[sub] (assets) at (5,-2.5)
+{Tokenized assets\\
+rights, contracts,\\
+ownership};
+
+% Third layer
+\node[sub] (architecture) at (0,-6.0)
+{New financial architectures\\
+protocols, platforms,\\
+automated coordination};
+
+% Bottom layer
+\node[main] (trust) at (0,-9.2)
+{Trust and enforcement\\
+law, institutions, code, governance};
+
+% Top vertical line
+\draw[line] (frictions.south) -- (0,-1.0);
+
+% Horizontal distribution line
+\draw[line] (-5,-1.0) -- (5,-1.0);
+
+% Vertical connections
+\draw[arrow] (-5,-1.0) -- (ai.north);
+\draw[arrow] (0,-1.0) -- (money.north);
+\draw[arrow] (5,-1.0) -- (assets.north);
+
+% Middle convergence
+\draw[line] (ai.south) -- (-5,-4.0);
+\draw[line] (money.south) -- (0,-4.0);
+\draw[line] (assets.south) -- (5,-4.0);
+
+\draw[line] (-5,-4.0) -- (5,-4.0);
+
+\draw[arrow] (0,-4.0) -- (architecture.north);
+
+% Final layer
+\draw[arrow] (architecture.south) -- (trust.north);
+
+\end{tikzpicture}
+
+\caption{Digital transformation of finance and its enduring foundations}
+\label{fig:ch24-future-finance-framework}
+
+\end{figure}
+
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Generative AI; large language model (LLM); autonomous financial agent;
+agent-to-agent finance; model governance;
+central bank digital currency (CBDC); tokenized bank deposit; stablecoin;
+singleness of money; interoperability;
+programmable payment; conditional settlement; tokenization;
+digitally native security; smart contract; oracle;
+digital custody; legal finality; atomic settlement;
+delivery versus payment (DvP);
+distributed ledger; consensus mechanism;
+decentralized finance (DeFi); automated market maker (AMM);
+decentralized lending; composability; architecture of trust.
+
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{**Lab: Design and Audit a Future Financial Transaction**}
+
+Use an AI system to design a digital financial transaction in which an investor purchases a tokenized bond using digital money and delegates execution to an autonomous agent.
+
+A valid design must be audited as a financial architecture, not only described as a technology system. Analyze the transaction through the following stages:
+
+\begin{enumerate}
+
+\item \textbf{**Identify financial claims.**}
+
+For each claim involved, identify the issuer, holder, promised cash flows, and party bearing economic loss.
+
+\item \textbf{**Identify money and settlement.**}
+
+Determine whether the payment leg uses CBDC, tokenized deposits, stablecoins, or another monetary claim. Explain the mechanism supporting its value and settlement.
+
+\item \textbf{**Trace ownership and custody.**}
+
+Determine whether the digital record represents authoritative ownership or a claim recorded elsewhere. Identify custody, transfer control, and recovery arrangements.
+
+\item \textbf{**Audit programmable execution.**}
+
+Identify the contractual conditions executed automatically, the required external information, and the mechanism used to verify that information.
+
+\item \textbf{**Audit delegated decisions.**}
+
+Specify the autonomous agent's mandate, permissions, limits, monitoring rules, and conditions requiring additional approval.
+
+\item \textbf{**Map system dependencies.**}
+
+Identify key dependencies, including platforms, models, oracles, custodians, validators, and legal institutions. Explain how failures may affect the transaction.
+
+\item \textbf{**Return to financial fundamentals.**}
+
+Explain which frictions of time, uncertainty, information, coordination, trust, and enforcement are reduced and which remain.
+
+\end{enumerate}
+
+The final analysis should distinguish technological functions from the underlying financial claims, contractual rights, and institutional arrangements.
+
+
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item How does AI change financial information processing and decision-making, and what new governance problems arise when systems can act autonomously?
+
+\item How do CBDCs, tokenized deposits, and stablecoins differ in terms of issuer, claim structure, and monetary function?
+
+\item How do tokenization and smart contracts change the representation and execution of financial claims while preserving the need for legal rights and reliable information?
+
+\item Why do interoperability and settlement arrangements matter for maintaining a common monetary and financial system?
+
+\item How do DeFi protocols replace some traditional intermediaries while creating new forms of dependence and governance challenges?
+
+\item How do digital technologies change the management of time, uncertainty, information, coordination, and trust without eliminating the fundamental frictions of finance?
+
+\end{enumerate}
+
+
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Cong, Lin William, and Zhiguo He (2019),
+``Blockchain Disruption and Smart Contracts,''
+\emph{The Review of Financial Studies}, 32(5), 1754--1797.
+
+\item Brunnermeier, Markus K., Harold James, and Jean-Pierre Landau (2019),
+``The Digitalization of Money,''
+\emph{NBER Working Paper No.~26300}.
+
+\item Garratt, Rodney, and Hyun Song Shin (2023),
+``Stablecoins versus Tokenised Deposits: Implications for the Singleness of Money,''
+\emph{BIS Bulletin}, No.~73.
+
+\item Hong Kong Monetary Authority (2023),
+\emph{Bond Tokenisation in Hong Kong}.
+
+\item Auer, Raphael, Bernhard Haslhofer, Stefan Kitzler, Pietro Saggese, and Friedhelm Victor (2023),
+``The Technology of Decentralized Finance (DeFi),''
+\emph{BIS Working Papers}, No.~1066.
+
+\item Financial Stability Board (2024),
+\emph{The Financial Stability Implications of Artificial Intelligence}.
+
+\item Bank for International Settlements (2025),
+``The Next-Generation Monetary and Financial System,''
+\emph{BIS Annual Economic Report 2025}, Chapter III.
+
+
+\end{itemize}
+
+
+\ChapterTail{summary,mindmap,keyterms,aiprompt,questions,furtherread}
