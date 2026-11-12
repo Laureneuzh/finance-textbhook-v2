@@ -1,0 +1,904 @@
+\chapter{Central Banking, Liquidity, and Crisis Management}
+\label{chap:Central_Banking_Liquidity_and_Crisis_Management}
+
+\begin{openingcase}{When Private Liquidity Disappeared}
+
+After the failure of Lehman Brothers in September 2008, banks became increasingly reluctant to lend to one another. Private funding markets weakened, while demand for central-bank liquidity rose sharply.
+
+Central banks responded by supplying reserves, expanding lending facilities, and, in the Federal Reserve's case, extending dollar swap lines to foreign central banks. These measures did not remove the underlying credit losses. They supplied liquidity when private funding and settlement liquidity had become difficult to obtain.
+
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+
+
+\item How does a central bank use its balance sheet to supply reserves, implement its policy rate, and influence financial conditions?
+
+\item How does a central bank provide liquidity when private funding becomes impaired, and how do collateral, pricing, market-wide facilities, asset purchases, and swap lines affect the benefits and risks of crisis intervention?
+
+\end{enumerate}
+\end{tcolorbox}
+
+
+\section{Central Bank Balance Sheets and Liquidity Provision}
+
+A central bank can supply liquidity by purchasing assets or extending credit against collateral, thereby expanding reserve balances in the banking system. These operations can support settlement and funding when private liquidity becomes scarce.
+
+Liquidity provision does not by itself remove underlying credit losses. Its main role is to ease funding constraints by changing the amount and distribution of liquid claims.
+
+
+\subsection{The Central Bank Balance Sheet: Assets, Liabilities, and Reserves}
+
+The central bank's capacity to provide liquidity operates through its balance sheet. A simplified balance sheet can be written as
+
+\begin{equation}
+A^{CB}=R+C+O,
+\label{eq:ch22-cb-balance-sheet}
+\end{equation}
+
+where \(A^{CB}\) denotes central-bank assets, \(R\) reserve balances held by commercial banks, \(C\) currency in circulation, and \(O\) other liabilities and capital items.
+
+Central-bank assets typically include government securities, loans to financial institutions, foreign-exchange assets, and other claims acquired through policy operations. On the liability side, currency and reserve balances form the main components of central-bank money.
+
+Reserve balances are liabilities of the central bank and assets of commercial banks. They are used for interbank settlement and liquidity management.
+\begin{example}{A Central-Bank Liquidity Loan}{central-bank-loan-example}
+
+A commercial bank faces RMB~5 billion of payment outflows but does not hold sufficient reserve balances. It pledges eligible collateral and receives a RMB~5 billion loan from the central bank.
+
+The transaction changes the two balance sheets as follows:
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+& \textbf{Assets} & \textbf{Liabilities} \\
+\midrule
+Central bank
+& Loan to bank \(+5\)
+& Bank reserves \(+5\) \\
+
+Commercial bank
+& Reserves \(+5\)
+& Central-bank borrowing \(+5\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The central bank creates additional reserve balances against a new loan asset. The commercial bank gains settlement liquidity, while acquiring an equal liability to the central bank. Its net worth does not mechanically increase.
+
+\end{example}
+
+
+Central-bank lending therefore expands reserves by creating a new central-bank asset and a matching liability. It can ease a liquidity shortage without removing underlying credit losses.
+
+Currency and reserves are both central-bank liabilities, but they are held by different users. Currency is held mainly by households and firms, while reserve balances are generally held by eligible financial institutions.
+
+
+\subsection{Balance-Sheet Operations and Reserve Supply}
+
+Central banks can change the supply of reserves through asset purchases, lending operations, repos, foreign-exchange transactions, and other balance-sheet operations.
+
+Suppose the central bank purchases government securities worth \(Q\) from a bank. The transaction can be represented as
+
+\begin{equation}
+\Delta A^{CB}=Q,
+\qquad
+\Delta R=Q,
+\label{eq:ch22-asset-purchase-reserves}
+\end{equation}
+
+where the central bank acquires the security and credits the bank's reserve account. The bank exchanges one asset for another: its holdings of government securities decline, while its reserve balances increase.
+
+A repo can produce a similar but temporary increase in reserves. The central bank supplies funds against securities under an agreement to reverse the transaction later. Reserves rise while the operation is outstanding and decline at maturity unless offset by other transactions.
+
+Reserve supply can also change through autonomous balance-sheet movements. An increase in currency in circulation or government deposits at the central bank generally reduces reserves in the banking system, while movements in the opposite direction add reserves. Central banks may conduct liquidity-management operations to offset these changes.
+
+How changes in reserve supply affect short-term interest rates depends on the operating framework used to implement monetary policy.
+
+
+\subsection{Policy Rates and Monetary Policy Implementation}
+
+Changes in reserve supply affect the conditions under which banks obtain and hold central-bank liquidity. Monetary policy implementation links these reserve conditions to a short-term policy rate or target range through administered rates and standing facilities.
+
+In a simplified corridor system, the central bank offers a lending facility at rate \(i_L\) and a deposit facility at rate \(i_D\). Under ordinary market conditions,
+
+\begin{equation}
+i_D
+\leq
+i_{\mathrm{ON}}
+\leq
+i_L,
+\label{eq:ch22-corridor}
+\end{equation}
+
+where \(i_{\mathrm{ON}}\) denotes the overnight interbank rate.
+
+Banks with excess reserves have limited incentive to lend below the return available at the central bank. Banks needing reserves have limited incentive to borrow above the central-bank lending rate when the facility is accessible. The two administered rates can therefore bound the overnight rate, while reserve conditions influence its position within the corridor.
+
+In an abundant-reserves, or floor-type, system, banks hold reserve balances well above their immediate settlement needs. The interest rate paid on reserves then becomes an important anchor for overnight market rates, and policy implementation relies less on maintaining reserve scarcity.
+
+Although operating frameworks differ across central banks, the underlying mechanism is similar: the central bank influences short-term interest rates through the quantity and remuneration of its own liabilities.
+
+
+\subsection{Standing Facilities and the Supply of Liquidity}
+
+The standing lending facility not only helps anchor overnight rates but also provides a direct source of central-bank liquidity. Eligible institutions can obtain credit on preannounced terms, typically against eligible collateral.
+
+If a bank faces a remaining reserve need \(N\), borrowing from the facility is limited by both that need and its borrowing capacity:
+
+\begin{equation}
+B^{SF}
+=\min\{N,;L_C\},
+\label{eq:ch22-standing-facility}
+\end{equation}
+where \(B^{SF}\) denotes standing-facility borrowing and \(L_C\) the amount permitted by eligible collateral and other access conditions.
+
+Collateral requirements limit the amount that can be borrowed, while the facility rate affects the incentive to use central-bank credit. A rate below comparable market funding costs may encourage routine reliance on the facility, whereas a substantially higher rate may discourage use even when liquidity pressure is significant.
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: Liquidity Access Depends on Borrowing Capacity},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+A bank may need liquidity without being able to obtain the full amount from the central bank. Eligible collateral, haircuts, and access rules determine borrowing capacity, while the facility rate influences whether that capacity is used. Central-bank liquidity is therefore available on terms, rather than simply on demand.
+
+\end{tcolorbox}
+
+
+Standing facilities are generally part of the regular operating framework. Emergency facilities may extend access beyond normal counterparties, collateral, or market channels when stress becomes broader.
+
+
+
+\section{Lender of Last Resort and Emergency Liquidity}
+
+When private funding markets become impaired, a central bank may provide emergency liquidity to institutions that cannot obtain sufficient funding through normal market channels. This function is commonly described as lending of last resort.
+
+Emergency liquidity can relieve temporary funding pressure, but it does not by itself resolve underlying credit losses. A central issue is therefore the distinction between liquidity problems and solvency problems.
+
+\subsection{Liquidity Stress versus Solvency Problems}
+
+The distinction between liquidity and solvency determines what emergency lending can and cannot address. Liquidity concerns the ability to meet obligations when they fall due, while solvency concerns whether asset value is sufficient relative to liabilities.
+
+Let a bank have assets with economic value \(A\), liabilities \(D\), short-term liquidity needs \(N\), and immediately available liquidity \(H\). A stylized solvent but illiquid bank satisfies
+
+\begin{equation}
+A>D,
+\qquad
+N>H,
+\label{eq:ch22-solvent-illiquid}
+\end{equation}
+
+while insolvency can be represented as
+
+\begin{equation}
+A<D.
+\label{eq:ch22-insolvency}
+\end{equation}
+
+In practice, the distinction may be difficult to establish during stress. Asset values can be uncertain, and low market prices may reflect expected credit losses, liquidity discounts, or both.
+
+\begin{example}{Liquidity Support versus Capital Support}{liquidity-versus-capital}
+
+Bank A has assets with an estimated economic value of RMB~110 billion and liabilities of RMB~100 billion. It faces RMB~15 billion of near-term outflows but can immediately mobilize only RMB~8 billion. Collateralized borrowing can cover the RMB~7 billion liquidity gap if lending conditions are satisfied.
+
+Bank B has assets valued at RMB~92 billion and liabilities of RMB~100 billion. Additional borrowing can provide cash, but it does not remove the RMB~8 billion shortfall in net worth. Restoring solvency requires loss-bearing resources, restructuring, or resolution.
+
+\end{example}
+
+Emergency liquidity can therefore bridge a funding gap without necessarily correcting an underlying capital shortfall. The assessment may also change as new information and asset valuations emerge.
+
+
+\subsection{Collateral, Haircuts, and Emergency Lending}
+
+Once an institution is judged to face primarily a liquidity problem, the next question is how much emergency credit can be provided against its collateral. This depends on both the assessed value of eligible assets and the haircut applied to them.
+
+Let eligible collateral have assessed value \(V_C\) and haircut \(h\). The borrowing capacity supported by the collateral is
+
+\begin{equation}
+L_C=(1-h)V_C,
+\label{eq:ch22-collateral-lending}
+\end{equation}
+so a larger haircut reduces the amount that can be borrowed against a given collateral value.
+
+Haircuts may reflect credit risk, price volatility, market liquidity, maturity, legal enforceability, and valuation uncertainty. Assets with greater risk or lower liquidity may therefore support less borrowing per unit of assessed value.
+
+\begin{example}{Emergency Lending against Collateral}{emergency-collateral-example}
+
+A bank pledges securities with an assessed value of RMB~20 billion. With a 15 percent haircut, its borrowing capacity is
+
+$$
+L_C=(1-0.15)(20)=17
+$$
+
+billion renminbi.
+
+If the assessed value falls to RMB~18 billion and the haircut rises to 20 percent, borrowing capacity becomes
+
+$$
+L_C=(1-0.20)(18)=14.4
+$$
+
+billion renminbi.
+
+The collateral pool now supports RMB~2.6 billion less emergency credit.
+
+\end{example}
+
+Collateral policy balances liquidity access against the risk borne by the central bank. Broader eligibility or smaller haircuts can increase borrowing capacity, while narrower eligibility or larger haircuts reduce central-bank exposure.
+
+Valuation is especially difficult when market prices are impaired. Observed prices may reflect both expected credit losses and temporary liquidity discounts, making collateral values uncertain precisely when emergency lending is most relevant.
+
+\subsection{Lender-of-Last-Resort Principles and Stigma}
+
+Collateral and haircuts determine borrowing capacity, but emergency lending also depends on the terms under which credit is offered. Lender-of-last-resort design therefore concerns both access to liquidity and incentives to use it.
+
+A classic principle is to provide liquidity against sound collateral at a rate that discourages routine reliance on central-bank credit. The purpose is to support temporary funding needs during stress without making emergency credit a regular substitute for market funding. In practice, appropriate terms depend on assessments of solvency, collateral value, and market conditions.
+
+Even when credit is available, institutions may hesitate to borrow because of \emph{stigma}. If market participants interpret central-bank borrowing as a signal of weakness, use of the facility can itself affect funding conditions.
+
+This effect can become self-reinforcing. If stronger institutions avoid the facility, borrowing becomes concentrated among weaker institutions, strengthening the negative signal associated with its use. Broad-based operations, auction mechanisms, regular use in normal conditions, or delayed disclosure may reduce this effect.
+
+Lender-of-last-resort design therefore combines financial terms with information effects. Access, pricing, and disclosure influence both the availability of emergency liquidity and the willingness of institutions to use it.
+
+
+
+\section{Market-Wide and Cross-Border Crisis Intervention}
+
+Liquidity stress can extend beyond individual institutions and impair the functioning of entire funding markets. In such cases, central banks may provide liquidity through broad-based facilities, asset purchases, or cross-border arrangements.
+
+These interventions are designed to support market functioning, funding access, and the transmission of liquidity across institutions and jurisdictions. Their role is generally to restore private intermediation rather than to replace it permanently.
+
+\subsection{Market Liquidity Facilities and Emergency Credit Programs}
+
+Beyond lending to individual institutions, central banks can support the funding mechanisms on which broader markets depend. Market liquidity facilities may lend against eligible securities, provide funding to key intermediaries, or finance purchases of qualifying instruments.
+
+Suppose private lenders withdraw from a market for high-quality short-term securities. Issuers may face refinancing pressure even when expected credit losses remain limited. Central-bank liquidity can support the financing of these securities and reduce forced sales into an impaired market.
+
+The transmission mechanism is illustrated in Figure~\ref{fig:ch22-market-liquidity-transmission}.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.6cm,
+  every node/.style={font=\small},
+  flowbox/.style={
+    rectangle,
+    rounded corners,
+    draw=FinanceBlue,
+    line width=0.7pt,
+    fill=FinanceBlue!5,
+    minimum width=2.8cm,
+    minimum height=1.1cm,
+    align=center
+  },
+  flowarrow/.style={
+    -{Latex[length=2.2mm]},
+    thick,
+    draw=FinanceBlue
+  }
+]
+
+\node[flowbox] (a) {Impaired\\private funding};
+\node[flowbox, right=of a] (b) {Central-bank\\liquidity};
+\node[flowbox, right=of b] (c) {Improved funding\\capacity};
+\node[flowbox, right=of c] (d) {Reduced\\forced sales};
+
+\draw[flowarrow] (a) -- (b);
+\draw[flowarrow] (b) -- (c);
+\draw[flowarrow] (c) -- (d);
+
+\end{tikzpicture}
+\caption{Transmission of a Market Liquidity Facility}
+\label{fig:ch22-market-liquidity-transmission}
+\end{figure}
+
+Facility design determines how liquidity reaches the market. Counterparty eligibility determines who can obtain funding, collateral eligibility determines which assets can be financed, and pricing influences the relative use of central-bank and private funding.
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: Market Support Can Become Credit Allocation},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+A facility designed to restore market liquidity must define eligible counterparties, assets, and transactions. These choices can influence which forms of financing receive support. As intervention becomes more selective, liquidity provision can move closer to credit allocation.
+
+\end{tcolorbox}
+
+
+Emergency credit programs may extend this support toward the flow of credit to households and firms when disruptions in funding markets weaken normal financing channels. As intervention broadens, the central bank may also take a greater role in determining which markets, instruments, or borrowers receive support.
+
+\subsection{Asset Purchases and Central Bank Balance-Sheet Expansion}
+
+Market liquidity facilities provide funding against assets or through financial intermediaries. A central bank can also support markets by purchasing securities outright. In that case, the asset itself moves onto the central-bank balance sheet, rather than serving only as collateral for a temporary loan.
+
+Asset purchases can affect financial conditions through several channels. Central-bank demand may support market functioning when selling pressure is unusually strong. Purchases also change the composition of assets held by private investors, which can encourage portfolio rebalancing toward other securities.
+
+Purchases may also transfer duration or other market risk from private portfolios to the central-bank balance sheet, influencing longer-term yields and risk premia. The scale and persistence of a purchase program can further convey information about the central bank's intended policy stance or its commitment to market support.
+
+Unlike temporary liquidity operations, outright purchases can produce a more persistent expansion of the central-bank balance sheet. A repo normally reverses at maturity, while a purchased security remains on the balance sheet until it matures or is sold.
+
+A larger central-bank portfolio can increase exposure to market risk, interest expense on remunerated reserves, and the central bank's presence in particular markets. Balance-sheet normalization may therefore remain a policy issue after immediate market stress has eased.
+
+
+\subsection{Central Bank Swap Lines and Global Liquidity Provision}
+
+Balance-sheet expansion allows a central bank to supply liquidity in its own currency. A different constraint arises when institutions need funding in a foreign currency that the domestic central bank cannot issue.
+
+Central-bank swap lines provide a channel for transmitting liquidity across currencies and jurisdictions. Under a swap arrangement, the issuing central bank provides its currency to a foreign central bank in exchange for the latter's currency, with the transaction reversed later under agreed terms. The receiving central bank can then distribute the funds to eligible institutions in its jurisdiction.
+
+Figure~\ref{fig:ch22-swap-line-liquidity} illustrates the transmission of foreign-currency liquidity through a central-bank swap line.
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[
+    node distance=2.0cm,
+    every node/.style={font=\small},
+    institution/.style={
+        rectangle,
+        rounded corners,
+        draw=FinanceBlue,
+        line width=0.7pt,
+        fill=FinanceBlue!5,
+        minimum width=2.6cm,
+        minimum height=1.25cm,
+        align=center
+    },
+    liquidity/.style={
+        -{Latex[length=2.6mm]},
+        line width=0.9pt,
+        draw=FinanceBlue
+    },
+    exposure/.style={
+        -{Latex[length=2.6mm]},
+        dashed,
+        line width=0.7pt,
+        draw=black!65
+    }
+]
+
+\node[institution] (issuer)
+{Issuing\\central bank};
+
+\node[institution, right=of issuer] (foreign)
+{Foreign\\central bank};
+
+\node[institution, right=of foreign] (banks)
+{Local financial\\institutions};
+
+\draw[liquidity]
+(issuer) -- node[above, align=center]
+{Foreign-currency\\liquidity}
+(foreign);
+
+\draw[liquidity]
+(foreign) -- node[above, align=center]
+{Liquidity\\distribution}
+(banks);
+
+\draw[exposure]
+(banks.south) to[bend left=22]
+node[below, align=center]
+{Credit exposure}
+(foreign.south);
+
+\draw[exposure]
+(foreign.south) to[bend left=22]
+node[below, align=center]
+{Swap counterparty}
+(issuer.south);
+
+\end{tikzpicture}
+
+\caption{Cross-Border Transmission of Central-Bank Swap-Line Liquidity}
+\label{fig:ch22-swap-line-liquidity}
+
+\end{figure}
+
+The arrangement also separates credit exposures. The issuing central bank faces the foreign central bank, while the foreign central bank generally bears the credit exposure to its domestic counterparties.
+
+\begin{example}{A Dollar Liquidity Swap}{swap-line-example}
+
+Suppose a foreign central bank obtains USD~20 billion through a swap line and lends USD~12 billion to banks in its jurisdiction.
+
+The banks obtain dollar funding through their domestic central bank, while the foreign central bank manages allocation and the credit exposure to its local counterparties.
+
+\end{example}
+
+Swap lines can ease foreign-currency funding pressure when private markets become impaired. Their liquidity function differs from foreign-exchange intervention aimed primarily at influencing the exchange rate.
+
+Access to swap lines varies across central banks and may reflect legal authority, counterparty risk, systemic importance, and broader institutional arrangements.
+
+
+
+\section{The Limits and Trade-Offs of Crisis Management}
+
+Crisis intervention can reduce liquidity stress and support financial intermediation, but it can also alter incentives and shift risk toward the central bank.
+
+Its design therefore involves trade-offs among financial stability, moral hazard, balance-sheet risk, credit allocation, and the eventual withdrawal of support.
+
+
+\subsection{Moral Hazard, Risk Taking, and the Central Bank Safety Net}
+
+One trade-off created by crisis intervention arises through ex ante incentives. If market participants expect central-bank support in severe stress, part of the potential loss from liquidity, leverage, or maturity-transformation risk may be shifted away from private balance sheets.
+
+Let the expected private payoff from a risky funding strategy be
+
+\begin{equation}
+\Pi=(1-p)G-pL,
+\label{eq:ch22-private-risk-payoff}
+\end{equation}
+where \(G\) is the gain in normal states, \(L\) the loss in stress, and \(p\) the probability of stress. If expected official support reduces the loss borne privately by \(\Delta L\), the expected payoff becomes
+
+\begin{equation}
+\Pi^{S}=(1-p)G-p(L-\Delta L),
+\label{eq:ch22-supported-risk-payoff}
+\end{equation}
+implying
+
+\begin{equation}
+\Pi^{S}-\Pi=p\Delta L.
+\label{eq:ch22-support-incentive}
+\end{equation}
+
+Expected protection can therefore increase the private payoff from risk taking by reducing losses borne in stress states. This is the central moral-hazard mechanism associated with a financial safety net.
+
+Pricing, collateral haircuts, access limits, supervisory conditions, and loss-bearing requirements can moderate this incentive effect. The design of the safety net must therefore consider both crisis containment and the incentives created before a crisis occurs.
+
+\subsection{Credit Allocation, Fiscal Boundaries, and Central Bank Independence}
+
+Crisis intervention can affect not only incentives but also the allocation of credit. Broad liquidity operations support funding across eligible counterparties and collateral, while more targeted programs can change the relative financing conditions of particular markets, sectors, or asset classes.
+
+Suppose a central bank purchases or finances securities from Sector A but not comparable securities from Sector B. Funding conditions in Sector A may improve relative to those in Sector B. As intervention becomes more selective, liquidity support moves closer to credit allocation.
+
+Selective support also changes the distribution of risk. Decisions about eligible assets, counterparties, and markets can influence relative prices, borrowing costs, and the location of credit exposure across private and public-sector balance sheets.
+
+This creates a boundary between central-bank and fiscal functions. Liquidity provision and monetary-policy implementation are generally associated with central banking, while deliberate choices about which sectors should receive public risk support are more closely related to fiscal policy. During a crisis, however, this boundary may be difficult to draw when dysfunction in a particular market threatens broader financial stability or monetary transmission.
+
+Targeted or persistent intervention can also affect central-bank independence. Clear legal authority, defined objectives, appropriate risk-sharing with the fiscal authority, transparent reporting, and an exit framework can help preserve institutional boundaries.
+
+
+\subsection{Exit, Normalization, and the Restoration of Market Discipline}
+
+The institutional effects of crisis intervention depend not only on its scope but also on its duration. As private funding conditions improve, emergency support can be withdrawn so that market pricing and private liquidity management resume a larger role.
+
+Exit may occur as lending facilities mature, temporary terms expire, purchased assets run off or are sold, and central-bank funding becomes less attractive relative to private alternatives. Pricing can therefore provide an element of automatic exit: institutions return to market funding as normal financing conditions recover.
+
+The pace of normalization also matters. Withdrawal that is too rapid may renew funding pressure, while prolonged support can delay market adjustment and maintain an unusually large central-bank role in financial intermediation.
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: Normalization Is Not Simply Balance-Sheet Reversal},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+Normalization does not require every crisis-era balance-sheet change to be reversed. Reserve demand, payment arrangements, regulation, and the monetary operating framework may differ from their pre-crisis settings. The relevant question is whether emergency support has been withdrawn and normal market pricing and liquidity management have resumed.
+
+\end{tcolorbox}
+
+
+Normalization does not necessarily require the central-bank balance sheet to return to its previous size or composition. Changes in reserve demand, payment arrangements, regulation, or the operating framework may support a different post-crisis structure. The relevant objective is the transition from emergency support to a sustainable framework in which private markets again bear a larger role in pricing and allocating liquidity.
+
+
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Central banks supply the settlement asset used by the banking system and can expand reserves through balance-sheet operations. This capacity supports both monetary-policy implementation and liquidity provision when private funding becomes impaired.
+
+Standing facilities provide collateralized central-bank credit, while administered rates and reserve conditions help guide short-term market rates. In emergencies, liquidity support must be distinguished from solvency support: central-bank lending can bridge temporary funding gaps but does not by itself restore negative net worth.
+
+When stress becomes market-wide or cross-border, central banks may use broader facilities, asset purchases, and swap lines to support funding and market functioning.
+
+Crisis intervention also creates trade-offs involving moral hazard, credit allocation, balance-sheet risk, fiscal boundaries, and exit. Effective crisis management therefore depends not only on the scale of support, but also on its terms, scope, and duration.
+
+
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Central-bank balance sheet; reserves; reserve supply; policy rate;
+standing facility; lender of last resort; emergency liquidity;
+liquidity; solvency; collateral; haircut; stigma;
+market liquidity facility; asset purchase; central-bank swap line;
+foreign-currency liquidity; moral hazard; credit allocation;
+central-bank independence; exit; normalization; market discipline.
+
+
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit a Central-Bank Crisis Intervention}
+
+Use an AI system to analyze a central-bank intervention during a period of financial stress. Then audit the analysis in five stages.
+
+\begin{enumerate}
+
+\item \textbf{Identify the liquidity problem.}
+
+Determine whether the intervention addressed reserve scarcity, deposit withdrawals, wholesale funding stress, market illiquidity, foreign-currency funding, or a combination of these problems.
+
+\item \textbf{Trace the balance-sheet mechanism.}
+
+Identify the asset acquired by the central bank and the liability created. Distinguish among lending, repos, asset purchases, and swap transactions.
+
+\item \textbf{Distinguish liquidity support from solvency support.}
+
+Assess whether the intervention provided temporary funding against viable assets or also shifted expected credit losses to the public sector.
+
+\item \textbf{Examine facility design and transmission.}
+
+Identify collateral eligibility, haircuts, maturity, pricing, and counterparty requirements. Explain how these terms affect access to liquidity and how the intervention may reduce funding pressure, forced sales, or market dysfunction.
+
+\item \textbf{Evaluate incentives and exit.}
+
+Explain how use of the intervention is expected to decline as private funding conditions recover. Identify one potential moral-hazard, credit-allocation, or market-discipline concern.
+
+\end{enumerate}
+
+The final report should clearly distinguish documented institutional features from the AI system's interpretation of the intervention and its effects.
+
+
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why can a central bank create reserve balances without creating additional real resources?
+
+\item How do corridor and floor-type operating frameworks differ in the way they guide short-term interest rates?
+
+\item Why is the distinction between illiquidity and insolvency central to lender-of-last-resort policy?
+
+\item How do collateral, haircuts, and facility pricing affect both access to emergency liquidity and the risk borne by the central bank?
+
+\item Why can central-bank borrowing carry stigma, and how can stigma affect the use of a liquidity facility?
+
+\item How do market liquidity facilities and outright asset purchases differ from lending to an individual institution?
+
+\item What role do central-bank swap lines play when financial institutions face foreign-currency funding stress?
+
+\item How can crisis intervention affect future risk taking, credit allocation, institutional boundaries, and the eventual withdrawal of support?
+
+\end{enumerate}
+
+
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Central-Bank Balance-Sheet Expansion}
+
+A central bank purchases RMB~50 billion of government securities from banks and settles the purchases by crediting reserve accounts.
+
+\begin{enumerate}
+
+\item Calculate the change in central-bank assets and reserve balances.
+
+\item Describe the corresponding change in the banking system's asset composition.
+
+\item Explain why the transaction does not mechanically increase bank net worth when the securities are exchanged at fair value.
+
+\end{enumerate}
+
+\item \textbf{Corridor Implementation}
+
+A central bank pays 1.5 percent on its deposit facility and lends overnight at 2.5 percent.
+
+\begin{enumerate}
+
+\item Identify the simplified corridor for the overnight market rate.
+
+\item Explain why a bank with excess reserves has little incentive to lend at 1.0 percent if it can earn 1.5 percent at the central bank.
+
+\item Explain how access restrictions or stigma can weaken the upper bound implied by the lending facility.
+
+\end{enumerate}
+
+\item \textbf{Liquidity Need, Collateral, and Haircuts}
+
+A bank faces a same-day liquidity need of RMB~12 billion. It can meet RMB~4 billion from available reserves and market funding. It holds eligible collateral valued at RMB~15 billion, subject to a 20 percent haircut.
+
+\begin{enumerate}
+
+\item Calculate the residual liquidity need.
+
+\item Calculate the maximum borrowing capacity supported by the collateral.
+
+\item Determine the amount the bank would need to borrow from the central bank to close the liquidity gap.
+
+\item Calculate the unused borrowing capacity after the transaction.
+
+\item Explain how a larger haircut would affect access to central-bank liquidity.
+
+\end{enumerate}
+
+\item \textbf{Liquidity or Solvency?}
+
+Bank A has assets with an estimated economic value of RMB~120 billion, liabilities of RMB~108 billion, and an immediate cash shortfall of RMB~9 billion. Bank B has assets valued at RMB~95 billion, liabilities of RMB~103 billion, and a cash shortfall of RMB~4 billion.
+
+\begin{enumerate}
+
+\item Calculate economic net worth for each bank.
+
+\item Identify which case is primarily a liquidity problem under the stated valuations.
+
+\item Explain why uncertainty about asset values can complicate this classification.
+
+\end{enumerate}
+
+\item \textbf{Facility Pricing and Exit}
+
+A crisis lending facility charges 4 percent. Comparable private funding initially costs 7 percent but later falls to 3 percent.
+
+\begin{enumerate}
+
+\item Explain why the central-bank facility is attractive during the period of stress.
+
+\item Explain why private funding becomes more attractive as market conditions normalize.
+
+\item Show how this pricing structure can create a partial automatic exit mechanism.
+
+\end{enumerate}
+
+\item \textbf{Asset Purchase versus Repo}
+
+A central bank can either purchase RMB~100 billion of securities outright or provide RMB~100 billion of funds through a one-month repo against the same securities.
+
+\begin{enumerate}
+
+\item Identify the central-bank asset created in each transaction.
+
+\item Explain how the expected duration of the balance-sheet expansion differs.
+
+\item Explain why an outright purchase may have a stronger effect on the composition of assets held by the private sector.
+
+\end{enumerate}
+
+\item \textbf{Central-Bank Swap Line}
+
+A foreign central bank draws USD~25 billion under a dollar swap line and lends USD~18 billion to banks in its jurisdiction.
+
+\begin{enumerate}
+
+\item Identify the institution that supplies the dollars to the foreign central bank.
+
+\item Calculate the amount of dollar liquidity not yet distributed to local banks.
+
+\item Explain why the foreign central bank generally manages the direct credit exposure to its local counterparties.
+
+\item Explain how the arrangement can ease pressure in offshore dollar funding markets.
+
+\end{enumerate}
+
+\item \textbf{Moral Hazard and Emergency Support}
+
+A financial intermediary earns 8 in a normal state and loses 20 in a stress state. The probability of stress is 10 percent.
+
+\begin{enumerate}
+
+\item Calculate the expected payoff using Equation~\eqref{eq:ch22-private-risk-payoff}.
+
+\item Suppose expected official support reduces the privately borne stress loss by 8. Calculate the new expected payoff.
+
+\item Calculate the change in expected private payoff.
+
+\item Explain how this change can affect ex ante risk-taking incentives.
+
+\item Identify two policy mechanisms that can limit this incentive effect without eliminating crisis liquidity support.
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Tracing Central-Bank Liquidity through a Crisis}
+
+Select a well-documented financial stress episode for which central-bank balance-sheet and money-market data are available. Possible cases include the global financial crisis, the euro-area sovereign stress period, the March 2020 dash for cash, or another suitable episode.
+
+Use official central-bank or other primary data sources where possible. Collect a small set of indicators, such as:
+
+\begin{itemize}
+
+\item central-bank total assets and reserve balances;
+
+\item standing or emergency lending;
+
+\item short-term interbank or repo rates;
+
+\item selected credit spreads;
+
+\item asset-purchase holdings;
+
+\item foreign-currency liquidity supplied through swap arrangements.
+
+\end{itemize}
+
+Use the data to address the following questions:
+
+\begin{enumerate}
+
+\item Which indicator showed financial stress most clearly at the beginning of the episode?
+
+\item Which central-bank balance-sheet items changed most visibly in response?
+
+\item Did the intervention operate mainly through lending, asset purchases, foreign-currency liquidity, or a combination?
+
+\item How did short-term funding conditions change after the intervention? Describe the timing without treating temporal association as evidence of causation.
+
+\item Which balance-sheet items declined as market conditions normalized, and which remained elevated?
+
+\item Report the definition, frequency, units, and source of each series used.
+
+\end{enumerate}
+
+The final analysis should connect movements in central-bank balance-sheet items to changes in funding conditions while distinguishing documented facts from causal interpretation.
+
+
+
+%========================================================
+% Case Analysis
+%========================================================
+
+\TailModule{caseanalysis}{Case Analysis}
+
+\textbf{Global Dollar Liquidity and Central-Bank Swap Lines in 2008}
+
+Use Federal Reserve, BIS, foreign-central-bank, or other authoritative sources to examine the expansion of dollar swap lines during the global financial crisis. Organize the analysis around the funding mechanism.
+
+\begin{enumerate}
+
+\item \textbf{Dollar Funding Need.}
+
+Explain why financial institutions outside the United States had substantial dollar funding needs.
+
+\item \textbf{Breakdown of Private Funding.}
+
+Examine how stress in interbank, money, and foreign-exchange swap markets reduced access to private dollar funding.
+
+\item \textbf{Liquidity Transmission and Risk Allocation.}
+
+Trace the swap between the Federal Reserve and a foreign central bank, followed by the distribution of dollars to institutions in the foreign central bank's jurisdiction. Identify the counterparty and credit exposures at each stage.
+
+\item \textbf{Market Effects.}
+
+Examine changes in dollar funding spreads or other indicators of market functioning as the swap-line facilities expanded. Distinguish timing and association from evidence of causation.
+
+\item \textbf{Institutional Boundaries.}
+
+Explain why access to swap lines differs across central banks and how these differences affect the structure of global dollar liquidity provision.
+
+\item \textbf{Exit.}
+
+Examine how use of the swap lines changed as private dollar funding conditions improved and explain the mechanism through which demand for official liquidity declined.
+
+\end{enumerate}
+
+The final analysis should distinguish foreign-currency liquidity provision from exchange-rate intervention and from fiscal transfers.
+
+
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Bagehot, Walter (1873),
+\emph{Lombard Street: A Description of the Money Market},
+London: Henry S. King and Co.
+
+\item Freixas, Xavier, Bruno M. Parigi, and Jean-Charles Rochet (2000),
+``Systemic Risk, Interbank Relations, and Liquidity Provision by the Central Bank,''
+\emph{Journal of Money, Credit and Banking}, 32(3, Part 2), 611--638.
+
+\item Rochet, Jean-Charles, and Xavier Vives (2004),
+``Coordination Failures and the Lender of Last Resort: Was Bagehot Right After All?''
+\emph{Journal of the European Economic Association}, 2(6), 1116--1147.
+
+\item Fleming, Michael J. (2012),
+``Federal Reserve Liquidity Provision during the Financial Crisis of 2007--2009,''
+\emph{Annual Review of Financial Economics}, 4, 161--177.
+
+\item Goldberg, Linda S., Craig Kennedy, and Jason Miu (2011),
+``Central Bank Dollar Swap Lines and Overseas Dollar Funding Costs,''
+\emph{Federal Reserve Bank of New York Economic Policy Review}, 17(1), 3--20.
+
+\item Gagnon, Joseph, Matthew Raskin, Julie Remache, and Brian Sack (2011),
+``The Financial Market Effects of the Federal Reserve's Large-Scale Asset Purchases,''
+\emph{International Journal of Central Banking}, 7(1), 3--43.
+
+\end{itemize}
+
+
+
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,dataapp,caseanalysis,furtherread}
