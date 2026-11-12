@@ -1,0 +1,894 @@
+\chapter{Shadow Banking and Digital Financial Intermediation}
+\label{chap:Shadow_Banking_and_Digital_Financial_Intermediation}
+
+\begin{openingcase}{The Platform Says It Does Not Lend---So Who Made the Loan?}
+
+A small merchant applies for a RMB~100,000 working-capital loan through a large digital commerce platform. The platform observes the merchant's sales and payment data, evaluates the application automatically, and displays an approved credit limit within minutes.
+
+Yet the contract identifies a licensed financial institution as the lender. The platform provides customer access, data, scoring, and servicing, while the loan may later be transferred or refinanced through securities markets. The institution that originates the customer relationship need not ultimately hold the credit exposure.
+
+If defaults rise, responsibility becomes less clear. Functions once combined inside a bank are distributed across platforms, financial institutions, and investors.
+
+The central issue is where financial intermediation takes place, how funding moves through the chain, and where risk ultimately resides when bank-like credit intermediation extends beyond a single bank balance sheet.
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={boxrule=0pt,sharp corners,left=5pt,right=5pt,top=2pt,bottom=2pt}
+]
+\begin{enumerate}[leftmargin=*,label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},itemsep=0.55em,topsep=0.2em]
+\item Why can credit intermediation move outside traditional bank balance sheets, and which financial functions remain even when the institutional form changes?
+
+\item How do funding chains, collateral, leverage, data, and digital platforms redistribute information production, liquidity transformation, and risk, and what new dependencies can arise in the process?
+\end{enumerate}
+\end{tcolorbox}
+
+\section[The Evolution of Financial Intermediation Beyond Traditional Banking]{The Evolution of Financial Intermediation Beyond Traditional Banking}
+
+Financial intermediation does not require all functions to remain within a commercial bank. Credit origination, funding, servicing, and risk bearing can be separated and performed by different institutions. The institutional structure changes, but the underlying functions of screening, funding, monitoring, and risk allocation remain.
+
+The key mechanism is the unbundling and recombination of these functions across balance sheets and markets. Regulation and capital constraints, specialization, capital-market development, and advances in data processing can all encourage this separation. Financial intermediation therefore evolves by reallocating familiar banking functions across institutions, contracts, and markets.
+
+
+\subsection{Regulatory and Balance-Sheet Constraints}
+
+A traditional bank combines funding, credit assessment, loan
+origination, monitoring, liquidity provision, and risk bearing
+within its balance sheet. Its capacity to perform these
+functions depends on funding availability, capital adequacy,
+liquidity conditions, and regulatory requirements. When the
+cost of holding assets or performing particular functions
+within this structure increases, institutions may have
+incentives to separate certain stages of credit
+intermediation from long-term balance-sheet holding.
+
+One illustration is the equity-to-assets ratio. If a bank
+seeks to maintain a target ratio, growth in total assets
+must be accompanied by a corresponding increase in equity.
+A loan retained on the balance sheet therefore uses part
+of the bank's capacity to support additional credit exposure.
+Selling or distributing the loan may reduce the resources
+required to support that exposure, depending on the extent
+of risk transfer and the obligations retained by the bank.
+
+One response to these constraints is the originate-to-distribute
+model. Under this arrangement, the originator may concentrate
+on borrower acquisition, screening, structuring, and servicing,
+while the funding and ownership of loans, together with part
+of the associated credit exposure, are transferred to other
+institutions. The originator may nevertheless retain some
+exposures through guarantees, recourse arrangements, or
+other contractual commitments.
+
+Regulatory differences can strengthen this incentive. Banks,
+securities firms, funds, finance companies, special-purpose
+vehicles, and digital platforms operate under different
+combinations of capital, liquidity, disclosure, conduct,
+and activity requirements. When comparable financial
+functions face different regulatory or balance-sheet costs
+across institutional forms, those functions may be
+reorganized across institutions and markets.
+
+Such reorganization reallocates rather than eliminates
+risk. Credit losses remain with the parties that retain
+the relevant exposure, while liquidity, leverage,
+operational, and model risks may arise at different stages
+of the intermediation process.
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: Moving an Asset Off a Bank Balance Sheet Does Not Remove Its Risk},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+A loan may leave the originator's balance sheet through
+sale, securitization, or another transfer arrangement.
+Its underlying risks are redistributed among the institutions
+that fund, insure, guarantee, service, or ultimately hold
+the claim.
+
+The key questions are who funds the asset, who bears credit
+losses, who provides liquidity, and who controls underwriting
+and servicing. These functions need not reside in the same
+institution.
+
+\end{tcolorbox}
+
+\subsection[Specialization, Capital-Market Development, and Alternative Funding]{Specialization, Capital-Market Development,\ and Alternative Funding}
+
+Regulatory and balance-sheet constraints help explain why some credit functions move outside traditional banks. A different mechanism arises from specialization and capital-market development. When origination, funding, servicing, and risk bearing can be performed separately, different institutions may concentrate on the functions in which they have comparative advantages.
+
+A finance company may specialize in consumer or equipment credit, while a mortgage originator may focus on borrower acquisition and underwriting. Private credit funds can combine investor capital with direct-lending expertise, and securitization vehicles can connect pools of loans to capital-market investors. Such specialization can lower the cost of screening, origination, servicing, or risk bearing without requiring all functions to remain within one institution.
+
+Capital-market development supports this separation by broadening the investor base and the instruments through which credit can be funded. In addition to deposits and bank wholesale liabilities, funding may be provided through bonds, asset-backed securities, fund shares, commercial paper, repurchase agreements, and other market-based claims. Borrowers can therefore be connected to investors through a sequence of contracts and intermediaries rather than through a single balance sheet.
+
+The resulting funding chain may contain several layers. Investors may hold claims on a fund, the fund may finance a special-purpose vehicle, and the vehicle may hold loans originated by another institution. Funding moves toward the borrower, while contractual cash flows move in the opposite direction. The borrower's payments ultimately support the claims issued at earlier stages of the chain.
+
+These arrangements can broaden funding sources and support specialization, but additional layers may also reduce transparency. Participants may have relatively good information about their immediate counterparties while having less visibility into leverage, collateral, liquidity commitments, or contingent exposures elsewhere in the chain.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+ box/.style={
+  draw=FinanceBlue,
+  rounded corners=2pt,
+  align=center,
+  text width=3.4cm,
+  minimum height=0.85cm,
+  inner sep=4pt
+},
+  flow/.style={
+    -Latex,
+    line width=0.8pt,
+    FinanceBlue
+  },
+  cashflow/.style={-Latex,dashed,line width=0.8pt,FinanceBlue}
+]
+
+% ------------------------------------------------
+% Nodes: compact staircase layout
+% ------------------------------------------------
+
+\node[box] (investor) at (0,3.0)
+  {Institutional investors};
+
+\node[box] (fund) at (2.5,1.7)
+  {Fund or dealer};
+
+\node[box] (vehicle) at (5.0,0.4)
+  {Lender or finance vehicle};
+
+\node[box] (borrower) at (7.5,-1.0)
+  {Households or firms};
+
+% ------------------------------------------------
+% Funding / credit: orthogonal arrows
+% ------------------------------------------------
+
+% Investors -> Fund
+\draw[flow]
+  (investor.east)
+  -| node[pos=0.5,right]{funding}
+  (fund.north);
+
+% Fund -> Vehicle
+\draw[flow]
+  (fund.east)
+  -| node[pos=0.5,right]{funding}
+  (vehicle.north);
+
+% Vehicle -> Borrower
+\draw[flow]
+  (vehicle.east)
+  -| node[pos=0.5,right]{credit}
+  (borrower.north);
+
+% ------------------------------------------------
+% Cash-flow return
+% ------------------------------------------------
+
+% Investors -> Fund
+\draw[cashflow]
+  (fund.west)
+  -| node[pos=0.5,left]{cash flows}
+  (investor.south);
+
+  % Fund -> Vehicle
+\draw[cashflow]
+  (vehicle.west)
+  -| node[pos=0.5,left]{cash flows}
+  (fund.south);
+
+% Vehicle -> Borrower
+\draw[cashflow]
+  (borrower.west)
+  -| node[pos=0.5,left]{cash flows}
+  (vehicle.south);
+
+\end{tikzpicture}
+
+\caption{A simplified market-based funding chain}
+\label{fig:ch16-market-based-funding-chain}
+\end{figure}
+
+\subsection{Technology, Data, and Platform-Based Intermediation}
+
+Digital technology changes how credit intermediation
+produces information, reaches customers, and delivers
+financial services. It can lower the costs of customer
+acquisition, information processing, contract execution,
+and loan servicing. Digital platforms can also draw on
+data generated through payments, commerce, logistics,
+and other economic activities, extending the information
+available for credit assessment beyond conventional
+financial records. Digital distribution can further
+reduce dependence on physical branches and expand the
+scale over which standardized financial services are
+provided.
+
+Data affects credit intermediation through two related
+channels. First, additional information about borrower
+activity can improve credit assessment and reduce some
+information costs. Second, access to data and analytical
+capabilities can alter organizational boundaries by
+allowing one institution to control customer access
+and credit assessment while another provides funding
+or bears the associated risk. Information production,
+credit decisions, and funding therefore need not remain
+within the same institution.
+
+The economic role of a platform depends on the functions
+it performs and the exposures it retains. A platform may
+connect borrowers with lenders, assess applicants,
+recommend credit limits, originate or service loans,
+collect payments, provide guarantees, or retain part
+of the credit risk. Funding, contractual responsibility,
+and loss-bearing capacity may reside with other
+institutions. Platform-based intermediation is therefore
+better understood by tracing the allocation of these
+functions and exposures than by relying on institutional
+labels.
+
+Technology changes the organization of intermediation
+rather than the underlying financial requirements.
+Credit still requires funding, enforceable contracts,
+servicing, loss absorption, and liquidity management.
+Greater reliance on data, models, and digital
+infrastructure, however, introduces operational
+dependence and model risk. The efficiency gains from
+digital intermediation therefore depend on the reliability
+of information, the quality of decision models, and
+the institutional arrangements governing the allocation
+of risks and responsibilities.
+
+\section{Shadow Banking and Market-Based Intermediation}
+
+The shadow banking refers broadly to credit intermediation that performs bank-like functions outside the traditional deposit-taking banking system. These functions may include credit provision, maturity and liquidity transformation, and risk bearing, but they need not remain within a single bank balance sheet. Instead, they can be separated and recombined across institutions and markets.
+
+Much of this intermediation is market-based, with funding raised through securities, fund shares, repos, and other contractual claims. Shadow banking emphasizes where bank-like functions are performed, while market-based intermediation emphasizes how funding is organized. The central analytical question is how credit, liquidity transformation, leverage, and risk are distributed across the intermediation chain.
+
+\subsection{The Institutional Architecture of Shadow Banking}
+
+Once bank-like functions are distributed across institutions and markets, credit intermediation becomes organized through a network of specialized intermediaries and contractual links. The relevant question is no longer which institution performs the entire process, but how funding, origination, servicing, liquidity provision, and risk bearing are allocated across the chain.
+
+Finance companies may specialize in lending, money market funds in short-term investment, broker-dealers in securities financing and market making, and special-purpose vehicles in holding assets and issuing claims backed by their cash flows. Private credit funds combine investor capital with direct lending. These entities occupy different positions in the intermediation chain and differ in funding structure, leverage, redemption terms, liquidity exposure, and risk retention.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Selected forms of non-bank credit intermediation}
+
+\label{tab:ch16-shadow-banking-institutions}
+
+\begin{tabularx}{0.94\textwidth}{@{}p{0.23\textwidth} X X@{}}
+
+\toprule
+
+\textbf{Institution or structure} & \textbf{Primary function} & \textbf{Potential vulnerability} \\
+
+\midrule
+
+Finance company
+& Specialized lending funded outside traditional deposits
+& Credit losses and dependence on market or parent funding \\
+
+Money market fund
+& Pools investor funds and invests in short-term instruments
+& Redemption pressure and liquidity stress under some structures \\
+
+Broker-dealer
+& Market making, securities financing, and inventory intermediation
+& Leverage, collateral calls, and dependence on short-term funding \\
+
+Special-purpose vehicle
+& Holds assets and issues claims backed by their cash flows
+& Asset performance, structural complexity, and refinancing risk in some structures \\
+
+Private credit fund
+& Direct lending funded by committed or pooled investor capital
+& Credit concentration, valuation uncertainty, and borrower refinancing risk \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+Securitization illustrates how this architecture operates. An originator creates loans, a servicer collects payments, an SPV holds the assets, an arranger structures the securities, and investors provide market funding. The underlying credit relationship remains, but funding, servicing, and risk bearing are distributed across a sequence of institutions and contracts.
+
+\subsection{Funding Chains, Collateral, and Liquidity Transformation}
+
+The institutional architecture described above becomes economically connected through funding chains. Investors provide funds to intermediaries, intermediaries finance assets or other institutions, and the resulting claims may extend through several balance sheets before reaching the ultimate borrower. In market-based intermediation, collateral often supports these links by securing short-term funding.
+
+The amount of funding obtainable against collateral depends
+on its market value and the applicable haircut, which is
+the discount applied to collateral value when determining
+borrowing capacity. A higher haircut reduces borrowing
+capacity, potentially requiring additional collateral,
+replacement funding, or asset sales.
+
+This relation provides a channel through which stress can travel along the funding chain. If collateral values fall or haircuts rise, borrowers may need to post additional collateral, reduce borrowing, obtain replacement funding, or sell assets. When similar adjustments occur across several intermediaries, pressures in one part of the chain can affect others.
+
+Liquidity transformation arises when claims held by investors or funding providers can be converted into cash relatively quickly while the underlying assets are less liquid or longer dated. An investment fund may offer frequent redemption while holding relatively illiquid credit assets, while a dealer may finance longer-dated securities with short-term repo. The degree of liquidity transformation depends on both the liquidity of the assets and the terms of the funding.
+
+The same asset can therefore create different liquidity
+pressures under different financing structures. A
+long-maturity asset funded with stable equity creates
+relatively little short-term refinancing pressure,
+whereas the same asset financed through overnight
+borrowing depends more heavily on continued market funding.
+
+\begin{example}{A Haircut Shock and Funding Capacity}{haircut-funding-capacity}
+
+A securities intermediary holds RMB~500 million of eligible collateral and initially finances the position at a 4\% haircut. Its borrowing capacity is
+
+\[
+B_0=(1-0.04)\times 500=480
+\]
+
+million renminbi.
+
+Suppose the collateral value remains unchanged but the haircut rises to 12\%. Borrowing capacity falls to
+
+\[
+B_1=(1-0.12)\times 500=440
+\]
+
+million renminbi.
+
+If the new haircut applies immediately, the intermediary
+faces an RMB~40 million reduction in borrowing capacity.
+It may respond by providing additional collateral,
+repaying part of its borrowing, obtaining replacement
+funding, or reducing the financed position.
+
+\end{example}
+
+\subsection{Leverage, Opacity, and Run Vulnerability}
+
+The funding chains and liquidity transformation described above become more vulnerable when combined with leverage, limited transparency, and runnable funding. Leverage amplifies losses, opacity makes exposures more difficult to assess, and short-term funding can translate uncertainty into rapid balance-sheet adjustment.
+
+Suppose an intermediary finances assets $A$ with liabilities $D$ and equity $E$, the leverage is $A/E$. If liabilities do not adjust immediately, a decline in asset value reduces equity by the same amount. A given\%age loss on assets therefore represents a larger\%age loss of equity when leverage is higher.
+
+Opacity can amplify the resulting uncertainty. When creditors have limited information about asset quality, leverage, collateral reuse, off-balance-sheet commitments, or exposures elsewhere in the funding chain, losses may be difficult to locate and value. Uncertainty about where risk resides can weaken willingness to continue funding even before realized losses are fully known.
+
+Runnable funding provides the channel through which this uncertainty can produce rapid adjustment. Investors may redeem claims, creditors may refuse renewal, or secured lenders may tighten financing terms. The intermediary may then need to replace funding, post additional collateral, or reduce assets within a short period. The extent of reliance on such funding can be expressed as
+
+\begin{equation}
+\phi=\frac{F_S}{A},
+\label{eq:ch16-short-term-funding-ratio}
+\end{equation}
+where $F_S$ denotes short-term runnable or noncommitted funding. A higher $\phi$ indicates greater reliance on funding that may require frequent renewal, although actual vulnerability also depends on asset liquidity, collateral quality, committed backup funding, and the behavior of funding providers.
+
+Run-like dynamics can therefore arise without traditional deposits. Redemptions from investment vehicles, nonrenewal of commercial paper, withdrawal of repo funding, and similar actions can force rapid balance-sheet adjustment when assets cannot be sold or refinanced on comparable terms.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: A Run Does Not Require a Deposit},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+A run is fundamentally a funding problem rather than a feature unique to deposits. It can occur whenever claims can be withdrawn or not renewed faster than the underlying assets can be converted into cash without substantial loss.
+
+\end{tcolorbox}
+
+\section[Platform Finance and Data-Driven Intermediation]{Platform Finance and Data-Driven \\Intermediation}
+
+Platform finance combines digital customer networks, data, and automated decision systems with financial intermediation. By lowering information and distribution costs, it can separate customer access and credit assessment from funding and risk bearing.
+
+\subsection{Platform Lending and Digital Credit Intermediation}
+
+The separation of information production from funding and risk bearing is particularly visible in platform lending. Digital platforms can place customer acquisition, credit assessment, funding, servicing, and risk bearing in different institutions even when borrowers encounter a single interface.
+
+The resulting arrangements vary. A marketplace platform may connect borrowers with investors or financial institutions, while a digital lender may use platform data to support its own credit decisions. In referral or co-lending arrangements, a licensed institution may provide funding while the platform contributes customer access, screening, or servicing. Similar digital interfaces can therefore represent different forms of credit intermediation.
+
+A useful analytical framework separates five functions:
+customer acquisition, underwriting, funding, servicing, risk bearing. These functions may be concentrated in one institution or distributed across several. The economic structure of platform lending depends on how they are allocated rather than on the interface presented to the borrower.
+
+Suppose a platform facilitates RMB~1 billion of loans. Banks retain 80\% of the credit exposure, capital-market investors hold 15\% through securitized claims, and the platform retains 5\%. The platform may therefore play a central role in customer acquisition and underwriting while bearing only a small share of the ultimate credit risk.
+
+This separation can support specialization, but it can also weaken the alignment between information production and loss bearing. When screening and risk bearing are divided across institutions, risk retention, guarantees, representations and warranties, monitoring rights, and servicing standards can help align incentives along the credit chain.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw=FinanceBlue,
+    rounded corners=2pt,
+    align=center,
+    text width=2.0cm,
+    minimum height=0.95cm,
+    inner sep=2pt
+  },
+   finance/.style={
+    draw=FinanceBlue,
+    rounded corners=2pt,
+    align=center,
+    text width=3.5cm,
+    minimum height=0.95cm,
+    inner sep=2pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.8pt,
+    FinanceBlue
+  },
+  info/.style={
+    -Latex,
+    dashed,
+    line width=0.8pt,
+    FinanceBlue
+  }
+]
+
+% Nodes
+\node[box] (borrower) at (0,0) {Borrower};
+
+\node[box] (platform) at (3.4,0) {Digital\\platform};
+
+\node[finance] (lender) at (6.5,1.5)
+  {Bank or finance company};
+
+\node[finance] (servicer) at (6.5,-1.5)
+  {Servicing and payment system};
+
+\node[box] (investor) at (10.7,1.5)
+  {Capital-market\\investor};
+
+% Information flows
+\draw[info]
+  (borrower.east)
+  -- node[above,align=center]{application \\/ data}
+  (platform.west);
+
+\draw[info]
+  (platform.east)
+  -| node[pos=0.2,above,align=center]{screening \\ / referral}
+  ($(lender.south west)!0.4!(lender.south east)$);
+
+% Market funding
+\draw[flow]
+  (investor.west)
+  -- node[above,align=center]{market \\funding}
+  (lender.east);
+
+% Credit from lender to borrower
+\draw[flow]
+  (lender.north)
+  -- ++(0,0.70)
+  -| node[pos=0.25,above]{credit}
+  (borrower.north);
+
+% Borrower payments to servicer
+\draw[flow]
+  (borrower.south)
+  
+  |- node[pos=0.75,below]{payments}
+  (servicer.west);
+
+% Collections passed to lender
+\draw[flow]
+  ($(servicer.north west)!0.6!(servicer.north east)$)
+  -- node[right]{collections}
+  ($(lender.south west)!0.6!(lender.south east)$);
+
+\end{tikzpicture}
+
+\caption{Separation of functions in digital credit intermediation}
+\label{fig:ch16-platform-credit-chain}
+\end{figure}
+
+\subsection[Alternative Data, Credit Scoring, and Automated Underwriting]{Alternative Data, Credit Scoring, and Automated Underwriting}
+
+When underwriting is performed digitally, the next question
+is how information is converted into a credit decision.
+Alongside financial statements, income, collateral, and
+repayment history, lenders may use transaction records,
+sales patterns, payment flows, logistics data, digital
+interactions, and other legally permitted information.
+Credit scoring and automated underwriting are used across
+a range of lending markets, including consumer finance,
+auto finance, mortgage lending, small-business credit,
+and platform-based lending. The information used and
+the relative importance of borrower characteristics,
+repayment history, and collateral vary with the loan
+product.
+
+Credit-scoring models use available information about a
+borrower, including financial characteristics, repayment
+history, and other relevant indicators, to estimate the
+borrower's probability of default. This estimate provides
+a basis for credit classification, loan pricing, and
+lending decisions.
+
+The value of alternative data depends on whether they provide useful information beyond existing indicators or reduce screening costs. Additional data do not necessarily improve credit decisions: they may be noisy, selectively observed, unstable over time, or associated with legal and fairness concerns.
+
+Credit scoring converts borrower information into a risk estimate; automated underwriting applies that estimate to lending decisions at scale. This can improve consistency and reduce processing time, but model errors can also be propagated across many applications.
+
+Model performance therefore depends on both predictive accuracy and stability. Relationships observed in historical data may weaken when borrower behavior, platform activity, regulation, or economic conditions change.
+
+Prediction and decision remain distinct. A lender must
+translate estimated default risk into decisions about
+loan approval, pricing, credit limits, maturity,
+collateral requirements, and monitoring. The relevant
+considerations vary across lending markets. In auto
+finance, for example, lending decisions depend not only
+on the borrower's repayment capacity but also on the
+vehicle's value, expected depreciation, down payment,
+and loan-to-value ratio. More generally, these decisions
+depend on expected recoveries, funding costs, expected
+returns, and the relative costs of different
+classification errors.
+
+\begin{example}{A More Accurate Score Does Not Automatically Produce a Better Lending Rule}{better-score-lending-rule}
+
+Suppose a new model distinguishes high-risk from low-risk applicants more accurately than the previous model.
+
+The lender must still determine how the predictions enter the approval rule. A stricter threshold may reduce expected credit losses but reject more applicants, while a looser threshold may expand lending while accepting more high-risk borrowers.
+
+The economic value of the model therefore depends not only on predictive performance but also on how its predictions are translated into lending decisions.
+
+\end{example}
+
+\subsection[Embedded Finance and Platform Ecosystems]{Embedded Finance and Platform Ecosystems}
+
+Data-driven financial services can be integrated directly into the commercial activities through which customer relationships and information are generated. Embedded finance places payments, credit, insurance, or other financial services within a non-financial transaction or platform relationship, such as working-capital credit in an e-commerce platform or installment financing at checkout.
+
+Embedding can reduce distribution and transaction costs by offering financial services within an existing customer relationship and at the point of financial need. Information generated through the underlying transaction may also support servicing and monitoring when it is relevant and legally usable.
+
+As financial and non-financial services become more closely integrated, the economics of individual products may depend on the wider platform ecosystem. A platform may accept a lower margin on one financial service when the relationship generates revenue elsewhere through commerce, payments, logistics, advertising, or other activities. Product economics therefore may extend beyond the standalone return on a loan, payment service, or insurance product.
+
+Greater integration can also increase dependence on the platform. A merchant that relies on the same ecosystem for customers, payments, logistics, data, and finance may face higher switching costs and greater dependence on continued platform access. The financial effects therefore depend not only on product terms, but also on control over customer relationships, data, and distribution channels.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Economic mechanisms in embedded finance and platform ecosystems}
+
+\label{tab:ch16-embedded-finance-ecosystems}
+
+\begin{tabularx}{0.92\textwidth}{@{}p{0.27\textwidth} X@{}}
+
+\toprule
+
+\textbf{Platform feature} & \textbf{Financial implication} \\
+
+\midrule
+
+Existing customer relationship
+& Can reduce acquisition and distribution costs by placing financial services within an established transaction channel \\
+
+Integrated transactions
+& Can provide financing, payment, or protection at the point of economic need \\
+
+Ecosystem information
+& Can support servicing and monitoring when the information is relevant and legally usable \\
+
+Cross-selling
+& Can make the economics of one financial product depend partly on revenues generated elsewhere in the ecosystem \\
+
+Integrated ecosystem
+& Can increase switching costs and dependence on platform access, data, and distribution channels \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+\section[Changing Boundaries and Market Power in Financial Intermediation]{Changing Boundaries and Market Power in Financial Intermediation}
+
+Digital and market-based intermediation can separate information, distribution, servicing, funding, and risk bearing across different institutions, changing the boundary between markets and intermediaries. As these functions are reorganized, control over customer access, data, networks, and distribution channels can become a source of market power, leading to reintermediation rather than the disappearance of intermediaries.
+
+\subsection[Disintermediation, Reintermediation, and Financial Ecosystems]{Disintermediation, Reintermediation, and Financial Ecosystems}
+
+The integration of finance into digital ecosystems changes not only how financial services are delivered, but also which intermediaries connect customers with funding. Disintermediation occurs when financing bypasses an existing intermediary. A firm that replaces a bank loan with a bond issue, for example, reduces its reliance on bank balance-sheet intermediation.
+
+The functions of intermediation, however, do not disappear. Bond finance still requires issuance, distribution, custody, trading, and investment management, while securitization separates origination, funding, servicing, and risk bearing across several entities. When these functions are reassigned to a new set of intermediaries, the process is better described as reintermediation.
+
+Digital platforms extend this process by organizing customer access, data, and distribution within a financial ecosystem. A platform may reduce reliance on branches or traditional distribution channels while becoming an important interface between customers and financial institutions. Its role may depend less on deposit funding or direct asset holding than on control over customer access, information, and transaction flows.
+
+As institutional boundaries become less informative, analysis can focus on how financial functions and exposures are allocated. A functional map asks four questions:
+
+\begin{enumerate}
+
+\item Who controls the customer relationship?
+
+\item Who produces, controls, or has access to the information used in financial decisions?
+
+\item Who provides funding and liquidity?
+
+\item Who ultimately bears financial losses?
+
+\end{enumerate}
+
+These questions provide a common framework for comparing banks, platforms, funds, securitization structures, and hybrid forms of intermediation.
+
+\subsection[Data Concentration, Market Power, and Algorithmic Dependence]{Data Concentration, Market Power, and Algorithmic Dependence}
+
+As financial ecosystems become organized around digital platforms, control over customer relationships, transaction flows, and data can become increasingly concentrated. A larger user base generates more activity and information, which may improve services and reduce average information-processing and distribution costs. Better services can in turn attract additional users and generate further data.
+
+This feedback can strengthen market position when customer networks, proprietary data, or distribution channels are difficult to replicate. Entrants may have comparable technology but less transaction history, fewer established users, or weaker access to customer relationships. Data scale can therefore affect both operating efficiency and market contestability.
+
+Market power may arise through network effects, switching costs, control over data and digital interfaces, integration across services, and established customer relationships. These advantages can influence fees, product placement, access to customers, and bargaining power between platforms and financial institutions.
+
+Digital concentration can also arise through common dependence rather than common ownership. Financial institutions may remain legally separate while relying on the same cloud services, data providers, scoring systems, or similar model architectures. If these common inputs fail or generate similar errors, decisions across institutions may become more correlated.
+
+Shared technology can lower costs and improve consistency, but dependence on a limited set of providers, data sources, or models may also create operational concentration and reduce substitutability under stress. The financial significance of digital concentration therefore depends on how efficiency gains interact with contestability, common exposure, and financial resilience.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Digital Scale Can Reduce Cost and Concentrate Dependence},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Digital scale can create efficiency and concentration through the same underlying mechanism. The analytical question is whether gains from scale are accompanied by dependence on data, interfaces, models, or infrastructure that is difficult to replace.
+
+\end{tcolorbox}
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Financial intermediation can move beyond traditional bank balance sheets without eliminating its underlying functions. Credit still requires information production, contracting, funding, servicing, liquidity management, and risk bearing. Shadow banking is therefore best understood as an architecture in which these functions are distributed across non-bank institutions, markets, and contractual funding chains.
+
+Collateral, leverage, and short-term funding influence how this architecture responds to stress. Haircuts link borrowing capacity to collateral values, while runnable funding and leverage can amplify balance-sheet adjustment. Run-like pressure may arise through redemptions or funding withdrawal even when deposits are absent.
+
+Digital platforms extend this reorganization by combining customer networks, data, automated underwriting, and embedded financial services. They can reduce information and distribution costs while separating customer access and credit assessment from funding and risk bearing. As intermediation is reorganized, disintermediation may be followed by reintermediation, while data concentration, network effects, switching costs, and common digital infrastructure can create new forms of market power and dependence. The central analytical task remains to identify who performs each financial function and where the associated risks ultimately reside.
+
+%========================================================
+% Mind Map
+%========================================================
+
+\TailModule{mindmap}{Mind Map}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  center/.style={
+    draw=FinanceBlue,
+    fill=FinanceBlue!8,
+    rounded corners,
+    align=center,
+    text width=4.0cm,
+    minimum height=1.1cm,
+    inner sep=6pt
+  },
+  box/.style={
+    draw=FinanceBlue,
+    rounded corners,
+    align=center,
+    text width=4.0cm,
+    minimum height=1.15cm,
+    inner sep=6pt
+  },
+  middle/.style={
+    draw=FinanceBlue,
+    rounded corners,
+    align=center,
+    text width=6.0cm,
+    minimum height=1.15cm,
+    inner sep=6pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.8pt,
+    FinanceBlue
+  }
+]
+
+\node[center] (core) at (0,0)
+{\textbf{Financial functions persist}\\
+{\small but are reorganized across institutions and markets}};
+
+\node[middle] (drivers) at (0,3.2)
+{\textbf{Drivers of Reorganization}\\[2pt]
+{\small Constraints, specialization, technology,\\
+and alternative funding}};
+
+\node[box] (shadow) at (-5.2,0.0)
+{\textbf{Shadow-Banking Mechanisms}\\[2pt]
+{\small Funding chains, collateral, leverage,\\
+and liquidity transformation}};
+
+\node[box] (platform) at (5.2,0.0)
+{\textbf{Platform-Based Intermediation}\\[2pt]
+{\small Platform lending, alternative data,\\
+and embedded finance}};
+
+\node[middle] (boundary) at (0,-3.5)
+{\textbf{Changing Boundaries and Dependence}\\[2pt]
+{\small Reintermediation, data concentration,\\
+and algorithmic dependence}};
+
+\draw[flow] (drivers) -- (core);
+\draw[flow] (shadow) -- (core);
+\draw[flow] (platform) -- (core);
+\draw[flow] (boundary) -- (core);
+
+\end{tikzpicture}
+
+\caption{Financial functions persist even when institutional boundaries change.}
+\label{fig:ch16-summary-map}
+\end{figure}
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Shadow banking; market-based intermediation; originate-to-distribute;
+securitization; funding chain; collateral; haircut; liquidity transformation;
+leverage; run vulnerability; platform lending; alternative data;
+automated underwriting; embedded finance; reintermediation;
+network effects; data concentration; algorithmic dependence.
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Reconstruct a Digital Credit Chain}
+
+Choose a real digital lending or embedded-finance arrangement and ask an AI system to explain how the product works. Treat the initial answer as a hypothesis rather than as verified fact.
+
+Use primary sources from the platform, lender, regulator, prospectus, securitization documents, or other relevant disclosures to reconstruct the financing chain.
+
+\begin{enumerate}
+
+\item Identify who acquires the customer, performs credit assessment, makes the formal lending decision, provides funding, services the loan, and ultimately bears credit losses.
+
+\item Compare this structure with the AI answer. Check whether it confuses the consumer-facing platform with the legal lender, funding provider, or ultimate risk holder.
+
+\item Identify guarantees, risk-sharing arrangements, loan transfers, securitization, or other mechanisms that affect where credit exposure resides.
+
+\item Examine the documented information used in credit assessment. Distinguish disclosed data inputs from assumptions about model design, weighting, or predictive performance.
+
+\item Identify one important risk that remains even if credit prediction improves, such as funding, liquidity, operational, legal, or concentration risk.
+
+\end{enumerate}
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why can transferring a loan away from the originator's balance sheet expand lending capacity without eliminating credit risk?
+
+\item How can an increase in repo haircuts reduce an intermediary's funding capacity even when the market value of collateral is unchanged?
+
+\item How can non-bank intermediaries perform bank-like functions without accepting traditional deposits?
+
+\item In platform lending, why can customer acquisition, underwriting, funding, and risk bearing be performed by different institutions?
+
+\item How can alternative data improve credit assessment while also creating concerns about model stability, data use, and concentration?
+
+\item Why can digital finance produce reintermediation, and how can reliance on common algorithms, data sources, or technology providers create shared exposures across otherwise separate institutions?
+
+\end{enumerate}
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Mapping Non-Bank and Digital Credit Intermediation in China}
+
+Use authoritative Chinese sources such as the People's Bank of China, the National Financial Regulatory Administration, the China Securities Regulatory Commission, exchange or interbank-market disclosures, asset-backed securities documents, and published disclosures of financial institutions or digital platforms.
+
+Select one credit channel outside a conventional bank loan, such as consumer-finance companies, asset-backed securities, trust financing, private credit or private fund structures where applicable, or a platform-based lending arrangement.
+
+Construct a financing map showing the borrower, originator, formal lender where applicable, funding provider, servicer, guarantor or other credit-enhancement provider, and ultimate investor or risk holder where identifiable. If the structure changes over time, document the sequence rather than combining different periods into one static map.
+
+Collect at least three quantitative indicators that are economically linked to the financing chain. These may include outstanding financing, issuance volume, funding composition, asset-pool characteristics, delinquency measures, investor composition, or platform loan facilitation where primary disclosures are available.
+
+Interpret the evidence through financial functions rather than institutional labels. Identify who produces information, who provides funding, who bears credit losses, and which participants depend on market refinancing. State any important limitation arising from consolidated reporting, incomplete disclosure, or unavailable information on risk retention.
+
+%========================================================
+% Case Analysis
+%========================================================
+
+\TailModule{caseanalysis}{Case Analysis}
+
+\textbf{Case: China's P2P Lending Boom---Was the Platform Only an Information Intermediary?}
+
+Peer-to-peer Internet lending expanded rapidly in China during the 2010s. The regulatory framework defined P2P platforms primarily as information intermediaries connecting borrowers with lenders rather than as deposit-taking institutions. In practice, business models varied, and the boundary between information matching, credit enhancement, funding transformation, and risk bearing was not always easy for investors to identify.
+
+As risks accumulated, Chinese authorities conducted a multi-year rectification of Internet finance and P2P lending. A People's Bank of China report stated that the number of operating P2P Internet lending institutions fell from a peak of around 5,000 to 29 by the end of June 2020.
+
+Analyze the episode as a problem of financial architecture rather than as a chronology of regulation.
+
+First, reconstruct the basic P2P claim structure. Who supplied funds, who borrowed, and what legal and economic roles did the platform perform? Second, examine whether guarantees, affiliated entities, pooled funding, maturity transformation, or other arrangements moved the platform beyond pure information matching. Third, explain why complex contractual chains could make the location of credit and liquidity risk difficult for investors to identify. Fourth, compare the P2P structure with the commercial-bank model in Chapter~12: which intermediation functions were similar, and which funding, capital, liquidity, or loss-absorption arrangements were different?
+
+The case illustrates a central theme of this chapter: institutional labels do not by themselves determine the economic structure of credit intermediation. The analysis begins with functions, contracts, funding, and risk allocation.
+
+\emph{Primary source context: People's Bank of China, ``Firmly Fight the Critical Battle of Preventing and Defusing Financial Risks''; \emph{Interim Measures for the Administration of the Business Activities of Online Lending Information Intermediaries}, 2016.}
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Adrian, Tobias, and Hyun Song Shin (2010),
+``Liquidity and Leverage,''
+\emph{Journal of Financial Intermediation}, 19(3), 418--437.
+
+\item Gorton, Gary, and Andrew Metrick (2012),
+``Securitized Banking and the Run on Repo,''
+\emph{Journal of Financial Economics}, 104(3), 425--451.
+
+\item Pozsar, Zoltan, Tobias Adrian, Adam Ashcraft, and Hayley Boesky (2013),
+``Shadow Banking,''
+\emph{Federal Reserve Bank of New York Economic Policy Review}, 19(2), 1--16.
+
+\item Buchak, Greg, Gregor Matvos, Tomasz Piskorski, and Amit Seru (2018),
+``Fintech, Regulatory Arbitrage, and the Rise of Shadow Banks,''
+\emph{Journal of Financial Economics}, 130(3), 453--483.
+
+\item Berg, Tobias, Valentin Burg, Ana Gombovi\'c, and Manju Puri (2020),
+``On the Rise of FinTechs: Credit Scoring Using Digital Footprints,''
+\emph{The Review of Financial Studies}, 33(7), 2845--2897.
+\end{itemize}
+
+\ChapterTail{summary,mindmap,keyterms,aiprompt,questions,dataapp,caseanalysis,furtherread}
