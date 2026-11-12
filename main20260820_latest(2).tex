@@ -1,0 +1,425 @@
+\documentclass[12pt,a4paper]{book}
+\setlength{\headheight}{14.5pt} % Fix fancyhdr headheight warning
+\setcounter{secnumdepth}{3} 
+\usepackage{etoc} 
+\usepackage[english]{babel}
+% (Remove this line entirely; tcolorbox will be loaded later with options)
+\usepackage{tocloft} 
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{amsmath,amssymb}
+\usepackage{rotating}  % 用于横向表格
+\usepackage{float}  
+\usepackage{enumitem}
+\usepackage{chngcntr}
+\usepackage{titlesec}
+\usepackage{pifont}
+\counterwithin{footnote}{chapter}
+\usepackage{tikz}
+\definecolor{FinanceBlue}{cmyk}{1,0.65,0,0.35}
+\usetikzlibrary{calc,positioning,arrows.meta}
+\usetikzlibrary{shapes.arrows,shapes.geometric}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{intersections}
+\usepackage{pdflscape}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} 
+%\usepackage[backend=bibtex]{biblatex}
+%\addbibresource{defiarticle.bib}
+\usepackage{cite}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{ragged2e,makecell}
+\newcolumntype{Y}{>{\raggedright\arraybackslash
+  \hyphenpenalty=10000
+  \exhyphenpenalty=10000}X}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\sisetup{
+  table-number-alignment = center, % 数字整体居中
+  table-format = 3.2,              % 整数最多3位，小数2位
+  table-column-width = 2cm         % 列宽固定为2cm
+}
+\usepackage{caption}          % 提供 \ContinuedFloat           % [p] 浮动页
+%\usepackage[number, sort&compress]{natbib}
+\usepackage{hyperref}  
+\hypersetup{colorlinks=true,linkcolor=black} 
+\usepackage{lipsum} 
+\usepackage{etoolbox}
+% \usepackage{pifont}          % 提供 \ding 圆圈数字①②③…
+\usepackage{microtype}
+\usepackage{fancyhdr} % 页眉页脚
+\usepackage[most]{tcolorbox}  % 用于定制应用部分的外观
+%========================================================
+% Opening Case
+% Two-color design: FinanceBlue + black
+%========================================================
+
+\NewDocumentEnvironment{openingcase}{m}{%
+  \begin{tcolorbox}[
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=white,
+    boxrule=0pt,
+    sharp corners,
+    borderline west={2.2pt}{0pt}{FinanceBlue},
+    left=10pt,
+    right=8pt,
+    top=9pt,
+    bottom=9pt,
+    before skip=1.2em,
+    after skip=1.5em
+  ]
+
+  % Opening Case label
+  \noindent
+  {\color{FinanceBlue}\small\bfseries OPENING CASE\par}
+
+  \vspace{3pt}
+
+  % Case title
+  \noindent
+  {\large\bfseries #1\par}
+
+  \vspace{8pt}
+
+  % Body text
+  \setlength{\parindent}{1.5em}
+  \setlength{\parskip}{0.3em}
+  \noindent
+}{%
+  \end{tcolorbox}%
+}
+
+% \newtcolorbox[auto counter, number within=chapter]{example}[2][]{colback=gray!10!white,colframe=black!80!white,
+% fonttitle=\bfseries, title=Example~\thetcbcounter: #2,#1}
+
+\tcbuselibrary{theorems,breakable}
+
+\newtcbtheorem[
+  number within=chapter
+]{example}{Example}{
+  breakable
+}{ex}
+
+
+% \makeatletter
+% \renewcommand\thefootnote{(\arabic{footnote})}
+% \renewcommand\@makefnmark{%
+%   \hbox{\textsuperscript{(\arabic{footnote})}}}
+% \makeatother
+
+\makeatletter
+\newcommand*\@circlednum[1]{\ding{\numexpr171+#1\relax}}
+\renewcommand*\@makefnmark{%
+  \hbox{\textsuperscript{\@circlednum{\value{footnote}}}}}
+\renewcommand*\thefootnote{\@circlednum{\value{footnote}}}
+\makeatother
+
+%========================================================
+% Chapter-end modules
+%========================================================
+
+% -------------------------------------------------------
+% Anchor for an actual chapter-end module
+%
+% Usage:
+%   \TailAnchor{summary}
+%   \TailAnchor{keyterms}
+% -------------------------------------------------------
+
+\newcommand{\TailAnchor}[1]{%
+  \phantomsection
+  \hypertarget{sec:\thechapter:#1}{}%
+  \label{sec:\thechapter:#1}%
+}
+
+
+% -------------------------------------------------------
+% Optional convenience command:
+% creates an unnumbered heading and its anchor
+%
+% Usage:
+%   \TailModule{summary}{Summary}
+% -------------------------------------------------------
+
+\newcommand{\TailModule}[2]{%
+  \TailAnchor{#1}%
+  \section*{#2}%
+}
+
+
+% -------------------------------------------------------
+% One item in the TOC tail:
+% clickable name + page number
+% -------------------------------------------------------
+
+\newcommand{\TailLink}[3]{%
+  \hyperlink{sec:#1:#2}{#3}\,%
+  (\pageref*{sec:#1:#2})%
+}
+
+
+% -------------------------------------------------------
+% Names of chapter-end modules
+% -------------------------------------------------------
+
+\ExplSyntaxOn
+
+\cs_new:Npn \finance_tail_title:n #1
+  {
+    \str_case:nnF {#1}
+      {
+
+        {summary}      {Summary}
+        {mindmap}      {Mind~Map}
+        {keyterms}     {Key~Terms}
+        {questions}    {Discussion~Questions}
+        {appprobs}     {Applied~Problems}
+        {aiprompt}     {Financial~AI~Lab}
+        {dataapp}      {Data~Application}
+        {caseanalysis} {Case~Analysis}
+        {furtherread}  {Further~Reading}
+      }
+      {#1}
+  }
+
+
+% -------------------------------------------------------
+% Generates:
+%
+% Summary (20) · Key Terms (22) · Questions (23)
+%
+% from:
+%
+% summary,keyterms,questions
+% -------------------------------------------------------
+
+\bool_new:N \l__finance_tail_first_bool
+
+\cs_new_protected:Npn \finance_tail_list:nn #1#2
+  {
+    \bool_set_true:N \l__finance_tail_first_bool
+
+    \clist_map_inline:nn {#2}
+      {
+        \bool_if:NF \l__finance_tail_first_bool
+          {
+            \,\textbullet\,
+          }
+
+        \TailLink
+          {#1}
+          {##1}
+          {\finance_tail_title:n {##1}}
+
+        \bool_set_false:N \l__finance_tail_first_bool
+      }
+  }
+
+
+\NewDocumentCommand{\HyperTailList}{m m}
+  {
+    \finance_tail_list:nn {#1}{#2}
+  }
+
+\ExplSyntaxOff
+
+
+% -------------------------------------------------------
+% Add one chapter-tail row to the table of contents
+%
+% Examples:
+%
+% \ChapterTail{summary,keyterms,questions}
+%
+% \ChapterTail{summary,mindmap,keyterms,questions,appprobs}
+% -------------------------------------------------------
+
+\DeclareRobustCommand{\ChapterTail}[1]{%
+  \addtocontents{toc}{%
+    \protect\contentsline{section}{%
+      \protect\numberline{}%
+      \protect\HyperTailList{\thechapter}{#1}%
+    }{}{}%
+  }%
+}
+
+
+\pagestyle{fancyplain}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}{}}
+\fancyhead[LE]{
+   % The chapter number only if it's greater than 0 and chapter is defined
+   \ifcsname chapter\endcsname
+     \ifnum\value{chapter}>0 \chaptername\ \thechapter: \fi
+   \fi
+   % The chapter title
+    \leftmark}  
+\fancyhead[CO,RE]{}
+\fancyhead[LO,CE]{}
+\fancyhead[RO]{\rightmark}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancypagestyle{plain}{
+\fancyhead{} % 页眉清空
+\renewcommand{\headrulewidth}{0pt} % 去页眉线
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+}
+\frenchspacing
+\setcounter{tocdepth}{4}
+
+\tcbuselibrary{breakable,skins,theorems}
+\makeatletter
+\newcommand{\applisttitle}[2]{Application~\thetcbcounter: #2}
+
+\newtcolorbox[auto counter,
+              number within=chapter,
+              list inside=applist]% <— removed list entry key
+              {application}[2][]{
+  % \newtcolorbox[auto counter, number within=chapter]{application}[2][]{
+  enhanced jigsaw,            % 高级皮肤算法
+  breakable,                  % 支持分页
+  colframe=blue!50!black,     % 边框
+  colback=blue!5,             % 背景
+  coltitle=black,             % 标题色
+  fonttitle=\bfseries,        % 标题加粗
+  attach boxed title to top left={xshift=2mm,yshift=-2mm},
+  boxed title style={         % 标题盒子样式
+    sharp corners,
+    colback=blue!20!white,
+    colframe=blue!50!black,
+    boxrule=0.8pt, size=small,
+    left=4pt,right=4pt,top=2pt,bottom=2pt
+  },
+  title={Application~\thetcbcounter: #2},
+  label=#1,
+  boxrule=1pt,                % 整体框线粗细
+  left=6pt,right=6pt,top=6pt,bottom=6pt,
+   before upper={
+    \setlength{\parindent}{1.5em}%  ← 后续段落缩进量
+    \noindent                               %  ← 取消首段缩进
+  },
+   overlay first={
+     % 底部横线
+    \begin{scope}[shift={(frame.south west)}]
+      \draw[blue!60!black,line width=0.6pt] (0,0) -- (frame.south east);
+    \end{scope}
+  },
+  % ————— 在“中间段”（跨页）画上下分割线 —————
+  overlay middle={
+    % 顶部横线
+    \begin{scope}[shift={(frame.north west)}]
+      \draw[blue!60!black,line width=0.6pt] (0,0) -- (frame.north east);
+    \end{scope}
+    % 底部横线
+    \begin{scope}[shift={(frame.south west)}]
+      \draw[blue!60!black,line width=0.6pt] (0,0) -- (frame.south east);
+    \end{scope}
+  },
+   overlay last={
+    % 顶部横线
+    \begin{scope}[shift={(frame.north west)}]
+      \draw[blue!60!black,line width=0.6pt] (0,0) -- (frame.north east);
+    \end{scope}
+  },
+}
+\makeatother
+
+% ======= In the preamble =======
+\tikzset{
+  timeline/.style={-Latex, line width=0.9pt},
+  cfup/.style={-Latex, line width=1pt},      % cash inflow (to investor): arrow up
+  cfdown/.style={Latex-, line width=1pt},    % cash outflow (from investor): arrow down
+  tick/.style={gray, line width=0.5pt}
+}
+% Helper macro: horizontal axis with year ticks 0..N
+\newcommand{\yearaxis}[2]{%
+  \draw[timeline] (0,0)--(#1,0);
+  \foreach \x in {0,...,#1} {
+    \draw[tick] (\x,0.08)--(\x,-0.08);
+    \node[below] at (\x,-0.12) {Year \x};
+  }
+  \node[font=\bfseries] at (#1/2,0.9) {#2};
+}
+
+
+% ------- 3. 正文 -------
+
+\begin{document}
+\frontmatter
+\title{FINANCIAL MARKETS, INSTITUTIONS, AND INSTRUMENTS: 
+
+An Information, Contract, and Valuation Perspective}
+%\subtitle{Some more to know}
+\author{Zhang Xiuli}
+\date{20-08-2026}
+\maketitle  
+\pagenumbering{roman}
+\newpage
+
+\input{frontmatter/preface}
+\cleardoublepage
+
+% \etocrestorecontentsline  
+--- 简易目录：只到 chapter ---
+\etocsettocdepth{chapter} % 1 = chapter
+\renewcommand\contentsname{Short Contents}
+\tableofcontents
+
+\cleardoublepage
+% --- 详细目录：显示 section（含尾部条目）---
+\etocsettocdepth{subsection} % 2 = section, 3 = subsection, etc.
+\renewcommand\contentsname{Full Contents}
+\tableofcontents
+\cleardoublepage
+
+%==== Main Content Area =====
+\mainmatter 
+
+% \part{Foundations of the Financial System}
+% \include{chapters6/The_Essence_of_Finance_Frictions_Functions_and_the_Financial_System}
+% \include{chapters6/Money_Payments_and_Liquidity_Architecture}
+
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  \part{Information, Contracts, and Valuation}
+% \include{chapters6/Information_Economics_and_Financial_Contracts}
+% \include{chapters6/Financial_Intermediation_and_Financial_Structure}
+% \include{chapters6/The_Logic_of_Financial_Valuation}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \part{Financial Markets}
+% \include{chapters6/Interest_Rates_and_Capital_Allocation}
+% \include{chapters6/Money_Markets_and_Short_Term_Liquidity_Contracts}
+% \include{chapters6/Bond_Markets_and_Debt_Contracts}
+% \include{chapters6/Stock_Markets_and_Equity_Claims}
+% \include{chapters6/Foreign_Exchange_Markets_and_Cross_Border_Finance}
+% \include{chapters6/Derivatives_Markets_and_Contingent_Claims}
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \part{Financial Institutions}
+% \include{chapters6/Commercial_Banks_Credit_Intermediation_and_Liquidity_Creation}
+% \include{chapters6/Investment_Banks_Capital_Raising_and_Capital_Market_Intermediation}
+% \include{chapters6/Asset_Management_and_Institutional_Investment}
+% \include{chapters6/Insurance_and_Risk_Sharing_Institutions}
+% \include{chapters6/Shadow_Banking_and_Digital_Financial_Intermediation}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \part{Financial Instruments and Risk Management}
+% \include{chapters6/Linear_Derivatives_Forwards_Futures_and_Swaps}
+% \include{chapters6/Nonlinear_Derivatives_and_Embedded_Optionality}
+% \include{chapters6/Credit_Risk_Default_and_Risk_Transfer}
+% \include{chapters6/Structured_Finance_Engineering_Future_Cash_Flows}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \part{Financial Stability, Policy, and Innovation}
+\include{chapters6/Systemic_Risk_and_Financial_Crises}
+\include{chapters6/Central_Banking_Liquidity_and_Crisis_Management}
+\include{chapters6/Financial_Regulation_and_Macroprudential_Policy}
+\include{chapters6/The_Future_Architecture_of_Finance}
+
+\backmatter
+\end{document}
