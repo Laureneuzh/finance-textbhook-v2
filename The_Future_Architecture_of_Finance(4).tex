@@ -57,7 +57,7 @@ The financial promise did not change; the infrastructure supporting its issuance
 
 \section{AI and Autonomous Financial Agents}
 
-Artificial intelligence is increasingly used not only to process information and support financial decisions, but also to perform sequences of tasks under delegated authority. An AI agent may collect information, evaluate alternatives, communicate with digital systems, and initiate transactions within a defined mandate. This creates a form of \emph{agentic intermediation}, in which software performs part of the decision and execution process on behalf of a principal.
+Artificial intelligence is increasingly used not only to process information and support financial decisions, but also to perform sequences of tasks under delegated authority. An AI agent may collect information, evaluate alternatives, communicate with digital systems, and initiate transactions within a defined mandate. This creates a form of agentic intermediation, in which software performs part of the decision and execution process on behalf of a principal.
 
 Such delegation can reduce information-processing and coordination costs, while increasing the importance of mandate design, authorization, monitoring, and accountability. Model error and misaligned objectives remain relevant when automated systems move from advice to action.
 
@@ -114,7 +114,7 @@ a_t=\pi_{\theta}(I_t,M,C_t),
 
 where \(I_t\) is the information available at date \(t\), \(M\) is the principal's mandate, \(C_t\) represents operational and risk constraints, and \(a_t\) is the action selected by the agent. The mandate defines the objective, while the constraints limit the actions available to the system.
 
-Autonomous agents may perform standardized tasks such as cash management, payments, collateral allocation, trade execution, portfolio rebalancing, claims processing, and compliance checks. \emph{Agent-to-agent finance} arises when such systems interact directly. A treasury agent, for example, may request funding quotes from several financial institutions, compare the terms, and execute a transaction within predefined limits. Automation can reduce the coordination costs associated with repeated information exchange and execution.
+Autonomous agents may perform standardized tasks such as cash management, payments, collateral allocation, trade execution, portfolio rebalancing, claims processing, and compliance checks. Agent-to-agent finance arises when such systems interact directly. A treasury agent, for example, may request funding quotes from several financial institutions, compare the terms, and execute a transaction within predefined limits. Automation can reduce the coordination costs associated with repeated information exchange and execution.
 
 Delegation, however, introduces familiar agency problems in a new form. Objectives may be incomplete, constraints may be poorly specified, and observable targets may not fully represent the principal's interests. Greater transaction authority therefore places greater weight on mandate design, monitoring, and escalation rules.
 
@@ -207,7 +207,7 @@ Stablecoins can provide private digital liquidity while remaining linked to the 
 
 \subsection{Interoperability and the Singleness of Money}
 
-When several monetary claims are denominated in the same currency, their usefulness depends partly on their ability to exchange at par. This property is commonly described as the \emph{singleness of money}: one unit of the currency retains the same monetary value across different issuers and payment arrangements.
+When several monetary claims are denominated in the same currency, their usefulness depends partly on their ability to exchange at par. This property is commonly described as the singleness of money: one unit of the currency retains the same monetary value across different issuers and payment arrangements.
 
 Suppose \(M_A\) and \(M_B\) are two digital monetary claims denominated in the same currency, and \(M_{CB}\) denotes central bank money. Under normal conversion and settlement conditions,
 
@@ -265,7 +265,7 @@ A digital monetary system therefore requires more than multiple instruments that
 
 \subsection{Programmable Money and Conditional Settlement}
 
-Programmability allows payment and settlement instructions to be executed according to predefined conditions. It is useful to distinguish \emph{programmable payments}, in which rules govern how a transfer is executed, from \emph{programmable monetary units}, in which restrictions or conditions are attached to the monetary instrument itself. Many financial applications rely on the former without changing the nature of the money being transferred.
+Programmability allows payment and settlement instructions to be executed according to predefined conditions. It is useful to distinguish programmable payments, in which rules govern how a transfer is executed, from programmable monetary units, in which restrictions or conditions are attached to the monetary instrument itself. Many financial applications rely on the former without changing the nature of the money being transferred.
 
 Suppose a payment \(P\) is executed only when condition \(Z=1\), such as verified delivery of an asset:
 
@@ -325,7 +325,7 @@ S_{t+1}=F(S_t,Z_t),
 
 where \(S_t\) is the current contractual state and \(Z_t\) is verified information that determines the next state or action.
 
-Programmable execution works more directly when the relevant information is digitally available and can be validated reliably. When a claim depends on information outside the platform, an external data source is required. This creates the \emph{oracle problem}: an incorrect or manipulated input may lead to an incorrect economic outcome even when the programmed rule operates as intended.
+Programmable execution works more directly when the relevant information is digitally available and can be validated reliably. When a claim depends on information outside the platform, an external data source is required. This creates the oracle problem: an incorrect or manipulated input may lead to an incorrect economic outcome even when the programmed rule operates as intended.
 
 Programmability can also make specification errors more consequential. Financial contracts may require interpretation, exceptions, amendment, or dispute resolution, while code executes the rule that has been specified. 
 Smart contracts can automate parts of financial claims, but automated execution does not by itself determine ownership, custody, or legal finality.
@@ -537,7 +537,7 @@ The effectiveness of DeFi lending therefore depends not only on automated rules,
 
 \subsection{Composability and Protocol Interdependence}
 
-A defining feature of DeFi is \emph{composability}: one smart contract can interact with or build upon another. Financial services can therefore be assembled from multiple protocols, such as lending, trading, and liquidity components.
+A defining feature of DeFi is composability: one smart contract can interact with or build upon another. Financial services can therefore be assembled from multiple protocols, such as lending, trading, and liquidity components.
 
 This structure creates protocol interdependence. If Protocol \(A\) relies on Protocol \(B\), and \(B\) relies on oracle \(O\), the reliability of \(A\) depends partly on the reliability of these underlying components:
 
