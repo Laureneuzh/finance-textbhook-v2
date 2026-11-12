@@ -1,0 +1,905 @@
+\chapter{Credit Risk, Default, and Risk Transfer}
+\label{chap:Credit_Risk_Default_and_Risk_Transfer}
+
+\begin{openingcase}{No Default Occurred---Why Did the Credit Position Lose Value?}
+
+An institutional investor holds a five-year corporate bond. The issuer has made every scheduled payment on time, and none of the bond's contractual cash flows has changed. Yet weaker earnings and rising leverage lead investors to demand greater compensation for bearing the issuer's credit risk. The bond price falls, its credit spread widens, and the investor records a loss before any payment has been missed.
+
+The same deterioration appears in the market for credit protection. Even though the issuer has not missed a payment, the premium required to insure against its default rises. The bond is still performing, yet both its market price and the price of protection now reflect a weaker credit position.
+
+\end{openingcase}
+
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+
+\item How can credit risk be decomposed into default likelihood, loss severity, and exposure at the time of default?
+
+\item How do credit default swaps and credit indices transfer default risk without necessarily transferring the underlying loan or bond?
+
+\item What information is contained in bond spreads, CDS spreads, and credit ratings, and why should these signals not be interpreted as direct measures of the same object?
+
+
+\end{enumerate}
+\end{tcolorbox}
+
+
+\section{Credit Risk Fundamentals and Default Losses}
+
+Credit risk can be analyzed through three basic components: the likelihood of default, the loss that would follow if default occurs, and the amount exposed at that time. These components can be summarized by
+
+$$
+EL=PD\times LGD\times EAD.
+$$
+
+Credit risk can change before any payment is missed. An issuer may continue to meet every contractual obligation while its expected repayment capacity deteriorates. Such deterioration can reduce the market value of a loan or bond, widen its credit spread, raise the cost of credit protection, and alter financing conditions. Default is one possible outcome of this process, not the only economically relevant manifestation of credit risk.
+
+
+\subsection{Probability of Default and Credit Deterioration}
+
+The first component of expected credit loss is the likelihood of default. This likelihood is defined over a stated horizon and can change as the obligor's financial condition evolves. A one-year default probability and a five-year cumulative default probability therefore describe different exposures to credit risk.
+
+Let \(PD(0,T)\) denote the cumulative probability that default occurs between today and date \(T\). The corresponding survival probability is
+
+\begin{equation*}
+S(0,T)=1-PD(0,T).
+\label{eq:ch19-survival-probability}
+\end{equation*}
+
+Survival means that the obligor has not entered the defined default state by date \(T\). The relevant definition of default depends on the application. Bank credit models, bond contracts, and credit derivatives may use closely related but not identical event definitions.
+
+Let \(\lambda(t)\) denote the conditional default intensity at time \(t\), given survival to that time. In a continuous-time representation, the survival probability is
+
+\[
+S(0,T)
+=\exp\left(
+-\int_0^T \lambda(u)\,du
+\right).
+\]
+
+Since default and survival are complementary events, the cumulative probability of default is one minus the survival probability. If the hazard rate is constant at \(\lambda\),
+
+\begin{equation}
+PD(0,T)=1-e^{-\lambda T}.
+\end{equation}
+
+\begin{example}{From Annual Hazard to Cumulative Default Probability}{hazard-pd}
+
+Suppose a simplified model uses a constant annual hazard rate of 2\%. The three-year survival probability is
+
+$$
+S(0,3)=e^{-0.02 \times 3}\approx0.9418.
+$$
+
+The corresponding cumulative default probability is
+
+$$
+PD(0,3)=1-0.9418\approx5.82\%.
+$$
+
+The annual hazard rate is not the same as the cumulative probability of default over three years. The latter depends on both the horizon and survival through time.
+
+\end{example}
+
+Default probability is not fixed over the life of a credit exposure. Lower profitability, rising leverage, weaker liquidity, declining debt-service capacity, adverse industry conditions, or reduced access to refinancing can weaken an obligor's expected ability to meet future payments. Market participants may then assign a higher probability to future default even while current payments continue to be made.
+
+Changes in credit quality can also be represented through credit migration. An obligor may move to a stronger or weaker rating category, remain in the same category, or enter default. A transition matrix summarizes estimated movements across credit states over a chosen horizon. Such estimates are useful in portfolio analysis, although observed transition frequencies can vary across business cycles, sectors, and institutional environments.
+
+Default probabilities can be estimated from historical default experience, borrower fundamentals, structural models, reduced-form models, market prices, or combinations of these sources. The resulting measures need not coincide. Historical and model-based estimates may be designed to capture real-world default frequencies, while market-implied measures can also reflect risk premia, liquidity conditions, and pricing conventions.
+
+Default likelihood determines only whether a loss event may occur. The size of the loss, conditional on default, depends on recovery and the structure of the underlying claim.
+
+\subsection{Loss Given Default, Recovery, and Collateral}
+
+Assessing loss conditional on default involves two key quantities: exposure at default (EAD) and the recovery rate (RR). Exposure at default (EAD) is the amount of credit exposure outstanding when the obligor defaults. It may include outstanding principal, accrued interest, and other relevant amounts owed at the time of default. The recovery rate measures the proportion of EAD recovered after default:
+
+\begin{equation}
+RR=\frac{R}{EAD},
+\label{eq:ch19-recovery-rate}
+\end{equation}
+where \(R\) is the value recovered after default, net of
+relevant recovery costs.
+
+Loss given default (LGD) measures the proportion of EAD
+that is not recovered. It therefore captures the severity
+of loss rather than the likelihood of default:
+
+\begin{equation}
+LGD=1-RR.
+\label{eq:ch19-lgd}
+\end{equation}
+
+These expressions summarize a recovery process that may
+extend well beyond the default date. Recoveries can
+involve delayed payments, restructuring, legal expenses,
+collateral liquidation costs, and uncertain timing. A
+recovery received several years after default has a lower
+economic value than the same nominal amount received
+immediately, so expected recovery may need to be evaluated
+on a present-value basis.
+
+Recovery depends on both the value available in distress and the contractual position of the claim. Seniority determines priority over available assets, while collateral, guarantees, and structural subordination affect the creditor's access to particular sources of repayment. Insolvency procedures, industry conditions, and the broader economic environment can also influence the value available for distribution.
+
+Collateral affects LGD through its contribution to recovery. Let \(V_C\) denote collateral value before liquidation adjustments. The effective value of collateral, after applying a haircut, can be expressed as:
+
+\begin{equation}
+V_C^{\mathrm{eff}}
+=(1-h)V_C,
+\label{eq:ch19-effective-collateral}
+\end{equation}
+where \(h\) represents valuation haircuts, liquidation costs, and other reductions in realizable value.
+
+The protection provided by collateral depends not only on its initial value but also on how that value changes as the borrower's condition deteriorates. If collateral values tend to fall when default risk rises, expected recovery may weaken at the same time that default becomes more likely. This interaction can be important in real-estate lending, commodity finance, and other secured exposures exposed to common economic conditions.
+
+Two claims with similar default probabilities can therefore generate different expected losses when they differ in seniority, collateral quality, guarantees, or recovery prospects.
+
+\begin{example}{Same Default Probability, Different Loss Severity}{lgd-example}
+
+Two one-year exposures are each RMB~10 million and each has a default probability of 2\%. Exposure A has an expected recovery rate of 70\%, while Exposure B has an expected recovery rate of 30\%.
+
+Their expected losses are
+
+\begin{align*}
+EL_A
+&=
+0.02\times(1-0.70)\times10
+=
+\text{RMB~}0.06 \text{ million},\\
+EL_B
+&=
+0.02\times(1-0.30)\times10
+=
+\text{RMB~}0.14 \text{ million}.
+\end{align*}
+
+
+The difference arises from loss severity rather than default likelihood.
+
+\end{example}
+
+LGD determines the fraction of exposure lost after default. Expected loss also depends on the amount outstanding when default occurs, which need not equal the current exposure.
+
+
+\subsection{Exposure at Default}
+
+The amount exposed at default need not equal the amount observed today. Its evolution depends on the structure of the claim, contractual commitments, borrower behavior, and, for market-valued positions, changes in market prices.
+
+For a fully funded term loan, EAD is generally linked to the outstanding principal and accrued amounts at the time of default. In an amortizing loan, exposure tends to decline as principal is repaid. Prepayments, additional advances, or changes in the repayment schedule can alter this path.
+
+Committed credit facilities introduce greater uncertainty. A borrower may draw unused capacity as alternative funding becomes less available. Let \(D\) denote the amount already drawn and \(U\) the undrawn commitment at the measurement date. The credit conversion factor (CCF), denoted by \(c\), represents the expected proportion of the undrawn amount that will be drawn before default. EAD can then be estimated as
+
+\begin{equation}
+EAD=D+cU.
+\label{eq:ch19-ead-credit-line}
+\end{equation}
+
+The conversion factor is an estimate rather than a contractual outcome. It can vary with borrower characteristics, facility design, economic conditions, and the degree of credit deterioration. The exposure of a revolving facility is therefore partly contractual and partly behavioral.
+
+Market-valued claims follow a different exposure path. For derivatives, the amount at risk changes with market value rather than with a fixed principal balance. At default, the relevant exposure is generally the positive replacement value remaining after applicable netting and collateral. Before default, exposure estimates may also allow for possible future changes in market value over the relevant horizon.
+
+EAD can also move with credit quality. A borrower under stress may draw more heavily on a committed facility as default risk rises. In derivatives, adverse market movements can increase exposure while weakening the counterparty. Such dependence means that \(PD\), \(LGD\), and \(EAD\) need not behave as independent and fixed quantities.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Illustrative Sources of Exposure at Default}
+
+\label{tab:ch19-ead-exposures}
+
+\begin{tabularx}{\textwidth}{@{}p{3.5cm}YY@{}}
+
+\toprule
+
+\textbf{Exposure} &
+\textbf{Main EAD Component} &
+\textbf{Source of Uncertainty} \\
+
+\midrule
+
+Term loan &
+Outstanding principal and accrued amounts &
+Repayment, prepayment, and changes in outstanding balance \\
+
+Revolving credit line &
+Drawn balance plus part of the undrawn commitment &
+Drawdown behavior before default \\
+
+Bond &
+Outstanding contractual claim &
+Accrued amounts and timing of default \\
+
+Derivative &
+Positive net replacement exposure &
+Market movements, netting, collateral, and close-out timing \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+
+EAD determines the amount exposed when default occurs. Together with default likelihood and loss severity, it provides the final component needed to evaluate expected credit loss.
+
+\subsection{Expected and Unexpected Credit Loss}
+
+Once default likelihood, loss severity, and exposure at default have been identified, expected credit loss can be summarized as
+
+\begin{equation}
+EL=PD\times LGD\times EAD.
+\label{eq:ch19-expected-loss}
+\end{equation}
+
+The expression separates expected loss into three distinct sources: the probability that default occurs, the fraction of exposure lost conditional on default, and the amount exposed at that time. For a portfolio with exposures indexed by \(i\), expected loss can be aggregated as
+
+\begin{equation}
+EL_{\mathrm{portfolio}}
+=\sum_{i=1}^{n}
+PD_i\times LGD_i\times EAD_i.
+\label{eq:ch19-portfolio-el}
+\end{equation}
+
+Expected loss describes the average loss across possible future outcomes. Actual losses can deviate substantially from this average. The uncertainty around expected loss introduces a second dimension of credit risk: unexpected loss. 
+
+Let \(L\) denote random portfolio credit loss. Unexpected loss (UL) is commonly measured by the standard deviation of the loss distribution:
+
+\begin{equation}
+UL=\sqrt{\operatorname{Var}(L)}.
+\label{eq:ch19-unexpected-loss}
+\end{equation}
+
+Other measures focus on high percentiles of the loss distribution or on losses beyond a selected percentile. Although these measures differ in construction, they address the same underlying issue: portfolios with the same expected loss can still have very different distributions of adverse outcomes.
+
+This distinction becomes especially important at the portfolio level. Diversification can reduce loss variability when individual defaults do not move closely together. Credit exposures, however, are often affected by common interest rates, commodity prices, property markets, industry conditions, and macroeconomic shocks. These shared factors create default dependence and can limit the reduction in risk achieved through diversification.
+
+\begin{example}{Same Expected Loss, Different Concentration}{concentration-example}
+
+Portfolio A contains one RMB~100 million loan with a 1\% default probability and an LGD of 50\%. Its expected loss is
+
+$$
+0.01\times 0.5\times 100
+=
+\text{RMB~} 0.5\text{ million}.
+$$
+
+Portfolio B contains 100 loans of RMB~1 million each with the same individual PD and LGD. Its expected loss is also RMB~0.5 million.
+
+The two portfolios therefore have the same expected loss, but their loss distributions need not be the same. If defaults among the smaller loans are not closely synchronized, Portfolio B can have lower concentration risk. Common shocks can still generate joint losses and weaken the benefits of diversification.
+
+\end{example}
+
+Expected and unexpected loss therefore capture different dimensions of credit risk. Expected loss concerns the average level of loss associated with an exposure or portfolio, while unexpected loss concerns the dispersion and tail of possible losses around that average. Pricing, provisioning, capital, concentration limits, diversification, and risk-transfer decisions can respond differently to these two dimensions.
+
+
+\section[Credit Risk Transfer and Credit Derivatives]{Credit Risk Transfer and Credit \\Derivatives}
+
+Once credit risk has been measured, the next question is who bears it. The holder of a loan or bond need not retain all of the associated credit exposure. A separate contract can transfer part of that risk without transferring the underlying claim.
+
+Credit derivatives provide such a mechanism. A lender can keep the loan while transferring part of the loss associated with a specified credit event, while another investor can assume credit exposure without owning the underlying asset. Credit risk is therefore reallocated across parties rather than eliminated.
+
+
+\subsection[Credit Default Swaps: Contract Design and Payoffs]{Credit Default Swaps: Contract Design and \\Payoffs}
+
+A credit default swap (CDS) implements this transfer through two contractual legs. The protection buyer makes periodic premium payments, while the protection seller makes a contingent payment if a specified credit event occurs with respect to the reference entity or obligation.
+
+Let \(N\) denote the CDS notional amount and \(s\) the annualized CDS spread. If premium payments are scheduled at dates \(t_1,\ldots,t_m\), the premium payment due at date \(t_i\) is \(sN\Delta_i\), where \(\Delta_i\) is the year fraction for the corresponding premium period.
+
+If a credit event specified in the CDS contract occurs, the protection seller makes a payment to the protection buyer. Under cash settlement, the payment is based on the difference between the CDS notional amount and the post-credit-event value of the reference obligation. Let \(P_{\mathrm{final}}\) denote the final settlement price expressed as a proportion of face value. The protection payment can be represented as
+
+\begin{equation}
+\text{Protection Payment}
+=N\times(1-P_{\mathrm{final}}).
+\label{eq:ch19-cds-protection-payment}
+\end{equation}
+
+In standard CDS auction settlement, the final auction price provides the relevant market-based measure of the post-credit-event value. This expression abstracts from accrued premium and other contract-specific settlement provisions.
+
+Settlement conventions determine how the protection payment is made. Under physical settlement, the protection buyer delivers an eligible obligation to the protection seller in exchange for its contractual par amount. Under cash settlement, no obligation is delivered; the payment is determined by the final auction price or another contractually established recovery value.
+
+The CDS spread is determined by the relation between the premium and protection legs. For a par CDS, the spread is set so that the expected present values of the two legs are approximately equal. Let \(S^Q(t_i)\) denote the risk-neutral survival probability to \(t_i\), and \(D(0,t_i)\) the discount factor. A scheduled-payment approximation to the premium leg is
+
+\begin{equation}
+PV_{\mathrm{premium}}
+\approx
+sN
+\sum_{i=1}^{m}
+D(0,t_i)S^Q(t_i)\Delta_i.
+\label{eq:ch19-cds-premium-leg}
+\end{equation}
+
+This expression excludes accrued premium payable upon default.
+
+If LGD is treated as constant, the protection leg can be approximated by
+
+\begin{equation}
+PV_{\mathrm{protection}}
+\approx
+N\times LGD
+\sum_{i=1}^{m}
+D(0,t_i)
+\left[
+S^Q(t_{i-1})-S^Q(t_i)
+\right].
+\label{eq:ch19-cds-protection-leg}
+\end{equation}
+
+Here, \(t_0=0\) and \(S^Q(t_0)=1\). The expression approximates protection payments arising from defaults within each premium period as if they were made at the end of that period.
+
+The par CDS spread is the value of \(s\) that equates the two legs under the selected pricing assumptions. Under a continuous-time approximation with constant risk-neutral default intensity and constant LGD, the relationship can be summarized as
+
+\begin{equation}
+s_{\mathrm{CDS}}
+\approx
+\lambda^{Q}LGD,
+\label{eq:ch19-cds-hazard-approx}
+\end{equation}
+
+where \(\lambda^{Q}\) is the default intensity under the pricing measure. The observed CDS spread can also reflect risk premia, liquidity conditions, and contractual features, so the implied default intensity need not equal the real-world default intensity.
+
+
+\begin{example}{A Simplified CDS Protection Payment}{cds-payment-example}
+
+A bank buys CDS protection on RMB~50 million of reference debt. Suppose a qualifying credit event occurs and the settlement recovery rate is 35\%.
+
+The protection payment is
+
+$$
+50\times(1-0.35)
+=
+\text{RMB~} 32.5 \text{ million}.
+$$
+
+The payment offsets part of the loss associated with the referenced exposure. The bank's net result also depends on premiums paid, settlement terms, the match between the CDS and the hedged exposure, and the performance of the protection seller.
+
+\end{example}
+
+The effectiveness of the transfer therefore depends on how closely the reference obligation, credit-event definition, settlement terms, and protection amount match the exposure being hedged.
+
+
+\subsection[Credit Indices and Portfolio Credit Risk Transfer]{Credit Indices and Portfolio Credit Risk Transfer}
+
+When credit exposure extends across many issuers, a single-name hedge may be too narrow. A credit index extends the CDS mechanism to a standardized portfolio of corporate or sovereign reference entities, allowing broad credit exposure to be adjusted through a single contract.
+
+Index protection is useful when the objective is to manage common credit conditions rather than the risk of one issuer alone. An asset manager holding a diversified bond portfolio may use index protection to reduce sensitivity to broad credit deterioration, while a dealer may use the same instrument to manage aggregate exposure arising from client transactions.
+
+Standardization can support liquidity and price discovery. A widely traded index provides a common reference for a group of credits, and changes in its spread can reflect movements in broad credit conditions, risk premia, and market liquidity.
+
+The hedge, however, need not match the actual portfolio closely. Differences in issuers, weights, sectors, maturities, currencies, or seniority can cause the portfolio and the index to respond differently to the same credit shock. This mismatch creates basis risk.
+
+The main differences between single-name CDS and credit-index protection are summarized in Table~\ref{tab:ch19-single-index}, including their reference exposures, hedge objectives, liquidity, and residual risks.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Single-Name CDS and Credit-Index Protection}
+
+\label{tab:ch19-single-index}
+
+\begin{tabularx}{\textwidth}{@{}p{3.2cm}YY@{}}
+
+\toprule
+
+\textbf{Dimension} &
+\textbf{Single-Name CDS} &
+\textbf{Credit Index} \\
+
+\midrule
+
+Reference exposure &
+One reference entity or specified credit &
+Standardized portfolio of reference entities \\
+
+Hedge focus &
+Issuer-specific credit exposure &
+Broad portfolio or market credit exposure \\
+
+Liquidity &
+Depends on the individual name and maturity &
+Can be stronger in widely traded benchmark indices \\
+
+Residual risk &
+Reference, maturity, settlement, and counterparty mismatch &
+Composition, weight, sector, maturity, and index-basis risk \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+Credit indices extend credit-risk transfer from individual issuers to broader portfolios, but the underlying assets themselves need not move.
+
+
+\subsection[Synthetic Risk Transfer and Credit-Risk Unbundling]{Synthetic Risk Transfer and Credit-Risk Unbundling}
+
+The separation between credit exposure and asset ownership becomes clearer in synthetic transfer. A cash sale transfers the underlying loan or bond, whereas a synthetic transaction changes the allocation of credit loss through a separate contract while the asset can remain with its original holder.
+
+Suppose a bank holds a loan with principal \(N\). Selling the loan transfers the claim and its contractual cash flows. Buying CDS protection can instead leave the loan with the bank while transferring part of the loss associated with a specified credit event to the protection seller. This arrangement can preserve the lending relationship and contractual cash flows while reducing credit exposure.
+
+A protected position can be written as
+
+\begin{equation}
+L_T^{\mathrm{net}}
+=L_T^{\mathrm{loan}}-
+X_T^{\mathrm{protection}},
+\label{eq:ch19-synthetic-transfer}
+\end{equation}
+where \(L_T^{\mathrm{loan}}\) is the loss on the underlying loan and \(X_T^{\mathrm{protection}}\) is the payment received under the protection contract. When the protection closely matches the underlying exposure, the lender's sensitivity to default loss is reduced.
+
+The transfer may remain incomplete. Differences in notional amount, maturity, reference obligation, credit-event definition, or settlement terms can leave residual credit exposure. Counterparty performance also matters, while funding, interest-rate, liquidity, and operational risks associated with the original asset may remain with the lender.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Cash and Synthetic Credit-Risk Transfer}
+
+\label{tab:ch19-cash-synthetic}
+
+\begin{tabularx}{\textwidth}{@{}p{3.4cm}YY@{}}
+
+\toprule
+
+\textbf{Dimension} &
+\textbf{Cash Transfer} &
+\textbf{Synthetic Transfer} \\
+
+\midrule
+
+Underlying asset &
+Ownership is transferred &
+Asset can remain with the original holder \\
+
+Contractual cash flows &
+Transfer with the asset &
+Remain with the asset holder unless otherwise modified \\
+
+Credit-loss exposure &
+Transfers with the claim &
+Is modified through a separate contract \\
+
+Funding position &
+Can change with the asset sale &
+May remain largely unchanged \\
+
+Borrower relationship &
+May change with the transfer &
+Can remain with the original lender \\
+
+Residual risks &
+Sale price, liquidity, servicing, and contractual obligations &
+Basis, counterparty, legal, and settlement risks \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+Synthetic transfer therefore unbundles three features that need not move together: ownership of the asset, funding of the position, and bearing of credit risk. The extent of that separation depends on the design and performance of the protection contract.
+
+
+\section[Credit Pricing and Information in Credit Markets]{Credit Pricing and Information in Credit Markets}
+
+Once credit risk can be measured and transferred, its market price becomes an additional source of information. Bond spreads and CDS spreads reflect compensation for credit exposure, together with risk premia, liquidity conditions, and broader market forces, while credit ratings summarize credit assessments into relatively stable categories. These measures are related but not interchangeable: a spread is a market price, a rating is an ordinal assessment, and a model-based \(PD\) is an estimated probability of default.
+
+\subsection[Market-Based Credit Signals: Bond and CDS Spreads]{Market-Based Credit Signals: Bond and CDS Spreads}
+
+Bond and CDS spreads provide market-based signals of credit conditions. A bond's credit spread is commonly measured relative to a benchmark yield or curve:
+
+\begin{equation}
+s_{\mathrm{bond}}
+=y_{\mathrm{credit}}-
+y_{\mathrm{benchmark}}.
+\label{eq:ch19-bond-spread}
+\end{equation}
+
+The benchmark may be a government yield, swap rate, or another reference curve, depending on market practice and the purpose of the comparison. A wider spread generally indicates that investors require greater compensation for holding the bond. That compensation can reflect expected credit loss, systematic risk, liquidity, embedded options, supply and demand, and other market conditions.
+
+A CDS spread provides a market price for credit protection. Using the relation in Equation~\eqref{eq:ch19-cds-hazard-approx}, the corresponding market-implied default intensity can be approximated by
+
+$$
+\lambda^{Q}
+\approx
+\frac{s_{\mathrm{CDS}}}{LGD}.
+$$
+
+For example, a CDS spread of 150 basis points and an assumed LGD of 60\% imply
+
+$$
+\lambda^{Q}
+\approx
+\frac{0.015}{0.60}
+=
+0.025,
+$$
+or approximately 2.5\% per year under the pricing assumptions. This quantity is a market-implied intensity rather than a direct estimate of real-world default frequency.
+
+Bond and CDS spreads for the same issuer often respond to similar changes in credit conditions, but they need not coincide. For comparison, the bond spread should be measured using a specified spread measure, commonly the asset swap spread. The CDS--bond basis can then be defined as
+
+\begin{equation}
+\text{Basis}
+=
+s_{\mathrm{CDS}}-s_{\mathrm{bond}}.
+\label{eq:ch19-cds-bond-basis}
+\end{equation}
+
+A positive basis indicates that CDS protection is more expensive relative to the bond spread, whereas a negative basis indicates that it is less expensive. Differences can reflect liquidity, funding conditions, counterparty risk, deliverability, and market-specific supply and demand.
+
+Market-based credit signals can adjust quickly as new information arrives, but they also reflect risk premia, liquidity, and trading conditions. Bond and CDS spreads are therefore informative prices rather than direct measures of a single underlying quantity such as default probability.
+
+
+\subsection[Credit Ratings and Information Intermediation]{Credit Ratings and Information Intermediation}
+
+Credit information can also be produced outside traded markets. Credit ratings summarize an agency's assessment of relative credit quality using ordered categories, providing investors with a standardized signal that can reduce the cost of evaluating issuers individually.
+
+The rating process combines financial information, industry conditions, issuer-specific analysis, and judgment. Its output is an ordinal assessment rather than a market price or a direct estimate of default probability.
+
+Major rating agencies use ordered scales to classify credit quality. Standard \& Poor's and Fitch use ratings ranging from AAA to D, while Moody's uses a scale ranging from Aaa to C. For long-term ratings, BBB- (S\&P and Fitch) and Baa3 (Moody's) are generally the lowest investment-grade categories. Ratings below these thresholds are classified as speculative grade, often referred to as high-yield ratings. Within broad rating categories, modifiers such as plus and minus signs or numerical notches provide further distinctions in relative credit quality.
+
+Ratings may also differ according to the object and maturity of assessment. An issuer rating evaluates the general creditworthiness of an entity, whereas an issue rating assesses the credit risk of a specific debt instrument and may reflect its seniority, collateral, and contractual protections. Long-term and short-term ratings apply to different maturity horizons and are not directly interchangeable.
+
+Ratings can influence financing conditions as well as investor interpretation. Investment mandates, collateral arrangements, covenants, and regulatory frameworks may refer to rating categories. A downgrade can therefore affect funding terms or contractual requirements even when no default has occurred.
+
+Ratings also differ from market spreads in their speed of adjustment. They usually change discretely and may place greater weight on medium-term credit quality, while market prices can respond more rapidly to new information and changing liquidity conditions. This relative stability can reduce sensitivity to short-term market movements, but it can also delay the reflection of rapidly changing credit conditions.
+
+The production of ratings also involves incentives. When issuers pay for ratings, potential conflicts of interest can arise. Competition among agencies can improve coverage and information production, while in some settings it may also encourage rating shopping.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Market Spreads and Credit Ratings as Information Signals}
+
+\label{tab:ch19-spreads-ratings}
+
+\begin{tabularx}{\textwidth}{@{}p{3.3cm}YY@{}}
+
+\toprule
+
+\textbf{Dimension} &
+\textbf{Market Spreads} &
+\textbf{Credit Ratings} \\
+
+\midrule
+
+Form of signal &
+Continuous market price or price difference &
+Ordinal credit category \\
+
+Speed of adjustment &
+Can change rapidly &
+Usually changes discretely and less frequently \\
+
+Information content &
+Credit risk, risk premia, liquidity, and market conditions &
+Agency assessment of relative credit quality \\
+
+Main strength &
+Timely aggregation of traded-market information &
+Standardized interpretation and lower information-processing cost \\
+
+Main limitation &
+Can be noisy and liquidity-sensitive &
+Can lag rapid changes and is subject to methodology and incentive concerns \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+Ratings and spreads can therefore provide complementary information. A rating offers a relatively stable classification of credit quality, while a market spread reflects the current price of bearing credit exposure. Differences between the two can be informative without implying that either signal provides a complete measure of credit risk.
+
+
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Credit risk can be separated into default likelihood, loss severity, and exposure at default. Probability of default describes the likelihood of entering a specified default state over a stated horizon. Loss given default depends on recovery, priority, collateral, legal processes, and conditions in distress. Exposure at default depends on the structure of the claim and can change before default through amortization, drawdowns, or market movements; for derivatives, collateral and netting can also affect the amount exposed.
+
+Expected credit loss combines these components through \(EL=PD\times LGD\times EAD\). Actual losses can differ substantially from the expected amount. Concentration and common risk factors can increase unexpected loss by making defaults more dependent across a portfolio.
+
+Credit derivatives allow credit risk to be transferred separately from ownership of the underlying asset. A CDS exchanges periodic premium payments for contingent credit protection, while credit indices extend this mechanism to standardized portfolios of reference entities. Synthetic transfer can leave the underlying loan with the lender while reallocating part of its default loss. Basis, counterparty, legal, and funding risks can remain after the transfer.
+
+Bond spreads, CDS spreads, and credit ratings provide different signals about credit conditions. Market spreads are prices that can reflect expected credit loss, risk premia, liquidity, and broader market conditions, while ratings are ordinal assessments produced through information intermediation. Market-implied default measures are pricing quantities and need not coincide with real-world default forecasts.
+
+
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Credit risk; probability of default (PD); hazard rate; credit deterioration; loss given default (LGD); exposure at default (EAD); expected loss; unexpected loss; credit default swap (CDS); credit event; credit index; synthetic risk transfer; bond spread; CDS spread; CDS--bond basis; credit rating.
+
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit a Credit-Risk Estimate and CDS Interpretation}
+
+Ask an AI system to analyze a corporate credit exposure using a stated one-year PD, LGD, EAD, bond spread, CDS spread, and credit rating.
+
+Audit the answer in four stages.
+
+\begin{enumerate}
+
+\item \textbf{Check the expected-loss calculation.}
+
+Verify that PD, LGD, and EAD use consistent definitions and horizons. Recalculate
+
+$$
+EL=PD\times LGD\times EAD
+$$
+independently and check whether changes in the inputs produce financially sensible changes in expected loss.
+
+\item \textbf{Distinguish expected loss from unexpected loss.}
+
+Check whether the AI treats expected loss as a complete measure of credit risk. Identify concentration or common-factor exposures that could make realized losses differ substantially from the expected amount.
+
+\item \textbf{Audit the CDS interpretation.}
+
+If the CDS spread is converted into an implied default intensity, identify the recovery assumption and pricing simplifications. Check whether a market-implied quantity is incorrectly interpreted as a real-world default forecast.
+
+\item \textbf{Compare credit signals.}
+
+Explain why the bond spread, CDS spread, and credit rating may provide different signals. Consider liquidity, risk premia, methodology, and adjustment speed as possible sources of divergence.
+
+\end{enumerate}
+
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why can the market value of a credit exposure decline before any contractual default occurs?
+
+\item Why can two claims on the same borrower have different LGDs?
+
+\item Why can a revolving credit facility have an EAD larger than its current drawn balance?
+
+\item How does a CDS transfer credit risk without transferring ownership of the underlying loan or bond?
+
+\item Why can a credit index provide broad portfolio protection while leaving basis risk for a specific portfolio?
+
+\item Why should bond spreads, CDS spreads, and credit ratings not be interpreted as direct measures of the same underlying quantity?
+
+\end{enumerate}
+
+
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Cumulative default probability.}
+
+A simplified credit model uses a constant annual hazard rate of 1.5\%.
+
+\begin{enumerate}
+
+\item Calculate the two-year survival probability.
+
+\item Calculate the two-year cumulative default probability.
+
+\item Explain why the five-year cumulative default probability is not simply \(1.5\%\times5\).
+
+\end{enumerate}
+
+\item \textbf{LGD, recovery, and collateral.}
+
+A lender has a RMB~20 million exposure with a one-year PD of 3\%. Expected recovery from the borrower, excluding collateral, is RMB~6 million. Eligible collateral has a current market value of RMB~8 million and an effective haircut of 25\%.
+
+\begin{enumerate}
+
+\item Calculate the effective collateral value.
+
+\item Under a simplified assumption that borrower recovery and collateral proceeds are additive, calculate the total expected recovery, recovery rate, and LGD.
+
+\item Calculate expected loss.
+
+\item Identify two reasons why realized LGD could differ from the estimate.
+
+\end{enumerate}
+
+\item \textbf{Exposure at default on a credit line.}
+
+A firm has a RMB~50 million revolving credit facility. It has drawn RMB~30 million and has RMB~20 million remaining. The lender applies a credit conversion factor of 60\% to the undrawn commitment.
+
+\begin{enumerate}
+
+\item Calculate EAD using Equation~\eqref{eq:ch19-ead-credit-line}.
+
+\item Calculate expected loss if PD is 2.5\% and LGD is 40\%.
+
+\item Explain why the credit conversion factor may increase as the borrower's financial condition deteriorates.
+
+\end{enumerate}
+
+\item \textbf{Expected loss and concentration.}
+
+Portfolio A consists of one RMB~200 million loan. Portfolio B consists of 200 loans of RMB~1 million each. Every exposure has a one-year PD of 1\% and an LGD of 50\%.
+
+\begin{enumerate}
+
+\item Calculate expected loss for each portfolio.
+
+\item Explain why equal expected loss does not imply equal unexpected loss.
+
+\item Explain how positive default dependence among the 200 smaller loans affects the diversification benefit.
+
+\end{enumerate}
+
+\item \textbf{CDS protection and pricing intuition.}
+
+A five-year CDS has a notional amount of RMB~100 million. The annual CDS spread is 180 basis points and the assumed recovery rate is 40\%.
+
+\begin{enumerate}
+
+\item Calculate the approximate annual premium payment, ignoring accrual conventions.
+
+\item If a qualifying credit event occurs and the settlement recovery rate is 40\%, calculate the simplified protection payment.
+
+\item Using \(s_{\mathrm{CDS}}\approx\lambda^{Q}LGD\), calculate the approximate market-implied default intensity.
+
+\item Explain why this intensity need not equal the issuer's real-world annual default probability.
+
+\end{enumerate}
+
+\item \textbf{Synthetic versus cash credit-risk transfer.}
+
+A bank holds a RMB~80 million corporate loan. It is considering either selling the loan or buying CDS protection on RMB~60 million of the exposure.
+
+\begin{enumerate}
+
+\item Explain how ownership of the loan differs under the two strategies.
+
+\item If the CDS closely matches the loan exposure, identify the amount of credit exposure that remains unprotected.
+
+\item Identify three residual risks that can remain even if the CDS performs as contracted.
+
+\end{enumerate}
+
+\item \textbf{Credit-index hedge.}
+
+An asset manager holds a diversified corporate-bond portfolio with a market value of RMB~500 million and buys credit-index protection with the same notional amount.
+
+\begin{enumerate}
+
+\item Explain why equal notionals do not imply a perfect hedge.
+
+\item Identify four differences between the portfolio and the index that can create basis risk.
+
+\item Explain how the index can still reduce exposure to broad credit-market deterioration.
+
+\end{enumerate}
+
+\item \textbf{Market spreads and credit ratings.}
+
+A company's bond spread is 160 basis points and its CDS spread is 190 basis points. The company retains the same credit rating while both spreads widen substantially over the following two weeks.
+
+\begin{enumerate}
+
+\item Calculate the initial CDS--bond basis using Equation~\eqref{eq:ch19-cds-bond-basis}.
+
+\item Identify three factors that can cause bond and CDS spreads to differ.
+
+\item Explain why market spreads may widen before the credit rating changes.
+
+\item Explain why bond spreads, CDS spreads, and credit ratings should not be interpreted as direct measures of the same underlying quantity.
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Comparing Bond Spreads, CDS Spreads, and Credit Ratings}
+
+Select a corporate issuer for which bond, CDS, and credit-rating data are available from reliable sources. Construct a time series covering a period that includes a material change in the issuer's credit conditions or in the broader credit market. Record bond spreads, CDS spreads, and rating information at comparable observation dates where possible.
+
+Address the following questions:
+
+\begin{enumerate}
+
+\item Do the bond and CDS spreads move together over the sample? Identify periods in which the CDS--bond basis changes materially.
+
+\item How does the timing of rating changes or outlook revisions compare with movements in bond and CDS spreads?
+
+\item Separate, where possible, issuer-specific credit developments from broader changes in liquidity, risk premia, or market conditions.
+
+\item Explain why the three signals may differ even when they refer to the same issuer.
+
+\item Document the data sources, quotation conventions, maturities, benchmarks, and rating scale used in the analysis.
+
+\end{enumerate}
+
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Merton, Robert C. (1974),
+``On the Pricing of Corporate Debt: The Risk Structure of Interest Rates,''
+\emph{The Journal of Finance}, 29(2), 449--470.
+
+\item Jarrow, Robert A., and Stuart M. Turnbull (1995),
+``Pricing Derivatives on Financial Securities Subject to Credit Risk,''
+\emph{The Journal of Finance}, 50(1), 53--85.
+
+\item Duffie, Darrell, and Kenneth J. Singleton (1999),
+``Modeling Term Structures of Defaultable Bonds,''
+\emph{The Review of Financial Studies}, 12(4), 687--720.
+
+\item Hull, John, Mirela Predescu, and Alan White (2004),
+``The Relationship between Credit Default Swap Spreads, Bond Yields, and Credit Rating Announcements,''
+\emph{Journal of Banking \& Finance}, 28(11), 2789--2811.
+
+\item Longstaff, Francis A., Sanjay Mithal, and Eric Neis (2005),
+``Corporate Yield Spreads: Default Risk or Liquidity? New Evidence from the Credit Default Swap Market,''
+\emph{The Journal of Finance}, 60(5), 2213--2253.
+
+\end{itemize}
+
+
+
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,dataapp,furtherread}
