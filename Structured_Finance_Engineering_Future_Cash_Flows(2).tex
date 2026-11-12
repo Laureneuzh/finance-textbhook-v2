@@ -1,0 +1,1107 @@
+\chapter{Structured Finance: Engineering Future Cash Flows}
+\label{chap:Structured_Finance_Engineering_Future_Cash_Flows}
+
+\begin{openingcase}{The Assets Did Not Change---Why Did the Securities Become Different?}
+
+A lender holds a large pool of mortgages that generate monthly principal and interest payments. It transfers the pool to a special-purpose vehicle, which issues several securities backed by those same mortgages. No new mortgages are added, and the underlying borrowers, loan contracts, and property collateral remain unchanged.
+
+Yet the securities issued against the pool are not alike. The senior securities are paid first, a mezzanine layer is paid next, and a junior layer receives the remaining cash flow. If mortgage losses rise, the junior layer may absorb substantial losses while the senior securities continue to receive scheduled payments.
+
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+\item How does securitization transform pools of loans and receivables into tradable claims without changing the underlying borrowers' obligations?
+
+\item How do payment waterfalls, subordination, and credit enhancement redistribute cash flows and losses across tranches backed by the same asset pool?
+
+\end{enumerate}
+\end{tcolorbox}
+
+
+\section{From Assets to Tradable Cash Flows}
+
+Cash securitization begins with a pool of existing financial assets. Mortgages, auto loans, consumer loans, leases, and receivables generate contractual cash flows over time. These assets can be transferred to a special-purpose vehicle, which finances the pool by issuing securities to investors. The underlying borrowers' obligations generally remain unchanged, while the structure through which the cash flows are funded and allocated changes.
+
+\subsection[The Economic Logic of Securitization and Originate-to-Distribute]{The Economic Logic of Securitization and \\Originate-to-Distribute}
+
+Securitization separates functions that are often combined in traditional lending: origination, funding, servicing, and risk bearing. Once assets enter a securitization structure, the economic question shifts from how individual loans are funded to how the pooled cash flows are financed and how the associated risks are allocated.
+
+In an originate-and-hold model, a lender originates a loan, funds it largely on its own balance sheet, services the borrower relationship, and retains much of the associated credit and funding exposure until repayment or sale. Under securitization, these functions can be distributed across different parties. The originator transfers eligible assets, the special-purpose vehicle finances the pool by issuing securities, the servicer collects borrower payments, and investors provide funding in exchange for claims on the resulting cash flows.
+
+The economic effect is a change in both funding and risk allocation. The originator can receive proceeds from the asset transfer rather than waiting for the underlying loans to mature. Investors, in turn, hold securities whose performance depends on both the asset pool and the contractual structure governing the allocation of cash flows and losses.
+
+This arrangement can support an originate-to-distribute model when the originator expects to transfer part of the credit it creates rather than retain the full exposure until maturity. Origination and ultimate risk bearing are then partly separated. The degree of separation varies across transactions, since the originator may retain servicing rights, subordinated interests, guarantees, repurchase obligations, or other exposures linked to the asset pool.
+
+Securitization can broaden the funding base beyond the originator's own liabilities, convert relatively illiquid assets into marketable claims, and distribute exposures across investors with different preferences and constraints. At the same time, limited continuing exposure may weaken screening and monitoring incentives. Retained interests and other forms of continuing exposure can partly preserve these incentives, an issue examined later in this chapter. The basic structure of a securitization transaction, including the transfer of assets, the issuance of securities, and the associated cash-flow movements, is illustrated in Figure~\ref{fig:ch20-securitization-chain}.
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw=FinanceBlue,
+    rounded corners=2pt,
+    align=center,
+    text width=4.0cm,
+    minimum height=0.9cm,
+    inner sep=5pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.8pt,
+    FinanceBlue
+  },
+  mainlabel/.style={
+  fill=white,
+  inner xsep=3pt,
+  inner ysep=1pt,
+  text=FinanceBlue
+},
+  backflow/.style={
+    -Latex,
+    dashed,
+    line width=0.8pt,
+    FinanceBlue
+  }
+]
+
+% Nodes
+\node[box] (borrowers) at (0,0) {Borrowers};
+\node[box] (originator) at (0,-2.0) {Originator and servicer};
+\node[box] (spv) at (0,-4.0) {Special-purpose vehicle};
+\node[box] (investors) at (0,-6.0) {Investors};
+
+% Contractual / structural chain
+\draw[flow]
+  (borrowers) --
+  node[midway,mainlabel]{loan contracts}
+  (originator);
+
+\draw[flow]
+  (originator) --
+  node[midway,mainlabel]{asset transfer}
+  (spv);
+
+\draw[flow]
+  (spv) --
+  node[midway,mainlabel]{securities}
+  (investors);
+
+% Funding and cash-flow chain
+\draw[backflow]
+  (investors.west)
+  to[out=180,in=180]
+  node[left]{funding}
+  (spv.west);
+
+\draw[backflow]
+  (spv.west)
+  to[out=180,in=180]
+  node[left]{purchase proceeds}
+  (originator.west);
+
+\draw[backflow]
+  (borrowers.east)
+  to[out=0,in=0]
+  node[right]{principal and interest}
+  (originator.east);
+
+\draw[backflow]
+  (originator.east)
+  to[out=0,in=0]
+  node[right]{serviced cash flows}
+  (spv.east);
+
+\draw[backflow]
+  (spv.east)
+  to[out=0,in=0]
+  node[right]{payments on securities}
+  (investors.east);
+
+\end{tikzpicture}
+
+\caption{A simplified securitization chain}
+\label{fig:ch20-securitization-chain}
+
+\end{figure}
+
+
+
+The diagram abstracts from trustees, custodians, arrangers, rating agencies, liquidity providers, hedge counterparties, and other participants. These institutions may affect the operation and risk of particular transactions, but the basic structure is captured by the transfer of assets, the issuance of securities, and the movement of cash flows through the vehicle.
+
+
+\subsection{Asset Pooling and Cash-Flow Aggregation}
+
+Once assets are transferred into the securitization structure, their cash flows are combined at the pool level. Mortgages, auto loans, consumer loans, leases, or receivables that were originally separate contractual claims can thus provide a common source of cash flow for the securities backed by the pool.
+
+Suppose the pool contains \(n\) assets. Let \(CF_{i,t}\) denote the cash flow generated by asset \(i\) at date \(t\). Before servicing fees, transaction expenses, and other structural deductions, aggregate pool cash flow is
+
+\begin{equation}
+CF_t^{A}
+=
+\sum_{i=1}^{n} CF_{i,t}.
+\label{eq:ch20-pool-cash-flow}
+\end{equation}
+
+Pooling can reduce the importance of individual borrower outcomes relative to the pool as a whole. A prepayment or delinquency on one loan may have only a limited effect on aggregate cash flow when exposures are sufficiently dispersed. The extent of diversification, however, depends on the dependence among the underlying assets.
+
+Let \(L_i\) denote the loss on asset \(i\). Total pool loss is
+
+\begin{equation}
+L_A
+=
+\sum_{i=1}^{n} L_i.
+\label{eq:ch20-pool-loss}
+\end{equation}
+
+Its variance is
+
+\begin{equation}
+\operatorname{Var}(L_A)
+=
+\sum_{i=1}^{n}\operatorname{Var}(L_i)
++
+\sum_{i\neq j}\operatorname{Cov}(L_i,L_j).
+\label{eq:ch20-pool-loss-variance}
+\end{equation}
+
+The covariance terms capture common variation across exposures. When borrower outcomes are only weakly related, individual shocks tend to have less influence on the performance of a large pool. When many borrowers are exposed to the same housing market, region, industry, interest-rate environment, or macroeconomic condition, losses may rise together. A large number of assets therefore need not imply strong diversification.
+
+Evaluating pooled cash flows consequently requires information about both the individual assets and their distribution across the pool. Underwriting standards, borrower quality, collateral values, seasoning, geographic concentration, payment status, and recovery experience can affect both expected cash flows and the extent to which losses move together.
+
+Realized pool cash flow also depends on servicing after origination. The servicer collects payments, manages delinquencies, processes modifications, and handles recoveries where relevant. Pool performance therefore reflects not only the characteristics of the assets at transfer but also the subsequent administration of the underlying contracts.
+
+\subsection[Special-Purpose Vehicles and Bankruptcy Remoteness]{Special-Purpose Vehicles and Bankruptcy Remoteness}
+
+Pooling creates a common source of cash flow, but the asset pool also needs a legal and contractual structure through which those cash flows can support securities. The special-purpose vehicle provides that structure. It acquires the transferred assets and issues claims whose payments depend primarily on the performance of the pool.
+
+A central objective is to reduce the exposure of the securitized assets to the general insolvency risk of the originator. If the asset transfer is legally effective and the vehicle is structured with sufficient separation, creditors of the originator may have limited access to the transferred assets if the originator later enters insolvency. This feature is commonly described as bankruptcy remoteness.
+
+The legal character of the transfer is therefore important. A transaction structured as a true sale seeks to transfer ownership of the assets to the SPV rather than leave the arrangement economically equivalent to secured borrowing. If a transfer were recharacterized as secured financing, the treatment of the assets in the originator's insolvency could differ.
+
+Bankruptcy remoteness also depends on the structure of the vehicle itself. SPVs are generally limited in purpose, borrowing, asset substitution, and other activities. These restrictions can reduce the possibility that unrelated business risks or additional creditors enter the structure. Contractual provisions may also govern accounts, servicing arrangements, payment procedures, and events that alter the normal operation of the vehicle.
+
+The originator may nevertheless remain connected to the structure as servicer, holder of a retained interest, provider of representations and warranties, or source of limited liquidity support. The degree of economic separation can therefore vary across transactions.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Bankruptcy Remoteness Is Legal Separation, Not Credit Protection by Itself},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Bankruptcy remoteness can reduce investors' exposure to the originator's general insolvency by separating the transferred assets from the originator. It does not, by itself, improve the payment capacity of the underlying borrowers. Credit quality and legal separation are distinct features of the structure.
+
+\end{tcolorbox}
+
+
+\subsection{Asset-Backed and Mortgage-Backed Securities}
+
+The assets held within a securitization structure can differ substantially in their contractual and economic characteristics. In market usage, asset-backed securities (ABS) generally refer to securities backed by non-mortgage assets such as auto loans, consumer loans, leases, and receivables, while mortgage-backed securities (MBS) are supported by residential or commercial mortgage cash flows.
+
+These underlying assets differ in maturity, amortization, collateral, borrower behavior, and sensitivity to economic conditions. Such differences affect both the amount and timing of cash flows available to the securities issued against the pool.Examples of major securitized asset classes, together with their typical cash-flow characteristics and principal risks, are summarized in Table~\ref.{tab:ch20-securitized-assets}.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Selected securitized asset classes and cash-flow characteristics}
+
+\label{tab:ch20-securitized-assets}
+
+\begin{tabularx}{\textwidth}{@{}p{3.4cm}YY@{}}
+
+\toprule
+
+\textbf{Underlying assets} &
+\textbf{Typical cash-flow characteristics} &
+\textbf{Principal risks} \\
+
+\midrule
+
+Auto loans &
+Scheduled amortization of principal and interest &
+Default, vehicle recovery values, prepayment \\
+
+Consumer loans &
+Installment payments over contractual maturities &
+Default, seasoning, borrower income conditions \\
+
+Credit-card receivables &
+Revolving balances, principal collections, and finance charges &
+Payment rates, charge-offs, changing balances \\
+
+Residential mortgages &
+Long-dated amortizing principal and interest payments &
+Default, collateral values, prepayment, interest rates \\
+
+Commercial mortgages &
+Property-related debt service, often with relatively large individual exposures &
+Property income, refinancing, concentration, maturity risk \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+The securitization structure determines how these asset-level cash flows are transmitted to investors. Some securities pass principal and interest collections through after specified fees and adjustments. Others divide the same pool cash flows among classes with different payment priorities, maturities, or exposure to particular risks.
+
+Mortgage prepayment provides an important example of this transmission. When borrowers refinance or repay mortgages early, principal reaches MBS investors sooner than originally scheduled, which can shorten the expected life of the securities and increase reinvestment exposure. When prepayments slow, principal may remain outstanding longer than expected. The mortgages need not default for the timing and value of investor cash flows to change.
+
+ABS and MBS therefore differ not only in the assets that support them, but also in how the contractual and behavioral features of those assets are transmitted through the securitization structure.
+
+
+\section[Tranching, Credit Enhancement, and Risk Allocation]{Tranching, Credit Enhancement, and Risk Allocation}
+
+Once cash flows from the asset pool enter the securitization structure, their allocation across securities becomes a contractual design problem. Tranching establishes differences in payment priority and loss absorption, while credit enhancement provides additional protection to particular tranches.
+
+\subsection{Seniority, Payment Priority, and Loss Allocation}
+
+Within a tranched structure, seniority is implemented through contractual rules governing the distribution of available cash and the allocation of losses. A payment waterfall specifies the order in which available cash is distributed across security classes.
+
+Let \(C_t\) denote cash available for distribution at date \(t\) after permitted expenses. Suppose the structure contains scheduled senior and mezzanine payments, \(D_{S,t}\) and \(D_{M,t}\), together with a junior residual claim.
+
+The senior tranche receives
+
+\begin{equation}
+P_{S,t}
+=
+\min\{D_{S,t},C_t\}.
+\label{eq:ch20-senior-waterfall}
+\end{equation}
+
+The mezzanine tranche receives
+
+\begin{equation}
+P_{M,t}
+=
+\min\left\{
+D_{M,t},
+\max\{C_t-P_{S,t},0\}
+\right\}.
+\label{eq:ch20-mezz-waterfall}
+\end{equation}
+
+The junior tranche receives the residual cash flow,
+
+\begin{equation}
+P_{J,t}
+=
+\max\{
+C_t-P_{S,t}-P_{M,t},
+0
+\}.
+\label{eq:ch20-junior-waterfall}
+\end{equation}
+
+These expressions describe a simplified sequential waterfall. Actual structures may maintain separate interest and principal waterfalls, apply coverage tests, trap excess cash, redirect principal, or alter payment priorities after specified trigger events.
+
+\begin{example}{A Simple Payment Waterfall}{simple-structured-waterfall}
+
+A securitization has RMB~70 million of senior payments due, RMB~20 million of mezzanine payments due, and a junior residual interest.
+
+If RMB~100 million is available for distribution, the senior tranche receives 70, the mezzanine tranche receives 20, and the junior tranche receives the remaining 10.
+
+If only RMB~82 million is available, the senior tranche receives 70, the mezzanine tranche receives 12, and the junior tranche receives nothing.
+
+A reduction in available cash does not affect all tranches proportionally. Payment priority causes the initial shortfall to fall on more subordinated claims.
+
+\end{example}
+
+Payment priority governs the distribution of available cash. Loss allocation determines how deterioration in the asset pool reduces the value of the different tranches. In a simple subordinated structure, losses are absorbed in the reverse order of payment priority: junior claims are affected first, followed by mezzanine and then senior claims.
+
+Let the initial tranche notionals be \(N_J\), \(N_M\), and \(N_S\), and let \(L\) denote cumulative loss allocated to the tranches. Junior loss is
+
+\begin{equation}
+L_J
+=
+\min\{L,N_J\}.
+\label{eq:ch20-junior-loss}
+\end{equation}
+
+Mezzanine loss is
+
+\begin{equation}
+L_M
+=
+\min\left\{
+\max\{L-N_J,0\},
+N_M
+\right\},
+\label{eq:ch20-mezz-loss}
+\end{equation}
+and senior loss is
+
+\begin{equation}
+L_S
+=
+\min\left\{
+\max\{L-N_J-N_M,0\},
+N_S
+\right\}.
+\label{eq:ch20-senior-loss}
+\end{equation}
+
+The waterfall does not alter the loss generated by the underlying asset pool. It changes how that loss is distributed across tranches and the level of cumulative loss at which each tranche begins to be affected.
+
+\subsection{Internal Credit Enhancement}
+
+The same priority structure that allocates losses across tranches can also provide credit enhancement. Internal credit enhancement protects particular tranches by placing subordinated claims or other transaction resources ahead of them in absorbing losses or cash-flow shortfalls.
+
+Subordination provides protection through the ordering of tranche losses. Junior and mezzanine claims absorb losses before more senior claims. If the amount ranking below a senior tranche is \(N_J+N_M\), the amount of subordinated protection is
+
+\begin{equation}
+SR
+=
+\frac{N_J+N_M}{N_A},
+\label{eq:ch20-subordination-ratio}
+\end{equation}
+where \(N_A\) is the relevant asset-pool balance. A larger subordinated layer generally allows the senior tranche to withstand greater pool losses before its principal is affected, subject to the contractual allocation rules.
+
+Overcollateralization provides protection by maintaining an asset balance larger than the principal amount of securities issued against it. If asset principal is \(N_A\) and issued securities total \(N_S\),
+
+\begin{equation}
+OC
+=
+N_A-N_S,
+\label{eq:ch20-overcollateralization}
+\end{equation}
+with an overcollateralization ratio
+
+\begin{equation}
+OCR
+=
+\frac{N_A-N_S}{N_A}.
+\label{eq:ch20-overcollateralization-ratio}
+\end{equation}
+
+The excess asset balance provides a cushion against deterioration in pool value or collections before an equivalent principal shortfall reaches the issued securities.
+
+A reserve account holds cash or eligible investments that can be used to cover specified shortfalls. It may be funded at closing or accumulated from transaction cash flows over time. Its protective value depends on both its size and the contractual conditions governing its use.
+
+Excess spread arises when interest and fee income from the asset pool exceeds servicing expenses, security payments, and other permitted costs. When retained within the structure, this excess cash flow can absorb certain losses or replenish other forms of enhancement before principal claims are affected. Its availability can vary with defaults, prepayments, asset yields, and other changes in pool performance. Excess spread is one of several forms of internal credit enhancement. The main mechanisms, their sources of protection, and their limitations are summarized in Table~\ref.{tab:ch20-internal-enhancement}.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Selected forms of internal credit enhancement}
+
+\label{tab:ch20-internal-enhancement}
+
+\begin{tabularx}{\textwidth}{@{}p{3.5cm}YY@{}}
+
+\toprule
+\textbf{Mechanism} &
+\textbf{Source of protection} &
+\textbf{Main limitation} \\
+\midrule
+
+Subordination &
+Junior claims absorb losses before senior claims &
+Protection can be exhausted as cumulative pool losses increase \\
+
+Overcollateralization &
+Asset balance exceeds issued security balance &
+Deterioration in the asset pool can erode the excess collateral \\
+
+Reserve account &
+Cash or eligible assets cover specified shortfalls &
+Available resources are finite and subject to contractual use \\
+
+Excess spread &
+Asset income exceeds required payments and expenses &
+Available spread can decline as pool performance changes \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+These mechanisms alter the resources and priorities through which losses and shortfalls reach different tranches. They can strengthen the protection of selected claims without changing the payment capacity of the underlying borrowers.
+
+\subsection{External Credit Enhancement}
+
+Internal credit enhancement draws on resources within the securitization structure. External credit enhancement instead adds a contractual commitment from a third party, such as a guarantor, insurer, or bank providing a letter of credit. The third party agrees to cover specified shortfalls subject to the terms and limits of the arrangement.
+
+Suppose a tranche experiences a covered shortfall \(X_t\), and the available guarantee amount is \(G_t\). The support payment can be represented as
+
+\begin{equation}
+H_t
+=
+\min\{X_t,G_t\}.
+\label{eq:ch20-guarantee-payment}
+\end{equation}
+
+For the covered amount, the investor acquires a claim on the protection provider rather than bearing the asset-pool shortfall directly. The value of this protection therefore depends on both the contractual coverage and the provider's capacity to perform. If the provider becomes weaker under the same conditions that impair the asset pool, the effective protection may be less than the contractual limit suggests.
+
+Liquidity support serves a related but different purpose. A liquidity facility can bridge temporary timing mismatches when expected cash has not yet been received, whereas credit enhancement provides protection against specified economic losses. A facility may contain elements of both, but the two functions are conceptually distinct.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Credit Enhancement Redistributes Loss-Bearing Capacity},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Credit enhancement protects selected claims by placing other resources ahead of them in absorbing losses. These resources may come from subordinated tranches, excess collateral, reserves, retained cash flows, or external counterparties. The underlying asset-pool loss is not eliminated; the structure changes where and when that loss reaches investors.
+
+\end{tcolorbox}
+
+\subsection{Risk Allocation across Tranches and Investors}
+
+Once payment priorities and credit-enhancement arrangements are specified, each tranche has a distinct exposure to losses from the same asset pool. Attachment and detachment points provide a compact way to describe these differences and connect the structure of the transaction to the risks borne by investors.
+
+Consider a structure in which the junior tranche occupies the first 10 percent of pool principal, the mezzanine tranche the next 15 percent, and the senior tranche the remaining 75 percent. The junior tranche attaches at zero and detaches at 10 percent. The mezzanine tranche attaches at 10 percent and detaches at 25 percent, while the senior tranche begins to absorb principal losses only after cumulative pool losses exceed 25 percent under this simplified structure.
+
+For a tranche with attachment point \(a\) and detachment point \(d\), expressed as fractions of the original pool balance, the fraction of tranche principal lost when the cumulative pool loss rate is \(\ell\) can be written as
+
+\begin{equation}
+TL(\ell)
+=
+\frac{
+\min\{\max\{\ell-a,0\},d-a\}
+}{
+d-a
+}.
+\label{eq:ch20-tranche-loss-function}
+\end{equation}
+
+The loss profile is nonlinear. Pool losses below the attachment point leave the tranche principal unaffected. Losses between the attachment and detachment points are transmitted to the tranche, while losses beyond the detachment point imply full principal impairment. A given change in pool loss can therefore have very different effects across the capital structure.
+
+\begin{example}{Attachment, Detachment, and Tranche Loss}{tranche-loss-example}
+
+Consider a RMB~100 million asset pool divided into three tranches:
+
+\[
+\text{Junior}=10,\qquad
+\text{Mezzanine}=15,\qquad
+\text{Senior}=75.
+\]
+
+The mezzanine tranche attaches at 10 percent and detaches at 25 percent of the pool balance. Suppose cumulative pool loss reaches 18 percent. The first 10 percent is absorbed by the junior tranche, leaving 8 percent of pool principal to be absorbed by the mezzanine tranche.
+
+Using the tranche-loss function,
+
+\[
+TL(0.18)
+=
+\frac{0.18-0.10}{0.25-0.10}
+=
+\frac{0.08}{0.15}
+\approx 53.3\%.
+\]
+
+The pool has lost 18 percent of its original principal, but the mezzanine tranche has lost approximately 53.3 percent of its own principal. The attachment and detachment points therefore translate a pool-level loss into a much larger loss rate for a particular tranche.
+
+\end{example}
+
+These differences create claims suited to investors with different objectives and constraints. Investors willing to bear first-loss exposure may require a higher expected return, while investors placing greater weight on protection against moderate losses may prefer more senior claims. Liability structure, liquidity needs, regulatory treatment, investment mandates, and assessments of tail risk can also influence tranche demand.
+
+Seniority reduces exposure to initial pool losses but does not eliminate sensitivity to severe common shocks. When losses across underlying assets become more strongly dependent, subordinated protection may be exhausted more rapidly. The risk of a senior tranche therefore depends not only on expected pool loss but also on the distribution and dependence of losses in adverse states.
+
+Tranching thus maps a common pool-loss distribution into different loss profiles across investors. The claims may differ substantially in expected loss and tail exposure even though they are supported by the same underlying assets.
+
+\section{Financial Engineering, Complexity, and Fragility}
+
+Tranching redistributes losses from a common asset pool across investors. Financial engineering can extend this process through additional contractual layers, funding arrangements, and forms of risk transfer. As these elements interact, the risk of a security may depend not only on the underlying assets but also on payment rules, model assumptions, counterparties, and liquidity conditions.
+
+Complexity matters when these dependencies make exposures harder to trace, value, or monitor. It does not necessarily imply fragility, but fragility can increase when losses, funding pressures, or valuation changes are amplified through interconnected structures or when protection weakens under common shocks.
+
+\subsection[CDOs, Re-Securitization, and Structural Complexity]{CDOs, Re-Securitization, and Structural Complexity}
+
+The interaction among multiple contractual layers becomes especially visible when debt securities themselves enter a new structured pool. A collateralized debt obligation (CDO) pools debt instruments and issues tranches against the resulting portfolio. The collateral may include corporate loans, bonds, or structured securities. A collateralized loan obligation (CLO), for example, is backed primarily by a portfolio of corporate loans.
+
+When structured securities themselves become collateral for another transaction, re-securitization adds a further layer between the original assets and the final investors. Tranches from several mortgage-backed or asset-backed structures can, for example, be combined to support a new set of securities. A simplified chain is
+summarized in Figure~\ref{fig:ch20-resecuritization-chain}.
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw=FinanceBlue,
+    rounded corners=2pt,
+    align=center,
+    text width=2.3cm,
+    minimum height=1.0cm,
+    inner sep=5pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.8pt,
+    FinanceBlue
+  }
+]
+
+\node[box] (loans) at (0,0) {Underlying\\loans};
+\node[box] (abs) at (3.2,0) {ABS/MBS\\tranches};
+\node[box] (pool) at (6.4,0) {Resecuritized\\pool};
+\node[box] (new) at (9.6,0) {New\\tranches};
+
+\draw[flow] (loans) -- (abs);
+\draw[flow] (abs) -- (pool);
+\draw[flow] (pool) -- (new);
+
+\end{tikzpicture}
+
+\caption{A stylized re-securitization chain}
+\label{fig:ch20-resecuritization-chain}
+
+\end{figure}
+
+The additional layer changes the information required to evaluate the final securities. Their performance may depend not only on the underlying loans, but also on the tranche positions of the collateral securities and the contractual rules of the structures in which those securities were issued.
+
+Dependence is particularly important. Securities drawn from different transactions may appear diversified while their underlying pools remain exposed to common property markets, underwriting practices, refinancing conditions, or macroeconomic shocks. Losses across the collateral securities can therefore become more closely related in adverse states than the number of separate transactions might suggest.
+
+Evaluation may consequently require information at several levels: the final tranche, the securities held as collateral, the pools supporting those securities, and the dependence among the underlying exposures. As the number of layers increases, valuation can become more sensitive to data quality and assumptions about default, recovery, and loss dependence.
+
+Structured exposure can also be created synthetically through credit derivatives rather than through direct ownership of all referenced debt instruments. When synthetic exposure is combined with tranching, the investor's payoff depends on both the referenced credit events and the contractual terms governing their transmission through the structure.
+
+Structural complexity therefore arises not simply from the number of securities involved, but from the number and interaction of contractual links through which underlying losses reach the final investor.
+
+\subsection{Originate-to-Distribute Incentives and Moral Hazard}
+
+The same separation that can make risk more difficult to trace can also affect incentives. When origination, distribution, servicing, and ultimate risk bearing are divided among different parties, those with the best information about a loan may bear only part of its subsequent performance.
+
+Consider an originator that earns revenue when loans are originated and transferred into a securitization. If it retains only limited exposure to subsequent credit losses, the private return to costly screening may be lower than when the loan remains largely on its balance sheet. When screening effort is difficult for investors to observe, this separation can create a moral-hazard problem.
+
+The strength of this incentive effect varies across transactions. Risk retention, representations and warranties, repurchase obligations, reputation, repeated access to capital markets, and investor due diligence can reconnect origination decisions with subsequent loan performance.
+
+These mechanisms operate through different channels. A retained junior interest exposes the originator directly to early pool losses. Representations and warranties can require the originator to repurchase or compensate for loans that fail to satisfy specified contractual standards. Their effectiveness depends on the exposure retained, the information available to investors, and the enforceability of the relevant obligations.
+
+Incentive differences can also arise during servicing. Decisions about collection, modification, foreclosure, and recovery affect the timing and amount of cash flows reaching investors. The servicer may not bear the same economic exposure as security holders, while investors in different tranches may prefer different responses to borrower distress. Incentive conflicts can arise at different stages of the originate-to-distribute process. Table~\ref{tab:ch20-otd-incentives} summarizes the potential incentive problems faced by major participants and the mechanisms that may help mitigate them.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Selected incentive links in an originate-to-distribute structure}
+
+\label{tab:ch20-otd-incentives}
+
+\begin{tabularx}{\textwidth}{@{}p{3.4cm}YY@{}}
+
+\toprule
+\textbf{Participant} &
+\textbf{Potential incentive problem} &
+\textbf{Possible mitigating mechanism} \\
+\midrule
+
+Originator &
+Origination revenue may be realized before long-term loan performance is known &
+Risk retention, representations and warranties, repurchase obligations \\
+
+Arranger &
+Structuring and distribution revenue may differ from subsequent investor loss exposure &
+Reputation, disclosure, due diligence, retained exposure \\
+
+Servicer &
+Servicing decisions can affect investors and tranches differently &
+Servicing standards, performance triggers, replacement provisions \\
+
+Investor &
+Limited information acquisition can increase reliance on external assessments &
+Due diligence, disclosure, position limits, transparency requirements \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+The incentive problem therefore depends on how closely information production, decision making, and loss bearing remain connected within the securitization structure.
+
+
+\subsection[Information Opacity, Model Risk, and Rating Failures]{Information Opacity, Model Risk, and Rating Failures}
+
+The separation of origination, servicing, structuring, and risk bearing also disperses information across different parties. Investors may observe some features of the underlying assets while having less direct access to underwriting quality, servicing practices, contractual details, or the interactions among these elements. Information opacity arises when relevant information is difficult to combine, verify, or trace through the structure.
+
+Models help translate asset characteristics and contractual rules into expected losses, tranche-loss distributions, spreads, or values. Their results can depend materially on assumptions about default and prepayment dependence, recovery rates, common economic factors, attachment and detachment points, and contractual triggers. These assumptions become especially important when security payoffs respond nonlinearly to changes in collateral performance.
+
+Model risk arises when the model structure, parameters, or data do not adequately represent these relationships. A tranche that appears well protected under one set of assumptions may become more exposed when dependence, recovery, or other conditions change.
+
+Credit ratings provide a further form of information compression by mapping a complex security into an ordinal category. For a structured tranche, the assessment may reflect not only the credit quality of the underlying assets but also diversification, loss dependence, structural protection, and the tranche's position in the capital structure.
+
+Rating performance can deteriorate when models or data fail to capture relevant risks, underwriting standards change, conflicts of interest affect the assessment process, or investors place excessive weight on the rating itself. A rating can therefore reduce information-processing costs without revealing every dimension of the security's risk.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: A Rating Does Not Reveal the Shape of Tail Risk},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Two securities can carry similar ratings while deriving their risk from different economic structures. A corporate bond may depend primarily on the repayment capacity of one issuer, while a senior structured tranche may depend on both subordinated protection and the joint behavior of losses across an asset pool. Similar assessments of expected loss can therefore coexist with different sensitivities to adverse states.
+
+\end{tcolorbox}
+
+\subsection[Structured Finance Lessons from the Global Financial Crisis]{Structured Finance Lessons from the Global Financial Crisis}
+
+Information opacity, model dependence, and reliance on ratings became especially consequential during the global financial crisis, when weaknesses in mortgage origination, securitization structures, and market liquidity interacted.
+
+In the years preceding the crisis, U.S. mortgage lending expanded, including lending to borrowers with weaker credit characteristics. Many mortgages entered private-label mortgage-backed securities, while some structured claims were subsequently used as collateral for additional securitizations. These layers increased the information required to trace the final securities back to the performance of the underlying loans.
+
+As mortgage performance deteriorated and housing prices declined, losses became more closely related across pools exposed to similar economic conditions. Subordinated tranches absorbed initial losses, but larger and more widespread deterioration reduced the protection available to mezzanine and senior claims. At the same time, uncertainty about valuation made some structured securities more difficult to trade or finance.
+
+The episode illustrates how several mechanisms can reinforce one another under stress. Weak underwriting can worsen the losses entering an asset pool, common exposures can limit diversification, and structural layering can make those risks harder to identify and value. Tranching determines where losses are absorbed, while funding and market liquidity influence how valuation changes affect investors and intermediaries. The main structured-finance mechanisms illustrated by the crisis, their economic functions, and the risks they revealed under stress are summarized in Table~\ref{tab:ch20-crisis-lessons}.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Structured-finance mechanisms and lessons from the global financial crisis}
+
+\label{tab:ch20-crisis-lessons}
+
+\begin{tabularx}{\textwidth}{@{}p{3.5cm}YY@{}}
+
+\toprule
+\textbf{Mechanism} &
+\textbf{Economic function} &
+\textbf{Risk revealed under stress} \\
+\midrule
+
+Pooling &
+Combines exposures and can reduce borrower-specific risk &
+Common exposures can generate correlated losses \\
+
+Tranching &
+Allocates losses across claims with different priorities &
+Severe pool losses can exhaust subordinated protection \\
+
+Originate-to-distribute &
+Separates origination, funding, and risk bearing &
+Limited retained exposure can weaken screening incentives \\
+
+Ratings and models &
+Compress complex information into tractable risk assessments &
+Common assumptions can produce similar valuation errors \\
+
+Re-securitization &
+Creates additional layers of risk allocation &
+Underlying exposures can become more difficult to trace and evaluate \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+The broader lesson is that the performance of structured claims depends on the interaction among asset quality, dependence across exposures, contractual protection, incentives, valuation, and market liquidity.
+
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Structured finance reorganizes cash flows from existing financial assets into securities with different contractual characteristics. In a cash securitization, loans or receivables are transferred to a special-purpose vehicle (SPV), pooled, and financed through securities issued to investors. Pooling can reduce the influence of borrower-specific outcomes, although exposure to common economic factors may remain substantial.
+
+The SPV provides a separate legal and contractual structure for the asset pool and can support bankruptcy remoteness when the transfer and organizational arrangements are legally effective. The characteristics of the underlying assets---including maturity, amortization, default, collateral, and prepayment behavior---shape the cash flows available to ABS and MBS investors.
+
+Tranching allocates those cash flows and losses across claims with different priorities. Senior tranches receive greater protection from initial losses, while subordinated tranches absorb losses earlier. Subordination, overcollateralization, reserve accounts, excess spread, and external support can further protect selected claims by providing additional loss-bearing capacity. These mechanisms redistribute exposure to asset-pool losses rather than removing the losses themselves.
+
+Additional layers of structuring can broaden the ways in which risk is allocated, while increasing informational and modeling demands. Re-securitization can make underlying exposures and dependence more difficult to trace, and originate-to-distribute arrangements can weaken screening incentives when origination becomes insufficiently connected to subsequent loss bearing. The global financial crisis illustrated how underwriting quality, correlated asset losses, model dependence, reliance on ratings, and market liquidity can interact within structured-finance chains.
+
+
+%========================================================
+% Mind Map
+%========================================================
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  main/.style={
+    draw=FinanceBlue,
+    fill=FinanceBlue!7,
+    rounded corners=2pt,
+    align=center,
+    text width=4.2cm,
+    minimum height=1.0cm,
+    inner sep=5pt
+  },
+  sub/.style={
+    draw=FinanceBlue,
+    rounded corners=2pt,
+    align=center,
+    text width=4.0cm,
+    minimum height=0.9cm,
+    inner sep=5pt
+  },
+  arrow/.style={-Latex,line width=0.8pt,FinanceBlue},
+  subarrow/.style={-Latex,dashed,line width=0.8pt,FinanceBlue}
+]
+
+% Main vertical chain
+\node[main] (assets) at (0,0) {Underlying assets\\and borrower cash flows};
+\node[main] (pool) at (0,-2.2) {SPV, pooling, and\\cash-flow aggregation};
+\node[main] (structure) at (0,-4.4) {Waterfall and\\credit enhancement};
+\node[main] (investors) at (0,-6.6) {Tranches with different\\risk exposures};
+
+\draw[arrow] (assets) -- (pool);
+\draw[arrow] (pool) -- (structure);
+\draw[arrow] (structure) -- (investors);
+
+% Side analytical dimensions
+\node[sub] (info) at (6.0,-2.2) {\textbf{Information}\\underwriting, pool composition, servicing};
+\node[sub] (contract) at (6.0,-4.4) {\textbf{Contracts}\\priority, triggers, guarantees};
+\node[sub] (value) at (6.0,-6.6) {\textbf{Valuation}\\dependence, prepayment, tail risk};
+
+\draw[subarrow] (pool.east) -- (info.west);
+\draw[subarrow] (structure.east) -- (contract.west);
+\draw[subarrow] (investors.east) -- (value.west);
+
+\end{tikzpicture}
+\caption{Structured finance through information, contracts, and valuation}
+\label{fig:ch20-mind-map}
+\end{figure}
+
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Structured finance; securitization; originate-to-distribute;
+asset pool; servicer; special-purpose vehicle (SPV);
+bankruptcy remoteness; true sale; asset-backed security (ABS);
+mortgage-backed security (MBS); prepayment risk; tranche;
+payment waterfall; loss waterfall; attachment point; detachment point;
+subordination; overcollateralization; reserve account;
+collateralized debt obligation (CDO); re-securitization;
+risk retention; model risk; common-factor risk.
+
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit a Securitization Waterfall and Risk Narrative}
+
+Ask an AI system to analyze a securitization backed by a RMB~100 million loan pool. The structure contains a RMB~70 million senior tranche, a RMB~20 million mezzanine tranche, and a RMB~10 million junior tranche.
+
+Audit the analysis in five stages.
+
+\begin{enumerate}
+
+\item \textbf{Map the transaction before analyzing the securities.}
+
+Identify the borrower pool, originator, SPV, servicer, and investors. Verify that the AI system distinguishes the underlying assets from the securities issued against them and traces the direction of asset transfers, funding, and cash flows.
+
+\item \textbf{Recalculate the loss waterfall.}
+
+Calculate the principal loss allocated to each tranche when cumulative pool losses equal RMB~5 million, RMB~15 million, RMB~25 million, and RMB~35 million. Determine the attachment and detachment points of each tranche and check whether the AI system applies the loss priority correctly.
+
+\item \textbf{Identify the source of credit enhancement.}
+
+Determine which protection is actually present in the stated structure. Distinguish subordination from overcollateralization, reserve accounts, excess spread, and external guarantees. Do not infer forms of enhancement that are not supported by the transaction information, and identify which party or resource provides the relevant loss-bearing capacity.
+
+\item \textbf{Stress the dependence assumption.}
+
+Compare a pool dominated by borrower-specific shocks with one exposed to a common housing, industry, or macroeconomic shock. Explain how stronger dependence among borrowers can change the tail-loss distribution even when the number of loans is unchanged.
+
+\item \textbf{Audit the rating or valuation narrative.}
+
+If the AI system treats a high rating as sufficient evidence of low risk, identify the assumptions supporting that assessment. Examine loss dependence, recovery, attachment and detachment points, structural protection, and other common-factor exposures that could affect the tranche under adverse conditions.
+
+\end{enumerate}
+
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item How does cash securitization differ from synthetic credit-risk transfer?
+
+\item Why can pooling reduce borrower-specific risk without eliminating exposure to common economic shocks?
+
+\item What role does an SPV play in securitization, and why is bankruptcy remoteness different from protection against borrower default?
+
+\item How do payment priority and subordination create different risk exposures across tranches without changing total asset-pool loss?
+
+\item How can originate-to-distribute improve funding flexibility while also affecting screening and monitoring incentives?
+
+\item Why can re-securitization, model dependence, and reliance on ratings make the risk of structured securities more difficult to evaluate, particularly in adverse states?
+
+\end{enumerate}
+
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Pool cash-flow aggregation.}
+
+A securitization pool contains three loans. At date \(t\), Loan A pays RMB~2.0 million, Loan B pays RMB~1.5 million, and Loan C pays RMB~1.0 million.
+
+\begin{enumerate}
+
+\item Calculate total pool cash flow using Equation~\eqref{eq:ch20-pool-cash-flow}.
+
+\item Suppose Loan B misses its entire payment. Calculate the new pool cash flow.
+
+\item Explain how the effect of one missed payment would change if the pool contained hundreds of similarly sized loans with largely independent borrower-specific risks.
+
+\item Explain why the diversification effect can be weaker when many loans share the same regional, industry, or macroeconomic exposure.
+
+\end{enumerate}
+
+
+\item \textbf{SPV financing and retained risk.}
+
+An SPV acquires a RMB~500 million loan pool. It finances the acquisition with RMB~470 million of securities sold to outside investors and a RMB~30 million junior interest retained by the originator.
+
+\begin{enumerate}
+
+\item Reconcile the financing of the RMB~500 million asset purchase.
+
+\item Distinguish the funding provided by outside investors from the exposure retained by the originator.
+
+\item Explain how retention of the junior interest affects the allocation of initial pool losses.
+
+\item Explain why transferring the loans to the SPV does not improve the borrowers' repayment capacity.
+
+\end{enumerate}
+
+
+\item \textbf{Payment waterfall.}
+
+A securitization has RMB~60 million of senior payments due and RMB~25 million of mezzanine payments due in the current period. The junior tranche receives residual cash flow.
+
+\begin{enumerate}
+
+\item Allocate RMB~100 million of available cash across the three classes.
+
+\item Repeat the allocation when available cash equals RMB~72 million.
+
+\item Repeat the allocation when available cash equals RMB~50 million.
+
+\item Explain how payment priority determines the distribution of a cash-flow shortfall.
+
+\end{enumerate}
+
+
+\item \textbf{Loss waterfall and attachment points.}
+
+A RMB~200 million asset pool supports a RMB~20 million junior tranche, a RMB~40 million mezzanine tranche, and a RMB~140 million senior tranche.
+
+\begin{enumerate}
+
+\item Calculate the attachment and detachment points of the mezzanine tranche as percentages of the original pool balance.
+
+\item Allocate losses across the tranches when cumulative pool loss is RMB~15 million.
+
+\item Repeat the calculation for cumulative losses of RMB~45 million and RMB~80 million.
+
+\item Explain why the senior tranche can have relatively low expected loss while remaining exposed to severe common shocks.
+
+\end{enumerate}
+
+
+\item \textbf{Internal and external credit enhancement.}
+
+An asset pool has principal of RMB~320 million, while securities issued against the pool total RMB~300 million. The structure also contains a RMB~6 million reserve account. A third-party guarantor covers eligible senior-tranche shortfalls up to RMB~25 million.
+
+\begin{enumerate}
+
+\item Calculate the amount and ratio of overcollateralization.
+
+\item Calculate the combined nominal amount of overcollateralization and the reserve account before considering the detailed waterfall.
+
+\item Calculate the guarantee payment when an eligible shortfall is RMB~12 million and when it is RMB~40 million.
+
+\item Distinguish the sources of protection provided by overcollateralization, the reserve account, and the guarantee.
+
+\item Explain why these amounts cannot necessarily be added to obtain a single measure of realized protection.
+
+\end{enumerate}
+
+
+\item \textbf{Originate-to-distribute incentives.}
+
+A mortgage originator earns much of its revenue when a loan is originated and transferred into a securitization, while retaining only limited exposure to subsequent credit losses.
+
+\begin{enumerate}
+\item Explain how this arrangement can affect screening incentives when screening effort is difficult for investors to observe.
+
+\item Explain how representations and warranties can reconnect the originator to subsequent loan performance.
+
+\item Explain how retention of a junior interest can affect the originator's incentives.
+
+\item Identify one potential cost of requiring the originator to retain a large share of credit risk.
+
+\end{enumerate}
+
+
+\item \textbf{Re-securitization and common exposure.}
+
+A CDO holds mezzanine tranches from 30 mortgage securitizations. Each underlying securitization contains loans from many borrowers.
+
+\begin{enumerate}
+
+\item Explain why the CDO may appear diversified when viewed only by the number of collateral securities.
+
+\item Identify three common factors that could cause losses across the underlying securitizations to rise together.
+
+\item Explain why dependence assumptions are particularly important for the risk of the senior CDO tranche.
+
+\item Describe the information an investor would need to trace the final security back through the collateral securities to the underlying asset pools.
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+%========================================================
+% Case Analysis
+%========================================================
+
+\TailModule{caseanalysis}{Case Analysis}
+
+\textbf{Private-Label Mortgage Securitization before the Global Financial Crisis}
+
+Use an authoritative source such as the Financial Crisis Inquiry Commission, a central-bank publication, or a well-documented academic study to examine the U.S. private-label mortgage securitization chain in the years preceding the global financial crisis.
+
+Organize the analysis around the structure of securitization rather than around a chronological narrative alone.
+
+\begin{enumerate}
+
+\item \textbf{Origination.}
+
+Examine how mortgage underwriting standards and borrower characteristics affected the quality and risk distribution of the loans entering securitization.
+
+\item \textbf{Pooling and structuring.}
+
+Explain how mortgages were pooled and divided into securities with different payment priorities and loss exposures. Identify the role of subordination and other forms of credit enhancement.
+
+\item \textbf{Distribution and information.}
+
+Identify the main participants between mortgage origination and the final investor. Explain how information could become more dispersed, difficult to verify, or difficult to trace as the intermediation chain lengthened.
+
+\item \textbf{Ratings and models.}
+
+Examine the assumptions underlying the assessment of highly rated tranches. Consider house-price dynamics, default dependence, recovery rates, common-factor exposure, and structural protection rather than treating the rating itself as a complete measure of risk.
+
+\item \textbf{Re-securitization.}
+
+Explain how structured securities could themselves become collateral for CDOs or other re-securitized products, creating an additional layer of pooling, tranching, and dependence.
+
+\item \textbf{Loss realization.}
+
+Trace how deterioration in mortgage performance was transmitted through junior, mezzanine, and senior claims as subordinated protection was absorbed.
+
+\item \textbf{Boundary with systemic amplification.}
+
+Distinguish risks arising within the structured products from those amplified through leverage, funding pressure, market illiquidity, fire sales, and connections among financial institutions.
+
+\end{enumerate}
+
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Ashcraft, Adam B., and Til Schuermann (2008),
+``Understanding the Securitization of Subprime Mortgage Credit,''
+\emph{Foundations and Trends in Finance}, 2(3), 191--309.
+
+\item Coval, Joshua, Jakub Jurek, and Erik Stafford (2009),
+``The Economics of Structured Finance,''
+\emph{Journal of Economic Perspectives}, 23(1), 3--25.
+
+\item Keys, Benjamin J., Tanmoy Mukherjee, Amit Seru, and Vikrant Vig (2010),
+``Did Securitization Lead to Lax Screening? Evidence from Subprime Loans,''
+\emph{The Quarterly Journal of Economics}, 125(1), 307--362.
+
+\item Demyanyk, Yuliya, and Otto Van Hemert (2011),
+``Understanding the Subprime Mortgage Crisis,''
+\emph{The Review of Financial Studies}, 24(6), 1848--1880.
+
+\item Gorton, Gary, and Andrew Metrick (2012),
+``Securitized Banking and the Run on Repo,''
+\emph{Journal of Financial Economics}, 104(3), 425--451.
+
+\end{itemize}
+
+
+\ChapterTail{summary,mindmap,keyterms,aiprompt,questions,appprobs,caseanalysis,furtherread}
